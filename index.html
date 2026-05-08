@@ -1,0 +1,2570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="JTS Solutions — AI-powered callback automation that recovers 30–40% of lost revenue for small businesses. Never miss a lead again.">
+<title>JTS Solutions — Never Miss a Lead Again</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230A0E1A'/%3E%3Cpath d='M9 9h14M9 15l4 4-4 4M19 23h4' stroke='%233B82F6' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&family=Hanken+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   JTS SOLUTIONS — Never Miss a Lead Again
+   ============================================================ */
+
+:root {
+  --bg-0: #07090F;
+  --bg-1: #0A0E1A;
+  --bg-2: #0F1525;
+  --bg-3: #161D33;
+  --bg-elev: #1B2440;
+  --line: rgba(148, 163, 184, 0.08);
+  --line-2: rgba(148, 163, 184, 0.16);
+  --blue: #3B82F6;
+  --blue-bright: #60A5FA;
+  --blue-soft: #93C5FD;
+  --blue-glow: rgba(59, 130, 246, 0.22);
+  --green: #10B981;
+  --green-soft: rgba(16, 185, 129, 0.12);
+  --rose: #F43F5E;
+  --rose-soft: rgba(244, 63, 94, 0.10);
+  --text-1: #F8FAFC;
+  --text-2: #CBD5E1;
+  --text-3: #94A3B8;
+  --text-4: #64748B;
+  --text-5: #475569;
+  --serif: 'Fraunces', ui-serif, Georgia, serif;
+  --sans: 'Hanken Grotesk', system-ui, sans-serif;
+  --mono: 'JetBrains Mono', ui-monospace, monospace;
+  --max: 1240px;
+  --radius-sm: 8px;
+  --radius: 14px;
+  --radius-lg: 22px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg-0);
+  color: var(--text-1);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  font-feature-settings: 'ss01', 'cv11';
+}
+img, svg { display: block; max-width: 100%; }
+button { font: inherit; color: inherit; cursor: pointer; border: none; background: none; }
+input, textarea, select { font: inherit; color: inherit; outline: none; }
+a { color: inherit; text-decoration: none; }
+::selection { background: var(--blue); color: var(--bg-0); }
+
+/* atmosphere */
+body::before {
+  content: '';
+  position: fixed; inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 900px 700px at 85% -5%, rgba(59,130,246,0.10), transparent 60%),
+    radial-gradient(ellipse 700px 600px at -10% 35%, rgba(59,130,246,0.06), transparent 60%);
+  z-index: 0;
+}
+body::after {
+  content: '';
+  position: fixed; inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(148,163,184,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148,163,184,0.025) 1px, transparent 1px);
+  background-size: 56px 56px;
+  -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+          mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+  z-index: 0;
+}
+main, nav, footer { position: relative; z-index: 1; }
+
+/* layout primitives */
+.container { max-width: var(--max); margin: 0 auto; padding: 0 28px; }
+.section { padding: 120px 0; position: relative; }
+.section--tight { padding: 80px 0; }
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--blue-bright);
+  margin-bottom: 28px;
+}
+.eyebrow::before {
+  content: '';
+  width: 28px;
+  height: 1px;
+  background: var(--blue);
+}
+
+h1, h2, h3, h4 { font-family: var(--sans); font-weight: 600; letter-spacing: -0.02em; line-height: 1.05; }
+.serif { font-family: var(--serif); font-weight: 400; }
+.italic { font-style: italic; }
+
+h1 { font-size: clamp(44px, 7.6vw, 88px); letter-spacing: -0.035em; line-height: 0.98; }
+h2 { font-size: clamp(34px, 5vw, 56px); letter-spacing: -0.03em; }
+h3 { font-size: clamp(22px, 2.4vw, 28px); }
+
+p.lead { font-size: 19px; color: var(--text-2); line-height: 1.55; max-width: 56ch; }
+p { color: var(--text-2); }
+.muted { color: var(--text-3); }
+.dim { color: var(--text-4); }
+
+/* buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 22px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: -0.005em;
+  transition: all 180ms ease;
+  white-space: nowrap;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+.btn--primary {
+  background: var(--blue);
+  color: white;
+  box-shadow: 0 0 0 0 var(--blue-glow), 0 1px 0 0 rgba(255,255,255,0.12) inset;
+}
+.btn--primary:hover {
+  background: var(--blue-bright);
+  box-shadow: 0 0 28px 4px var(--blue-glow), 0 1px 0 0 rgba(255,255,255,0.12) inset;
+  transform: translateY(-1px);
+}
+.btn--ghost {
+  background: transparent;
+  color: var(--text-1);
+  border-color: var(--line-2);
+}
+.btn--ghost:hover {
+  border-color: var(--blue);
+  color: white;
+  background: rgba(59,130,246,0.06);
+}
+.btn--sm { padding: 10px 16px; font-size: 14px; }
+
+/* ============================================================
+   NAV
+   ============================================================ */
+nav.top {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  background: rgba(7,9,15,0.72);
+  border-bottom: 1px solid var(--line);
+}
+.nav-inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 14px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 700;
+  font-size: 17px;
+  letter-spacing: -0.015em;
+}
+.brand-mark {
+  width: 30px; height: 30px;
+  background: var(--blue);
+  border-radius: 7px;
+  display: grid;
+  place-items: center;
+  color: var(--bg-0);
+  font-weight: 800;
+  font-size: 12px;
+  letter-spacing: -0.02em;
+  box-shadow: 0 0 18px var(--blue-glow);
+}
+.brand-text { color: var(--text-1); }
+.brand-text small {
+  display: block;
+  font-family: var(--mono);
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-4);
+  margin-top: -2px;
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+.nav-links a {
+  font-size: 14px;
+  color: var(--text-3);
+  transition: color 150ms;
+}
+.nav-links a:hover { color: var(--text-1); }
+
+@media (max-width: 880px) {
+  .nav-links { display: none; }
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero {
+  padding: 90px 0 80px;
+  position: relative;
+  overflow: hidden;
+}
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 60px;
+  align-items: center;
+}
+@media (max-width: 920px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+}
+.hero-text > * { opacity: 0; transform: translateY(14px); animation: rise 800ms cubic-bezier(0.2, 0.8, 0.2, 1) forwards; }
+.hero-text > *:nth-child(1) { animation-delay: 80ms; }
+.hero-text > *:nth-child(2) { animation-delay: 200ms; }
+.hero-text > *:nth-child(3) { animation-delay: 360ms; }
+.hero-text > *:nth-child(4) { animation-delay: 520ms; }
+.hero-text > *:nth-child(5) { animation-delay: 680ms; }
+@keyframes rise { to { opacity: 1; transform: translateY(0); } }
+
+.hero h1 {
+  margin-bottom: 22px;
+}
+.hero h1 .accent {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--blue-bright);
+  letter-spacing: -0.025em;
+}
+.hero-sub {
+  font-size: 19px;
+  color: var(--text-2);
+  max-width: 52ch;
+  margin-bottom: 36px;
+  line-height: 1.55;
+}
+.hero-ctas {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 36px;
+}
+.hero-ticker {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  border: 1px solid var(--line-2);
+  border-radius: 999px;
+  background: rgba(59,130,246,0.04);
+  font-size: 13px;
+  color: var(--text-3);
+}
+.hero-ticker .dot {
+  width: 7px; height: 7px;
+  background: var(--green);
+  border-radius: 50%;
+  box-shadow: 0 0 0 0 rgba(16,185,129,0.5);
+  animation: pulse-dot 2.4s ease-in-out infinite;
+}
+@keyframes pulse-dot {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(16,185,129,0.5); }
+  50% { box-shadow: 0 0 0 8px rgba(16,185,129,0); }
+}
+.hero-ticker strong {
+  font-family: var(--mono);
+  color: var(--text-1);
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+
+/* hero graphic */
+.hero-graphic {
+  opacity: 0;
+  animation: rise 1000ms cubic-bezier(0.2,0.8,0.2,1) 600ms forwards;
+  position: relative;
+  aspect-ratio: 1 / 1;
+  max-width: 520px;
+  margin: 0 auto;
+}
+.hero-graphic svg { width: 100%; height: 100%; }
+.network-node { fill: var(--blue); }
+.network-node-pulse { fill: var(--blue-bright); }
+.network-line { stroke: rgba(59,130,246,0.25); stroke-width: 1; fill: none; }
+.network-line-bright { stroke: var(--blue); stroke-width: 1.4; fill: none; }
+@keyframes node-pulse {
+  0%, 100% { opacity: 0.4; transform-box: fill-box; transform-origin: center; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.6); }
+}
+.network-pulse-1 { animation: node-pulse 3s ease-in-out infinite; }
+.network-pulse-2 { animation: node-pulse 3s ease-in-out 0.6s infinite; }
+.network-pulse-3 { animation: node-pulse 3s ease-in-out 1.2s infinite; }
+.network-pulse-4 { animation: node-pulse 3s ease-in-out 1.8s infinite; }
+.network-pulse-5 { animation: node-pulse 3s ease-in-out 2.4s infinite; }
+
+@keyframes flow {
+  from { stroke-dashoffset: 100; }
+  to { stroke-dashoffset: 0; }
+}
+.network-flow {
+  stroke: var(--blue-bright);
+  stroke-width: 1.5;
+  fill: none;
+  stroke-dasharray: 4 8;
+  animation: flow 4s linear infinite;
+}
+
+/* ============================================================
+   INDUSTRY SELECTOR
+   ============================================================ */
+.industry-section {
+  padding: 60px 0 40px;
+  border-top: 1px solid var(--line);
+}
+.industry-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 28px;
+}
+.pill {
+  padding: 9px 16px;
+  background: var(--bg-2);
+  border: 1px solid var(--line-2);
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-2);
+  transition: all 160ms ease;
+  cursor: pointer;
+}
+.pill:hover {
+  border-color: var(--blue);
+  color: var(--text-1);
+}
+.pill.active {
+  background: var(--blue);
+  border-color: var(--blue);
+  color: white;
+  box-shadow: 0 0 18px var(--blue-glow);
+}
+
+/* ============================================================
+   PROBLEM
+   ============================================================ */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 56px;
+}
+@media (max-width: 820px) {
+  .stats-grid { grid-template-columns: 1fr; }
+}
+.stat-card {
+  padding: 36px 32px;
+  background: linear-gradient(180deg, var(--bg-2), var(--bg-1));
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  border-left: 2px solid var(--blue);
+  transition: border-color 200ms;
+}
+.stat-card:hover { border-left-color: var(--blue-bright); }
+.stat-num {
+  font-family: var(--mono);
+  font-size: clamp(44px, 5vw, 64px);
+  font-weight: 500;
+  color: var(--blue-bright);
+  letter-spacing: -0.04em;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+  margin-bottom: 18px;
+}
+.stat-desc {
+  color: var(--text-2);
+  font-size: 16px;
+  line-height: 1.5;
+}
+.problem-close {
+  margin-top: 48px;
+  padding-top: 32px;
+  border-top: 1px solid var(--line);
+  font-size: 18px;
+  color: var(--text-3);
+  max-width: 70ch;
+}
+.stat-source {
+  margin-top: 18px;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  color: var(--text-4);
+  letter-spacing: 0.04em;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+.stat-source::before {
+  content: '— ';
+  opacity: 0.6;
+}
+
+/* ============================================================
+   ROI CALCULATOR
+   ============================================================ */
+.calc-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 48px;
+  margin-top: 56px;
+  align-items: start;
+}
+@media (max-width: 920px) { .calc-wrap { grid-template-columns: 1fr; gap: 32px; } }
+
+.calc-inputs {
+  background: linear-gradient(180deg, var(--bg-2), var(--bg-1));
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+}
+.calc-input {
+  margin-bottom: 28px;
+}
+.calc-input:last-child { margin-bottom: 0; }
+.calc-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+.calc-label-text {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-2);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.calc-help {
+  width: 16px; height: 16px;
+  border-radius: 50%;
+  border: 1px solid var(--text-4);
+  color: var(--text-4);
+  font-size: 10px;
+  font-weight: 700;
+  display: inline-grid;
+  place-items: center;
+  cursor: help;
+  position: relative;
+}
+.calc-help:hover::after {
+  content: attr(data-tip);
+  position: absolute;
+  left: 24px; top: 50%;
+  transform: translateY(-50%);
+  background: var(--bg-3);
+  border: 1px solid var(--line-2);
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  color: var(--text-2);
+  white-space: nowrap;
+  z-index: 10;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+}
+.calc-value {
+  font-family: var(--mono);
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--text-1);
+  background: var(--bg-3);
+  border: 1px solid var(--line-2);
+  border-radius: 8px;
+  padding: 4px 10px;
+  width: 90px;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.calc-value:focus { border-color: var(--blue); }
+
+input[type="range"] {
+  width: 100%;
+  -webkit-appearance: none; appearance: none;
+  background: transparent;
+  height: 24px;
+  cursor: pointer;
+}
+input[type="range"]::-webkit-slider-runnable-track {
+  height: 4px;
+  background: var(--bg-3);
+  border-radius: 999px;
+}
+input[type="range"]::-moz-range-track {
+  height: 4px;
+  background: var(--bg-3);
+  border-radius: 999px;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none; appearance: none;
+  width: 18px; height: 18px;
+  background: var(--blue);
+  border: 3px solid white;
+  border-radius: 50%;
+  margin-top: -7px;
+  box-shadow: 0 0 0 0 var(--blue-glow);
+  transition: box-shadow 150ms;
+}
+input[type="range"]:hover::-webkit-slider-thumb { box-shadow: 0 0 0 6px var(--blue-glow); }
+input[type="range"]::-moz-range-thumb {
+  width: 18px; height: 18px;
+  background: var(--blue);
+  border: 3px solid white;
+  border-radius: 50%;
+  box-shadow: 0 0 0 0 var(--blue-glow);
+  transition: box-shadow 150ms;
+}
+input[type="range"]:hover::-moz-range-thumb { box-shadow: 0 0 0 6px var(--blue-glow); }
+
+.calc-reset {
+  margin-top: 20px;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-4);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: color 150ms;
+}
+.calc-reset:hover { color: var(--blue-bright); }
+
+.calc-output {
+  display: grid;
+  gap: 14px;
+}
+.calc-card {
+  padding: 24px 28px;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  position: relative;
+  overflow: hidden;
+}
+.calc-card-loss { background: linear-gradient(135deg, rgba(244,63,94,0.06), rgba(244,63,94,0.02)); border-color: rgba(244,63,94,0.18); }
+.calc-card-recover { background: linear-gradient(135deg, rgba(16,185,129,0.06), rgba(16,185,129,0.02)); border-color: rgba(16,185,129,0.18); }
+.calc-card-net { background: linear-gradient(135deg, rgba(59,130,246,0.10), rgba(59,130,246,0.02)); border-color: rgba(59,130,246,0.28); }
+
+.calc-card-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.calc-card-loss .calc-card-label { color: var(--rose); }
+.calc-card-recover .calc-card-label { color: var(--green); }
+.calc-card-net .calc-card-label { color: var(--blue-bright); }
+.calc-card-num {
+  font-family: var(--mono);
+  font-size: clamp(32px, 4vw, 44px);
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.1;
+}
+.calc-card-loss .calc-card-num { color: #FCA5A5; }
+.calc-card-recover .calc-card-num { color: #6EE7B7; }
+.calc-card-net .calc-card-num { color: white; font-size: clamp(40px, 5vw, 56px); }
+.calc-card-sub { font-size: 13px; color: var(--text-3); margin-top: 4px; }
+
+.calc-multiplier {
+  margin-top: 20px;
+  padding: 18px 24px;
+  text-align: center;
+  font-size: 18px;
+  color: var(--text-2);
+}
+.calc-multiplier .x {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--blue-bright);
+  letter-spacing: -0.02em;
+}
+.calc-footnote {
+  margin-top: 18px;
+  font-size: 12px;
+  color: var(--text-4);
+  text-align: center;
+}
+
+/* ============================================================
+   PHONE DEMO
+   ============================================================ */
+.demo-wrap {
+  margin-top: 56px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+  padding: 56px 40px;
+  background: linear-gradient(180deg, var(--bg-2), var(--bg-1));
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+}
+@media (max-width: 820px) {
+  .demo-wrap { grid-template-columns: 1fr; gap: 28px; padding: 32px 20px; }
+}
+
+.phones {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 24px;
+  perspective: 1200px;
+}
+@media (max-width: 820px) {
+  .phones { gap: 14px; }
+}
+
+.phone {
+  width: 270px;
+  background: #000;
+  border-radius: 36px;
+  padding: 8px;
+  box-shadow:
+    0 0 0 1.5px #2A3142,
+    0 30px 60px -20px rgba(0,0,0,0.6),
+    0 0 60px -10px var(--blue-glow);
+  position: relative;
+  flex-shrink: 0;
+}
+.phone--owner {
+  width: 220px;
+  transform: translateY(20px);
+  opacity: 0.7;
+  transition: opacity 400ms;
+}
+.phone--owner.phone--lit { opacity: 1; }
+@media (max-width: 820px) {
+  .phone { width: 240px; }
+  .phone--owner { width: 200px; transform: translateY(0); }
+}
+@media (max-width: 480px) {
+  .phone { width: 100%; max-width: 280px; }
+  .phone--owner { width: 100%; max-width: 240px; }
+  .phones { flex-direction: column; align-items: center; }
+}
+
+.phone-screen {
+  background: #0B0E15;
+  border-radius: 30px;
+  height: 540px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.phone--owner .phone-screen { height: 440px; }
+.phone-notch {
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90px;
+  height: 22px;
+  background: #000;
+  border-radius: 999px;
+  z-index: 5;
+}
+.phone-status {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 24px 8px;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 600;
+  color: white;
+  position: relative;
+  z-index: 4;
+}
+.phone-status .icons {
+  display: inline-flex;
+  gap: 4px;
+  align-items: center;
+}
+.phone-status .icons span {
+  display: inline-block;
+  width: 12px; height: 8px;
+  background: white;
+  border-radius: 1px;
+}
+.phone-status .icons span.bat {
+  width: 22px; height: 10px;
+  border: 1px solid white;
+  background: transparent;
+  border-radius: 2px;
+  position: relative;
+  padding: 1px;
+}
+.phone-status .icons span.bat::after {
+  content: ''; display: block;
+  width: 80%; height: 100%;
+  background: white; border-radius: 1px;
+}
+
+.phone-content {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  padding: 30px 14px 16px;
+}
+
+/* Incoming call screen */
+.call-screen {
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, #1a1d28 0%, #0B0E15 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px 20px;
+  opacity: 0;
+  transition: opacity 300ms;
+}
+.call-screen.show { opacity: 1; }
+.call-label {
+  font-size: 12px;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 12px;
+  letter-spacing: 0.05em;
+}
+.call-name {
+  font-size: 28px;
+  color: white;
+  font-weight: 500;
+  margin-bottom: 8px;
+  letter-spacing: -0.02em;
+}
+.call-num {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 60px;
+}
+.call-avatar {
+  width: 90px; height: 90px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #475569, #1e293b);
+  margin-bottom: 28px;
+  display: grid;
+  place-items: center;
+  font-size: 36px;
+  color: rgba(255,255,255,0.7);
+  font-family: var(--serif);
+  animation: ring-shake 0.6s ease-in-out infinite;
+}
+.call-screen:not(.ringing) .call-avatar { animation: none; }
+@keyframes ring-shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-3px) rotate(-2deg); }
+  40% { transform: translateX(3px) rotate(2deg); }
+  60% { transform: translateX(-2px) rotate(-1deg); }
+  80% { transform: translateX(2px) rotate(1deg); }
+}
+.call-buttons {
+  display: flex;
+  gap: 32px;
+  margin-top: 30px;
+}
+.call-btn {
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: white;
+  font-size: 22px;
+}
+.call-btn.decline { background: #EF4444; }
+.call-btn.accept { background: #22C55E; }
+
+/* Missed call banner */
+.missed-banner {
+  position: absolute;
+  top: 60px;
+  left: 14px; right: 14px;
+  padding: 14px 18px;
+  background: rgba(40,44,55,0.95);
+  backdrop-filter: blur(20px);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 300ms, transform 300ms;
+}
+.missed-banner.show { opacity: 1; transform: translateY(0); }
+.missed-icon {
+  width: 32px; height: 32px;
+  border-radius: 8px;
+  background: var(--rose);
+  display: grid;
+  place-items: center;
+  color: white;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+.missed-text {
+  flex: 1;
+  font-size: 13px;
+  color: white;
+  font-weight: 500;
+}
+.missed-text small {
+  display: block;
+  font-size: 11px;
+  font-weight: 400;
+  color: rgba(255,255,255,0.6);
+  margin-top: 2px;
+}
+
+/* Messages */
+.messages-screen {
+  position: absolute; inset: 0;
+  background: #0B0E15;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  transition: opacity 350ms;
+}
+.messages-screen.show { opacity: 1; }
+.messages-header {
+  padding: 40px 16px 12px;
+  border-bottom: 0.5px solid rgba(255,255,255,0.08);
+  text-align: center;
+}
+.messages-header .biz-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: white;
+  letter-spacing: -0.01em;
+}
+.messages-header .biz-sub {
+  font-size: 10px;
+  color: rgba(255,255,255,0.5);
+  margin-top: 2px;
+  font-family: var(--mono);
+}
+.messages-body {
+  flex: 1;
+  overflow: hidden;
+  padding: 16px 12px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.bubble {
+  padding: 9px 14px;
+  border-radius: 18px;
+  font-size: 13.5px;
+  line-height: 1.4;
+  max-width: 78%;
+  word-wrap: break-word;
+  opacity: 0;
+  transform: translateY(8px);
+  animation-fill-mode: forwards;
+}
+.bubble.show {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 300ms ease, transform 300ms ease;
+}
+.bubble--in {
+  background: #1E2330;
+  color: white;
+  align-self: flex-start;
+  border-bottom-left-radius: 5px;
+}
+.bubble--out {
+  background: var(--blue);
+  color: white;
+  align-self: flex-end;
+  border-bottom-right-radius: 5px;
+}
+.bubble--time {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: rgba(255,255,255,0.4);
+  align-self: center;
+  padding: 4px 0 2px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.typing {
+  display: flex;
+  gap: 3px;
+  padding: 12px 14px;
+  background: #1E2330;
+  border-radius: 18px;
+  border-bottom-left-radius: 5px;
+  align-self: flex-start;
+  opacity: 0;
+  transition: opacity 200ms;
+}
+.typing.show { opacity: 1; }
+.typing span {
+  width: 6px; height: 6px;
+  background: rgba(255,255,255,0.5);
+  border-radius: 50%;
+  animation: typing 1.2s ease-in-out infinite;
+}
+.typing span:nth-child(2) { animation-delay: 0.15s; }
+.typing span:nth-child(3) { animation-delay: 0.3s; }
+@keyframes typing {
+  0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+  30% { transform: translateY(-3px); opacity: 1; }
+}
+
+/* Booking widget inside messages */
+.booking-card {
+  background: #1E2330;
+  border-radius: 14px;
+  padding: 14px;
+  align-self: stretch;
+  margin: 4px 0;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 300ms, transform 300ms;
+}
+.booking-card.show { opacity: 1; transform: translateY(0); }
+.booking-title {
+  font-size: 11px;
+  font-family: var(--mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 10px;
+}
+.slot-row {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.slot {
+  flex: 1;
+  min-width: 0;
+  padding: 8px 6px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 8px;
+  font-size: 11px;
+  color: white;
+  text-align: center;
+  transition: all 200ms;
+}
+.slot.selected {
+  background: var(--blue);
+  border-color: var(--blue);
+  transform: scale(1.05);
+  box-shadow: 0 0 18px var(--blue-glow);
+}
+.slot small {
+  display: block;
+  font-size: 9px;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 2px;
+  font-family: var(--mono);
+  letter-spacing: 0.05em;
+}
+.slot.selected small { color: rgba(255,255,255,0.8); }
+
+/* Owner notification */
+.owner-screen {
+  position: absolute; inset: 0;
+  background: #0B0E15;
+  padding: 30px 12px;
+  opacity: 1;
+}
+.owner-time {
+  text-align: center;
+  font-size: 64px;
+  font-weight: 200;
+  color: white;
+  letter-spacing: -0.04em;
+  margin-top: 30px;
+  margin-bottom: 4px;
+  font-family: var(--sans);
+}
+.owner-date {
+  text-align: center;
+  font-size: 13px;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 30px;
+  font-weight: 500;
+}
+.owner-notif {
+  background: rgba(40,44,55,0.95);
+  backdrop-filter: blur(20px);
+  padding: 12px 14px;
+  border-radius: 14px;
+  margin-bottom: 8px;
+  opacity: 0;
+  transform: translateY(-12px) scale(0.96);
+  transition: opacity 350ms, transform 350ms;
+}
+.owner-notif.show { opacity: 1; transform: translateY(0) scale(1); }
+.notif-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+.notif-app-icon {
+  width: 18px; height: 18px;
+  background: var(--blue);
+  border-radius: 4px;
+  display: grid;
+  place-items: center;
+  font-size: 10px;
+  font-weight: 700;
+  color: white;
+}
+.notif-app-name {
+  font-size: 11px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.9);
+  letter-spacing: 0.02em;
+}
+.notif-time {
+  margin-left: auto;
+  font-size: 10px;
+  color: rgba(255,255,255,0.5);
+  font-family: var(--mono);
+}
+.notif-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: white;
+  line-height: 1.3;
+  margin-bottom: 2px;
+}
+.notif-body {
+  font-size: 12px;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.4;
+}
+
+/* Demo controls / steps */
+.demo-info { padding: 4px 0; }
+.demo-info h3 { margin-bottom: 14px; }
+.demo-info p { color: var(--text-3); margin-bottom: 28px; max-width: 38ch; }
+
+.demo-steps {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+.demo-step {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  font-size: 12px;
+  color: var(--text-3);
+  transition: all 250ms ease;
+}
+.demo-step.active {
+  background: var(--blue);
+  border-color: var(--blue);
+  color: white;
+  box-shadow: 0 0 18px var(--blue-glow);
+}
+.demo-step .num {
+  display: inline-grid;
+  place-items: center;
+  width: 18px; height: 18px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 50%;
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 600;
+}
+.demo-step.active .num { background: rgba(255,255,255,0.2); }
+.demo-arrow {
+  color: var(--text-5);
+  margin: 0 4px;
+  font-size: 11px;
+}
+.demo-replay {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 16px;
+  background: var(--bg-2);
+  border: 1px solid var(--line-2);
+  border-radius: 8px;
+  color: var(--text-2);
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 150ms;
+}
+.demo-replay:hover {
+  border-color: var(--blue);
+  color: white;
+  background: rgba(59,130,246,0.06);
+}
+
+/* ============================================================
+   FEATURES GRID
+   ============================================================ */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 56px;
+}
+@media (max-width: 920px) { .features-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 580px) { .features-grid { grid-template-columns: 1fr; } }
+.feature {
+  padding: 32px 28px;
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  transition: all 200ms ease;
+}
+.feature:hover {
+  border-color: var(--line-2);
+  transform: translateY(-2px);
+  background: var(--bg-3);
+}
+.feature-icon {
+  width: 44px; height: 44px;
+  border-radius: 11px;
+  background: rgba(59,130,246,0.10);
+  border: 1px solid rgba(59,130,246,0.22);
+  display: grid;
+  place-items: center;
+  margin-bottom: 22px;
+  color: var(--blue-bright);
+}
+.feature h4 {
+  font-size: 17px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--text-1);
+}
+.feature p {
+  font-size: 14.5px;
+  color: var(--text-3);
+  line-height: 1.5;
+}
+
+/* ============================================================
+   TECH STACK
+   ============================================================ */
+.stack-list {
+  margin-top: 48px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--bg-1);
+}
+.stack-row {
+  display: grid;
+  grid-template-columns: 180px 1fr 100px;
+  align-items: center;
+  padding: 22px 28px;
+  border-bottom: 1px solid var(--line);
+  gap: 20px;
+  transition: background 150ms;
+}
+.stack-row:hover { background: var(--bg-2); }
+.stack-row:last-child { border-bottom: none; }
+@media (max-width: 720px) {
+  .stack-row { grid-template-columns: 1fr; gap: 4px; padding: 18px 20px; }
+}
+.stack-name {
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--text-1);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.stack-mark {
+  width: 24px; height: 24px;
+  border-radius: 5px;
+  background: var(--bg-3);
+  border: 1px solid var(--line-2);
+  display: grid;
+  place-items: center;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--blue-bright);
+  font-family: var(--mono);
+}
+.stack-desc {
+  font-size: 14px;
+  color: var(--text-3);
+  line-height: 1.4;
+}
+.stack-cost {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--text-3);
+  text-align: right;
+}
+@media (max-width: 720px) { .stack-cost { text-align: left; } }
+
+.stack-callout {
+  margin-top: 22px;
+  padding: 16px 20px;
+  background: linear-gradient(90deg, rgba(59,130,246,0.10), rgba(59,130,246,0.02));
+  border: 1px solid rgba(59,130,246,0.20);
+  border-radius: var(--radius);
+  font-size: 14.5px;
+  color: var(--text-2);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.stack-callout svg { flex-shrink: 0; color: var(--blue-bright); }
+
+/* ============================================================
+   PRICING
+   ============================================================ */
+.pricing-grid {
+  margin-top: 56px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  align-items: stretch;
+}
+@media (max-width: 920px) { .pricing-grid { grid-template-columns: 1fr; max-width: 460px; margin-left: auto; margin-right: auto; } }
+.price-card {
+  position: relative;
+  padding: 36px 30px;
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+}
+.price-card.featured {
+  border-color: var(--blue);
+  background: linear-gradient(180deg, rgba(59,130,246,0.06), var(--bg-2));
+  transform: translateY(-8px);
+  box-shadow: 0 24px 60px -20px rgba(0,0,0,0.5), 0 0 40px -10px var(--blue-glow);
+}
+@media (max-width: 920px) { .price-card.featured { transform: none; } }
+.price-tag {
+  position: absolute;
+  top: -12px;
+  left: 30px;
+  background: var(--blue);
+  color: white;
+  padding: 5px 12px;
+  border-radius: 999px;
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.price-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--blue-bright);
+  letter-spacing: -0.01em;
+  margin-bottom: 14px;
+}
+.price-amount {
+  font-family: var(--sans);
+  font-size: 56px;
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  color: var(--text-1);
+  margin-bottom: 4px;
+}
+.price-amount sup {
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--text-3);
+  vertical-align: super;
+  margin-right: 2px;
+}
+.price-amount span {
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--text-3);
+  margin-left: 2px;
+}
+.price-volume {
+  font-size: 13px;
+  color: var(--text-3);
+  margin-bottom: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--line);
+}
+.price-features {
+  list-style: none;
+  margin-bottom: 28px;
+  flex: 1;
+}
+.price-features li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14.5px;
+  color: var(--text-2);
+  padding: 6px 0;
+  line-height: 1.45;
+}
+.price-features li::before {
+  content: '';
+  width: 16px; height: 16px;
+  flex-shrink: 0;
+  margin-top: 4px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M3 8.5l3 3 7-7' stroke='%2360A5FA' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+}
+.price-cta {
+  width: 100%;
+}
+.price-footnote {
+  margin-top: 28px;
+  text-align: center;
+  font-size: 13px;
+  color: var(--text-4);
+}
+
+/* ============================================================
+   FINAL CTA
+   ============================================================ */
+.cta-section {
+  padding: 100px 0 120px;
+  border-top: 1px solid var(--line);
+  background: linear-gradient(180deg, transparent, rgba(59,130,246,0.04));
+}
+
+.cta-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 56px;
+  align-items: center;
+  margin-top: 12px;
+}
+@media (max-width: 820px) {
+  .cta-grid { grid-template-columns: 1fr; gap: 36px; }
+}
+
+.cta-perks {
+  display: grid;
+  gap: 20px;
+}
+.cta-perk {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  font-size: 15.5px;
+  color: var(--text-2);
+  line-height: 1.5;
+}
+.cta-perk svg {
+  color: var(--blue-bright);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.cta-perk strong {
+  color: var(--text-1);
+  font-weight: 600;
+}
+
+.cta-action {
+  background: linear-gradient(180deg, var(--bg-2), var(--bg-1));
+  border: 1px solid var(--line-2);
+  border-radius: var(--radius-lg);
+  padding: 36px 32px;
+  box-shadow: 0 24px 60px -20px rgba(0,0,0,0.5);
+}
+.cta-action-sub {
+  margin-top: 14px;
+  text-align: center;
+  font-size: 13px;
+  color: var(--text-4);
+  font-family: var(--mono);
+  letter-spacing: 0.04em;
+}
+.cta-tabs {
+  display: inline-flex;
+  background: var(--bg-2);
+  border: 1px solid var(--line-2);
+  border-radius: 12px;
+  padding: 4px;
+  margin: 36px 0 32px;
+  gap: 4px;
+}
+.cta-tab {
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-3);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 180ms;
+  cursor: pointer;
+}
+.cta-tab.active {
+  background: var(--blue);
+  color: white;
+}
+.cta-tab:not(.active):hover { color: var(--text-1); }
+
+.cta-panel { display: none; }
+.cta-panel.active { display: block; }
+
+.cta-form, .cta-booking {
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 36px 32px;
+  max-width: 640px;
+}
+
+/* booking */
+.booking-days {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+  margin-bottom: 22px;
+}
+@media (max-width: 580px) { .booking-days { grid-template-columns: repeat(3, 1fr); } }
+.booking-day {
+  padding: 12px 8px;
+  background: var(--bg-3);
+  border: 1px solid var(--line-2);
+  border-radius: 10px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 150ms;
+}
+.booking-day:hover { border-color: var(--blue); }
+.booking-day.selected {
+  background: var(--blue);
+  border-color: var(--blue);
+  color: white;
+}
+.booking-day .day-name {
+  font-size: 11px;
+  font-family: var(--mono);
+  color: var(--text-4);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.booking-day.selected .day-name { color: rgba(255,255,255,0.8); }
+.booking-day .day-num {
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--text-1);
+  letter-spacing: -0.02em;
+}
+.booking-day.selected .day-num { color: white; }
+
+.booking-times {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin-bottom: 24px;
+}
+@media (max-width: 580px) { .booking-times { grid-template-columns: repeat(2, 1fr); } }
+.booking-time {
+  padding: 11px 8px;
+  background: var(--bg-3);
+  border: 1px solid var(--line-2);
+  border-radius: 10px;
+  text-align: center;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  font-family: var(--mono);
+  transition: all 150ms;
+}
+.booking-time:hover { border-color: var(--blue); }
+.booking-time.selected {
+  background: var(--blue);
+  border-color: var(--blue);
+  color: white;
+}
+
+.form-row {
+  display: grid;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+.form-row-2 { grid-template-columns: 1fr 1fr; }
+@media (max-width: 580px) { .form-row-2 { grid-template-columns: 1fr; } }
+.field label {
+  display: block;
+  font-size: 12px;
+  font-family: var(--mono);
+  color: var(--text-4);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+.field input, .field select, .field textarea {
+  width: 100%;
+  padding: 12px 14px;
+  background: var(--bg-3);
+  border: 1px solid var(--line-2);
+  border-radius: 10px;
+  color: var(--text-1);
+  font-size: 14.5px;
+  transition: border-color 150ms, box-shadow 150ms;
+}
+.field input:focus, .field select:focus, .field textarea:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(59,130,246,0.15);
+}
+.field textarea { min-height: 100px; resize: vertical; font-family: var(--sans); }
+.field-error {
+  border-color: var(--rose) !important;
+}
+.field-error-msg {
+  font-size: 12px;
+  color: var(--rose);
+  margin-top: 4px;
+  display: none;
+}
+.field-error + .field-error-msg { display: block; }
+
+.cta-success {
+  text-align: center;
+  padding: 28px 0 8px;
+  display: none;
+}
+.cta-success.show { display: block; }
+.cta-success svg {
+  margin: 0 auto 18px;
+  color: var(--green);
+}
+.cta-success h3 {
+  font-size: 24px;
+  margin-bottom: 8px;
+  color: var(--text-1);
+}
+.cta-success p { color: var(--text-3); }
+
+.booking-summary {
+  margin: 18px 0;
+  padding: 16px;
+  background: var(--bg-3);
+  border-radius: 10px;
+  font-size: 14px;
+  color: var(--text-2);
+  display: none;
+  align-items: center;
+  gap: 10px;
+}
+.booking-summary.show { display: flex; }
+.booking-summary strong {
+  color: var(--blue-bright);
+  font-family: var(--mono);
+  font-weight: 500;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+footer {
+  border-top: 1px solid var(--line);
+  padding: 40px 0;
+}
+.footer-inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.footer-tag {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-4);
+}
+.footer-links {
+  display: flex;
+  gap: 24px;
+  font-size: 13px;
+  color: var(--text-3);
+}
+.footer-links a:hover { color: var(--text-1); }
+.footer-copy {
+  width: 100%;
+  text-align: center;
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+  font-size: 12px;
+  color: var(--text-5);
+}
+
+/* ============================================================
+   SCROLL REVEAL
+   ============================================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 600ms cubic-bezier(0.2,0.8,0.2,1), transform 600ms cubic-bezier(0.2,0.8,0.2,1);
+}
+.reveal.in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal { opacity: 1; transform: none; }
+}
+
+/* utility */
+.center { text-align: center; }
+.max-text { max-width: 60ch; }
+</style>
+</head>
+<body data-industry="hvac">
+
+<!-- ================================================================ NAV -->
+<nav class="top">
+  <div class="nav-inner">
+    <a href="#" class="brand">
+      <span class="brand-mark">JTS</span>
+      <span class="brand-text">JTS Solutions <small>Smart Automation</small></span>
+    </a>
+    <div class="nav-links">
+      <a href="#problem">Problem</a>
+      <a href="#calculator">Calculator</a>
+      <a href="#how">How It Works</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a href="#" class="btn btn--primary btn--sm js-booking">Book a Call</a>
+  </div>
+</nav>
+
+<main>
+
+<!-- ================================================================ HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-text">
+        <div class="eyebrow">JTS Solutions · Smart Automation for Modern Businesses</div>
+        <h1>Never miss <span class="accent">a lead,</span> again.</h1>
+        <p class="hero-sub">AI-powered callback automation that turns missed calls into booked jobs — automatically. Set up once. Works forever. You don't lift a finger.</p>
+        <div class="hero-ctas">
+          <a href="#calculator" class="btn btn--primary">Calculate what you're losing →</a>
+          <a href="#" class="btn btn--ghost js-booking">Book a free call</a>
+        </div>
+        <div class="hero-ticker">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--blue-bright);flex-shrink:0;"><path d="M3 3v18h18"/><path d="M7 14l4-4 4 4 5-7"/></svg>
+          <span><strong style="color:var(--text-1);font-weight:600;">78% of customers</strong> buy from the first business that responds. <span style="color:var(--text-4);font-family:var(--mono);font-size:11px;letter-spacing:0.05em;">— HBR</span></span>
+        </div>
+      </div>
+      <div class="hero-graphic">
+        <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+          <!-- background ring -->
+          <circle cx="250" cy="250" r="220" fill="none" stroke="rgba(59,130,246,0.08)" stroke-width="1" stroke-dasharray="2 6"/>
+          <circle cx="250" cy="250" r="160" fill="none" stroke="rgba(59,130,246,0.10)" stroke-width="1" stroke-dasharray="2 6"/>
+
+          <!-- network lines -->
+          <line class="network-line" x1="250" y1="250" x2="120" y2="140"/>
+          <line class="network-line" x1="250" y1="250" x2="380" y2="120"/>
+          <line class="network-line" x1="250" y1="250" x2="100" y2="290"/>
+          <line class="network-line" x1="250" y1="250" x2="160" y2="380"/>
+          <line class="network-line" x1="250" y1="250" x2="380" y2="380"/>
+          <line class="network-line" x1="250" y1="250" x2="420" y2="240"/>
+          <line class="network-line-bright" x1="250" y1="250" x2="220" y2="100"/>
+          <line class="network-line-bright" x1="250" y1="250" x2="340" y2="200"/>
+          <line class="network-line" x1="120" y1="140" x2="220" y2="100"/>
+          <line class="network-line" x1="220" y1="100" x2="380" y2="120"/>
+          <line class="network-line" x1="380" y1="120" x2="420" y2="240"/>
+          <line class="network-line" x1="380" y1="380" x2="420" y2="240"/>
+          <line class="network-line" x1="160" y1="380" x2="100" y2="290"/>
+          <line class="network-line" x1="100" y1="290" x2="120" y2="140"/>
+
+          <!-- flowing data line -->
+          <path class="network-flow" d="M 120 140 Q 200 180, 250 250 T 380 380"/>
+          <path class="network-flow" d="M 380 120 Q 320 200, 250 250 T 160 380" style="animation-delay: 1s;"/>
+
+          <!-- nodes -->
+          <circle class="network-node network-pulse-1" cx="120" cy="140" r="5"/>
+          <circle class="network-node network-pulse-2" cx="380" cy="120" r="5"/>
+          <circle class="network-node network-pulse-3" cx="100" cy="290" r="4"/>
+          <circle class="network-node network-pulse-4" cx="160" cy="380" r="5"/>
+          <circle class="network-node network-pulse-5" cx="380" cy="380" r="4"/>
+          <circle class="network-node network-pulse-1" cx="420" cy="240" r="5"/>
+          <circle class="network-node network-pulse-2" cx="220" cy="100" r="4"/>
+          <circle class="network-node network-pulse-3" cx="340" cy="200" r="3"/>
+
+          <!-- center -->
+          <circle cx="250" cy="250" r="36" fill="rgba(59,130,246,0.10)" stroke="rgba(59,130,246,0.4)" stroke-width="1"/>
+          <circle cx="250" cy="250" r="22" fill="var(--blue)"/>
+          <circle cx="250" cy="250" r="10" fill="white"/>
+
+          <!-- center pulse rings -->
+          <circle cx="250" cy="250" r="22" fill="none" stroke="var(--blue-bright)" stroke-width="1.5" opacity="0">
+            <animate attributeName="r" from="22" to="80" dur="2.5s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" from="0.6" to="0" dur="2.5s" repeatCount="indefinite"/>
+          </circle>
+          <circle cx="250" cy="250" r="22" fill="none" stroke="var(--blue-bright)" stroke-width="1.5" opacity="0">
+            <animate attributeName="r" from="22" to="80" dur="2.5s" begin="1.25s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" from="0.6" to="0" dur="2.5s" begin="1.25s" repeatCount="indefinite"/>
+          </circle>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================ INDUSTRY SELECTOR -->
+<section class="industry-section">
+  <div class="container reveal">
+    <div class="eyebrow">Step 1 — Tell us what you do</div>
+    <h2 class="serif italic" style="font-weight:400;">Built for businesses that live and die by the phone.</h2>
+    <p class="lead muted" style="margin-top:18px;">Pick your industry. We'll show you what it costs you, in real numbers.</p>
+    <div class="industry-pills" id="industry-pills">
+      <!-- populated by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================ PROBLEM -->
+<section class="section" id="problem">
+  <div class="container reveal">
+    <div class="eyebrow">The Problem</div>
+    <h2><span id="problem-industry">HVAC contractors</span> bleed revenue every single day.</h2>
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-num" data-target="80" data-suffix="%">0%</div>
+        <div class="stat-desc"><strong style="color:var(--text-1);">of callers skip voicemail.</strong> They hang up and never call back.</div>
+        <div class="stat-source">Hiya, State of the Call</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num" data-target="62" data-suffix="%">0%</div>
+        <div class="stat-desc"><strong style="color:var(--text-1);">call a competitor</strong> instead — immediately. Google's right there.</div>
+        <div class="stat-source">Dialzara / Aira research</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num" data-target="40" data-suffix="%">0%</div>
+        <div class="stat-desc"><strong style="color:var(--text-1);">of inbound calls</strong> go unanswered at small businesses. Revenue walking past you every day.</div>
+        <div class="stat-source">411 Locals 2024 study, 58 industries</div>
+      </div>
+    </div>
+    <p class="problem-close">None of this is your fault. You can't be on the phone <em>and</em> <span id="problem-ending">on the roof</span> at the same time.</p>
+  </div>
+</section>
+
+<!-- ================================================================ ROI CALCULATOR -->
+<section class="section" id="calculator" style="padding-top:60px;">
+  <div class="container reveal">
+    <div class="eyebrow">Step 2 — Do the math</div>
+    <h2>How much money is your phone leaving on the table?</h2>
+    <p class="lead muted" style="margin-top:14px;">Move the sliders. The numbers update in real time.</p>
+
+    <div class="calc-wrap">
+      <div class="calc-inputs">
+        <div class="calc-input">
+          <div class="calc-label">
+            <span class="calc-label-text">Missed calls per month</span>
+            <input type="number" id="calc-calls-num" class="calc-value" value="60" min="5" max="300" step="5">
+          </div>
+          <input type="range" id="calc-calls" min="5" max="300" value="60" step="5">
+        </div>
+
+        <div class="calc-input">
+          <div class="calc-label">
+            <span class="calc-label-text">Average job value</span>
+            <input type="number" id="calc-job-num" class="calc-value" value="425" min="50" max="2000" step="25">
+          </div>
+          <input type="range" id="calc-job" min="50" max="2000" value="425" step="25">
+        </div>
+
+        <div class="calc-input">
+          <div class="calc-label">
+            <span class="calc-label-text">
+              Estimated close rate
+              <span class="calc-help" data-tip="Of callers we re-engage, what % become paying jobs? Industry avg ~30%.">?</span>
+            </span>
+            <input type="number" id="calc-close-num" class="calc-value" value="30" min="10" max="60" step="5">
+          </div>
+          <input type="range" id="calc-close" min="10" max="60" value="30" step="5">
+        </div>
+
+        <button class="calc-reset" id="calc-reset">↺ Reset to industry average</button>
+      </div>
+
+      <div class="calc-output">
+        <div class="calc-card calc-card-loss">
+          <div class="calc-card-label">Walking out the door</div>
+          <div class="calc-card-num" id="out-loss">$0/yr</div>
+          <div class="calc-card-sub">Revenue you're losing to missed calls right now</div>
+        </div>
+        <div class="calc-card calc-card-recover">
+          <div class="calc-card-label">We recover (~35%)</div>
+          <div class="calc-card-num" id="out-recover">+$0/yr</div>
+          <div class="calc-card-sub">Estimate based on industry SMS response rates (~45%) and missed-call recovery research. Actual results vary.</div>
+        </div>
+        <div class="calc-card calc-card-net">
+          <div class="calc-card-label">After JTS + tool costs</div>
+          <div class="calc-card-num" id="out-net">$0/yr net</div>
+          <div class="calc-card-sub">Money in your pocket every year, on top of what you're already making</div>
+        </div>
+        <div class="calc-multiplier">
+          That's a <span class="x" id="out-mult">0×</span> return on JTS.
+        </div>
+        <div class="calc-footnote">Math assumes Standard plan ($193/mo) + ~$50/mo tools. Higher volume = better ROI on the High Volume tier.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================ HOW IT WORKS / DEMO -->
+<section class="section" id="how" style="padding-top:60px;">
+  <div class="container reveal">
+    <div class="eyebrow">Step 3 — See it in action</div>
+    <h2>From missed call to booked job. <span class="serif italic" style="color:var(--blue-bright);">In under a minute.</span></h2>
+
+    <div class="demo-wrap">
+      <div class="phones">
+        <!-- Customer phone -->
+        <div class="phone phone--customer">
+          <div class="phone-screen">
+            <div class="phone-notch"></div>
+            <div class="phone-status">
+              <span>9:41</span>
+              <span class="icons"><span></span><span></span><span class="bat"></span></span>
+            </div>
+            <div class="phone-content">
+              <!-- Call screen -->
+              <div class="call-screen ringing" id="call-screen">
+                <div class="call-label">incoming call</div>
+                <div class="call-avatar serif italic">A</div>
+                <div class="call-name" id="biz-name-call">Apex HVAC</div>
+                <div class="call-num">(555) 247-0142</div>
+                <div class="call-buttons">
+                  <div class="call-btn decline">✕</div>
+                  <div class="call-btn accept">✓</div>
+                </div>
+              </div>
+              <!-- Missed banner -->
+              <div class="missed-banner" id="missed-banner">
+                <div class="missed-icon">↙</div>
+                <div class="missed-text">
+                  Missed call
+                  <small id="biz-name-missed">Apex HVAC · just now</small>
+                </div>
+              </div>
+              <!-- Messages -->
+              <div class="messages-screen" id="messages-screen">
+                <div class="messages-header">
+                  <div class="biz-name" id="biz-name-msgs">Apex HVAC</div>
+                  <div class="biz-sub">(555) 247-0142</div>
+                </div>
+                <div class="messages-body" id="messages-body">
+                  <!-- Bubbles inserted by JS -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Owner phone -->
+        <div class="phone phone--owner" id="owner-phone">
+          <div class="phone-screen">
+            <div class="phone-notch"></div>
+            <div class="phone-status">
+              <span>9:41</span>
+              <span class="icons"><span></span><span></span><span class="bat"></span></span>
+            </div>
+            <div class="phone-content">
+              <div class="owner-screen">
+                <div class="owner-time">9:41</div>
+                <div class="owner-date">Tuesday, June 18</div>
+                <div class="owner-notif" id="owner-notif-1">
+                  <div class="notif-header">
+                    <div class="notif-app-icon">J</div>
+                    <div class="notif-app-name">JTS Solutions</div>
+                    <div class="notif-time">now</div>
+                  </div>
+                  <div class="notif-title">Missed call — auto-reply sent</div>
+                  <div class="notif-body" id="notif-body-1">Customer engaged. Standby for booking…</div>
+                </div>
+                <div class="owner-notif" id="owner-notif-2">
+                  <div class="notif-header">
+                    <div class="notif-app-icon">J</div>
+                    <div class="notif-app-name">JTS Solutions</div>
+                    <div class="notif-time">just now</div>
+                  </div>
+                  <div class="notif-title" id="notif-title-2">New lead — booked!</div>
+                  <div class="notif-body" id="notif-body-2">🔥 AC repair, urgent. Sarah M. (555) 0142 — Today 2pm</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="demo-info">
+        <h3>Watch a real missed call get rescued.</h3>
+        <p>This is what your customers experience when JTS is on the case. They never feel ignored. You never have to lift a finger.</p>
+        <div class="demo-steps" id="demo-steps">
+          <div class="demo-step active" data-step="1"><span class="num">1</span> Missed</div>
+          <span class="demo-arrow">→</span>
+          <div class="demo-step" data-step="2"><span class="num">2</span> Auto-text</div>
+          <span class="demo-arrow">→</span>
+          <div class="demo-step" data-step="3"><span class="num">3</span> Reply</div>
+          <span class="demo-arrow">→</span>
+          <div class="demo-step" data-step="4"><span class="num">4</span> Booked</div>
+        </div>
+        <button class="demo-replay" id="demo-replay">↻ Replay demo</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================ FEATURES -->
+<section class="section" style="padding-top:80px;">
+  <div class="container reveal">
+    <div class="eyebrow">The Service</div>
+    <h2>Everything configured and managed for you.</h2>
+    <div class="features-grid">
+      <div class="feature">
+        <div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+        <h4>30-Second Response</h4>
+        <p>Every missed call gets a text back before the customer can call someone else.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18M9 16l2 2 4-4"/></svg></div>
+        <h4>Automatic Booking</h4>
+        <p>Customers book directly into your calendar. No back-and-forth.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg></div>
+        <h4>Owner Notifications</h4>
+        <p>Every engagement texts you the name, the need, and the contact info.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 9h8M8 13h5"/></svg></div>
+        <h4>Q&amp;A + Callback Handling</h4>
+        <p>Customers can ask a question or request a callback time. Forwarded to you.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l4-4 4 4 5-7"/></svg></div>
+        <h4>Monthly Report</h4>
+        <p>Plain-English summary: calls caught, booked, and gone cold.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div>
+        <h4>Zero Effort From You</h4>
+        <p>We configure and manage everything. You focus on the work.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================ TECH STACK -->
+<section class="section" style="padding-top:80px;">
+  <div class="container reveal">
+    <div class="eyebrow">The Stack</div>
+    <h2>Best-in-class tools. <span class="serif italic" style="color:var(--blue-bright);">Configured by us, owned by you.</span></h2>
+    <div class="stack-list">
+      <div class="stack-row">
+        <div class="stack-name"><span class="stack-mark">Tw</span>Twilio / OpenPhone</div>
+        <div class="stack-desc">Your business number and all automated texts in and out.</div>
+        <div class="stack-cost">~$13–20/mo</div>
+      </div>
+      <div class="stack-row">
+        <div class="stack-name"><span class="stack-mark">Zp</span>Zapier</div>
+        <div class="stack-desc">The glue connecting every tool — reads replies, routes to the right action.</div>
+        <div class="stack-cost">~$20/mo</div>
+      </div>
+      <div class="stack-row">
+        <div class="stack-name"><span class="stack-mark">Cl</span>Calendly</div>
+        <div class="stack-desc">Customers book slots tied to your Google Calendar — no back-and-forth.</div>
+        <div class="stack-cost">~$10/mo</div>
+      </div>
+      <div class="stack-row">
+        <div class="stack-name"><span class="stack-mark">At</span>Airtable</div>
+        <div class="stack-desc">Logs every missed call: who called, what they wanted, what happened.</div>
+        <div class="stack-cost">free for most</div>
+      </div>
+      <div class="stack-row">
+        <div class="stack-name"><span class="stack-mark">Gc</span>Google Calendar</div>
+        <div class="stack-desc">Your existing calendar connects to Calendly — only shows real availability.</div>
+        <div class="stack-cost">free</div>
+      </div>
+    </div>
+    <div class="stack-callout">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+      <span><strong style="color:var(--text-1);">No proprietary software. No lock-in.</strong> You own every account. You keep everything if you cancel.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================ PRICING -->
+<section class="section" id="pricing" style="padding-top:80px;">
+  <div class="container reveal">
+    <div class="eyebrow">Pricing</div>
+    <h2>Simple, flat monthly fee. <span class="serif italic" style="color:var(--blue-bright);">No surprises.</span></h2>
+    <div class="pricing-grid">
+      <div class="price-card">
+        <div class="price-name">Starter</div>
+        <div class="price-amount"><sup>$</sup>118<span>/mo</span></div>
+        <div class="price-volume">Under 50 missed calls / month</div>
+        <ul class="price-features">
+          <li>Full system setup</li>
+          <li>All 5 option flows</li>
+          <li>Owner text notifications</li>
+          <li>Monthly report</li>
+        </ul>
+        <a href="#" class="btn btn--ghost price-cta js-booking">Choose Starter</a>
+      </div>
+
+      <div class="price-card featured">
+        <div class="price-tag">Most Popular</div>
+        <div class="price-name">Standard</div>
+        <div class="price-amount"><sup>$</sup>193<span>/mo</span></div>
+        <div class="price-volume">50–150 missed calls / month</div>
+        <ul class="price-features">
+          <li>Everything in Starter</li>
+          <li>Zapier Pro upgrade included</li>
+          <li>Priority configuration</li>
+          <li>Monthly check-in call</li>
+        </ul>
+        <a href="#" class="btn btn--primary price-cta js-booking">Choose Standard</a>
+      </div>
+
+      <div class="price-card">
+        <div class="price-name">High Volume</div>
+        <div class="price-amount"><sup>$</sup>343<span>/mo</span></div>
+        <div class="price-volume">150+ missed calls / month</div>
+        <ul class="price-features">
+          <li>Everything in Standard</li>
+          <li>Calendly custom form setup</li>
+          <li>Custom report format</li>
+          <li>Quarterly system review</li>
+        </ul>
+        <a href="#" class="btn btn--ghost price-cta js-booking">Choose High Volume</a>
+      </div>
+    </div>
+    <p class="price-footnote">Tool costs (~$40–55/mo) paid directly to providers. We handle setup and management.</p>
+  </div>
+</section>
+
+<!-- ================================================================ FINAL CTA -->
+<section class="cta-section" id="contact">
+  <div class="container reveal">
+    <div class="eyebrow">Ready?</div>
+    <h2>Stop losing leads. <span class="serif italic" style="color:var(--blue-bright);">Today.</span></h2>
+    <p class="lead muted" style="margin-top:14px;max-width:54ch;margin-bottom:42px;">Tell us a little about your business. We'll follow up within one business day to set up a quick call — Zoom, Meet, or phone, your call.</p>
+
+    <div class="cta-grid">
+      <div class="cta-perks">
+        <div class="cta-perk">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          <div><strong>Setup in under a week.</strong> We configure the entire system. You do nothing.</div>
+        </div>
+        <div class="cta-perk">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          <div><strong>Month-to-month.</strong> No contracts. Cancel anytime.</div>
+        </div>
+        <div class="cta-perk">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          <div><strong>One business day response.</strong> Real human, no chatbot maze.</div>
+        </div>
+        <div class="cta-perk">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          <div><strong>You own everything.</strong> No proprietary lock-in. Keep every account if you cancel.</div>
+        </div>
+      </div>
+
+      <div class="cta-action">
+        <a href="#" class="btn btn--primary js-booking" style="font-size:17px;padding:18px 28px;width:100%;">
+          Book a free 15-minute call →
+        </a>
+        <div class="cta-action-sub">Takes 60 seconds. We'll reach out same day.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ================================================================ FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="brand-mark">JTS</span>
+      <div>
+        <div style="font-weight:700;">JTS Solutions</div>
+        <div class="footer-tag">Smart Automation for Modern Businesses</div>
+      </div>
+    </div>
+    <div class="footer-links">
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="footer-copy">© 2026 JTS Solutions. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+/* ============================================================
+   ⚙️  CONFIG — EDIT THIS
+   ============================================================
+   Where should every "Book a Call" / "Choose [tier]" button go?
+   Paste your Google Form / Calendly / Cal.com / Tally URL below.
+
+   Then re-deploy. Every booking button on the page updates
+   automatically.
+   ============================================================ */
+const BOOKING_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSfcXJBka55s1L2KUCPrjx1wJ88J1MwB3d3iLgNFvvJ-J9AhKQ/viewform?usp=publish-editor';
+
+// Wire up every .js-booking element to the URL above
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.js-booking').forEach(el => {
+    el.setAttribute('href', BOOKING_URL);
+    el.setAttribute('target', '_blank');
+    el.setAttribute('rel', 'noopener noreferrer');
+  });
+});
+
+/* ============================================================
+   INDUSTRY DATA
+   ============================================================ */
+const INDUSTRIES = {
+  hvac:       { label: 'HVAC',          avgJob: 425, missed: 60,  biz: 'Apex HVAC',          phone: '(555) 247-0142', avatar: 'A', custMsg: "Hey, my AC just died and it's 95° in here. Can someone come today?", ownerAlert: '🔥 AC repair, urgent. Sarah M. (555) 0142', ownerTitle: 'New lead — booked!', problemLead: 'HVAC contractors',     ending: 'on the roof' },
+  plumbing:   { label: 'Plumbing',      avgJob: 385, missed: 75,  biz: 'Quick Pipe Plumbing',phone: '(555) 318-0188', avatar: 'Q', custMsg: 'Pipe burst in basement — water everywhere. Help??',                           ownerAlert: '🚨 Burst pipe — emergency. Mike R. (555) 0188', ownerTitle: 'New lead — booked!', problemLead: 'Plumbers',             ending: 'under a sink' },
+  electrical: { label: 'Electrical',    avgJob: 350, missed: 45,  biz: 'Voltway Electric',   phone: '(555) 422-0211', avatar: 'V', custMsg: 'Breaker keeps tripping every time I run the dryer.',                            ownerAlert: '⚡ Panel issue. Dana K. (555) 0211',          ownerTitle: 'New lead — booked!', problemLead: 'Electricians',         ending: 'in a crawl space' },
+  roofing:    { label: 'Roofing',       avgJob: 800, missed: 35,  biz: 'Summit Roofing',     phone: '(555) 510-0307', avatar: 'S', custMsg: 'Big storm last night. Need someone to look at my roof.',                       ownerAlert: '🏠 Storm damage inspection. Tom L. (555) 0307', ownerTitle: 'New lead — booked!', problemLead: 'Roofers',              ending: 'on a job site' },
+  landscaping:{ label: 'Landscaping',   avgJob: 275, missed: 50,  biz: 'GreenScape',         phone: '(555) 661-0419', avatar: 'G', custMsg: 'Looking for a quote — full yard cleanup and mulch.',                            ownerAlert: '🌿 Yard cleanup quote. Priya S. (555) 0419', ownerTitle: 'New lead — booked!', problemLead: 'Landscapers',          ending: 'mowing a lawn' },
+  auto:       { label: 'Auto Repair',   avgJob: 425, missed: 80,  biz: 'Hometown Auto',      phone: '(555) 743-0512', avatar: 'H', custMsg: "Car won't start this morning. Can you fit me in?",                              ownerAlert: '🔧 Won\'t start. Jamal T. (555) 0512',          ownerTitle: 'New lead — booked!', problemLead: 'Auto shops',           ending: 'under a hood' },
+  cleaning:   { label: 'Cleaning',      avgJob: 175, missed: 90,  biz: 'Sparkle Clean',      phone: '(555) 822-0688', avatar: 'S', custMsg: 'Need a deep clean before I move out next Saturday.',                           ownerAlert: '🧹 Move-out deep clean. Erin H. (555) 0688', ownerTitle: 'New booking!',       problemLead: 'Cleaning services',    ending: 'on a job' },
+  dental:     { label: 'Dental / Med',  avgJob: 250, missed: 100, biz: 'Bright Smile Dental',phone: '(555) 904-0721', avatar: 'B', custMsg: 'Hi, I need to book a cleaning sometime next week.',                            ownerAlert: '🦷 Cleaning — booking req. Alex W. (555) 0721', ownerTitle: 'New booking!',       problemLead: 'Dental practices',     ending: 'with a patient' },
+  salon:      { label: 'Salon / Spa',   avgJob: 95,  missed: 120, biz: 'Studio 21 Salon',    phone: '(555) 991-0844', avatar: 'S', custMsg: 'Looking to book a cut and highlights for Friday.',                             ownerAlert: '✂️ Cut & color. Maya P. (555) 0844',           ownerTitle: 'New booking!',       problemLead: 'Salons',                ending: 'mid-haircut' },
+  other:      { label: 'Other',         avgJob: 250, missed: 60,  biz: 'Your Business',      phone: '(555) 100-0999', avatar: 'Y', custMsg: 'Hi, wanted to ask about your services and pricing.',                            ownerAlert: '📞 General inquiry. Chris D. (555) 0999',     ownerTitle: 'New lead!',          problemLead: 'Small businesses',     ending: 'with a customer' }
+};
+
+let currentIndustry = 'hvac';
+
+/* ============================================================
+   INDUSTRY PILLS
+   ============================================================ */
+const pillsContainer = document.getElementById('industry-pills');
+Object.entries(INDUSTRIES).forEach(([key, data]) => {
+  const pill = document.createElement('button');
+  pill.className = 'pill' + (key === 'hvac' ? ' active' : '');
+  pill.dataset.industry = key;
+  pill.textContent = data.label;
+  pill.addEventListener('click', () => selectIndustry(key));
+  pillsContainer.appendChild(pill);
+});
+
+function selectIndustry(key) {
+  if (!INDUSTRIES[key]) return;
+  currentIndustry = key;
+  document.body.dataset.industry = key;
+  document.querySelectorAll('.pill').forEach(p => {
+    p.classList.toggle('active', p.dataset.industry === key);
+  });
+  const data = INDUSTRIES[key];
+
+  // problem section
+  document.getElementById('problem-industry').textContent = data.problemLead;
+  document.getElementById('problem-ending').textContent = data.ending;
+
+  // calculator defaults
+  setCalc(data.missed, data.avgJob, 30);
+
+  // demo
+  document.getElementById('biz-name-call').textContent = data.biz;
+  document.getElementById('biz-name-missed').textContent = data.biz + ' · just now';
+  document.getElementById('biz-name-msgs').textContent = data.biz;
+  document.querySelector('.call-avatar').textContent = data.avatar;
+  document.getElementById('notif-body-2').textContent = data.ownerAlert + ' — Today 2pm';
+  document.getElementById('notif-title-2').textContent = data.ownerTitle;
+
+  // restart demo
+  if (demoState.hasPlayed) restartDemo();
+}
+
+/* ============================================================
+   ROI CALCULATOR
+   ============================================================ */
+const callsRange = document.getElementById('calc-calls');
+const jobRange   = document.getElementById('calc-job');
+const closeRange = document.getElementById('calc-close');
+const callsNum   = document.getElementById('calc-calls-num');
+const jobNum     = document.getElementById('calc-job-num');
+const closeNum   = document.getElementById('calc-close-num');
+
+const outLoss   = document.getElementById('out-loss');
+const outRecover= document.getElementById('out-recover');
+const outNet    = document.getElementById('out-net');
+const outMult   = document.getElementById('out-mult');
+
+const JTS_ANNUAL = 193 * 12;
+const TOOL_ANNUAL = 50 * 12;
+
+function setCalc(calls, job, close) {
+  callsRange.value = calls; callsNum.value = calls;
+  jobRange.value = job;     jobNum.value = job;
+  closeRange.value = close; closeNum.value = close;
+  recalc(true);
+}
+
+function calcValues() {
+  const calls = +callsRange.value;
+  const job   = +jobRange.value;
+  const close = +closeRange.value / 100;
+  const lossYr = calls * 12 * close * job;
+  const recYr = lossYr * 0.35;
+  const netYr = recYr - JTS_ANNUAL - TOOL_ANNUAL;
+  const mult = recYr > 0 ? recYr / (JTS_ANNUAL + TOOL_ANNUAL) : 0;
+  return { lossYr, recYr, netYr, mult };
+}
+
+let lastValues = { lossYr: 0, recYr: 0, netYr: 0, mult: 0 };
+function recalc(skipAnimate=false) {
+  const v = calcValues();
+  if (skipAnimate) {
+    outLoss.textContent     = '-$' + fmt(v.lossYr) + '/yr';
+    outRecover.textContent  = '+$' + fmt(v.recYr) + '/yr';
+    outNet.textContent      = '$' + fmt(Math.max(0, v.netYr)) + '/yr net';
+    outMult.textContent     = v.mult.toFixed(1) + '×';
+  } else {
+    animateNumber(lastValues.lossYr, v.lossYr, val => outLoss.textContent = '-$' + fmt(val) + '/yr');
+    animateNumber(lastValues.recYr, v.recYr,   val => outRecover.textContent = '+$' + fmt(val) + '/yr');
+    animateNumber(lastValues.netYr, Math.max(0, v.netYr), val => outNet.textContent = '$' + fmt(val) + '/yr net');
+    animateNumber(lastValues.mult, v.mult, val => outMult.textContent = val.toFixed(1) + '×', 2);
+  }
+  lastValues = v;
+}
+
+function fmt(n) {
+  return Math.round(n).toLocaleString('en-US');
+}
+
+function animateNumber(from, to, setter, decimals=0) {
+  const duration = 600;
+  const start = performance.now();
+  function tick(now) {
+    const t = Math.min(1, (now - start) / duration);
+    const eased = 1 - Math.pow(1 - t, 3);
+    const val = from + (to - from) * eased;
+    setter(decimals === 0 ? val : +val.toFixed(decimals));
+    if (t < 1) requestAnimationFrame(tick);
+    else setter(decimals === 0 ? to : +to.toFixed(decimals));
+  }
+  requestAnimationFrame(tick);
+}
+
+// link sliders ↔ number inputs
+function syncRange(range, num) {
+  range.addEventListener('input', () => { num.value = range.value; recalc(); });
+  num.addEventListener('input', () => {
+    let v = +num.value || 0;
+    v = Math.max(+num.min, Math.min(+num.max, v));
+    range.value = v;
+    recalc();
+  });
+}
+syncRange(callsRange, callsNum);
+syncRange(jobRange, jobNum);
+syncRange(closeRange, closeNum);
+
+document.getElementById('calc-reset').addEventListener('click', () => {
+  const d = INDUSTRIES[currentIndustry];
+  setCalc(d.missed, d.avgJob, 30);
+});
+
+recalc(true);
+
+/* ============================================================
+   PHONE DEMO
+   ============================================================ */
+const demoState = { hasPlayed: false, playing: false, timeouts: [] };
+
+const callScreen      = document.getElementById('call-screen');
+const missedBanner    = document.getElementById('missed-banner');
+const messagesScreen  = document.getElementById('messages-screen');
+const messagesBody    = document.getElementById('messages-body');
+const ownerNotif1     = document.getElementById('owner-notif-1');
+const ownerNotif2     = document.getElementById('owner-notif-2');
+const ownerPhone      = document.getElementById('owner-phone');
+const stepsEls        = document.querySelectorAll('.demo-step');
+
+function setStep(n) {
+  stepsEls.forEach(s => s.classList.toggle('active', +s.dataset.step === n));
+}
+
+function clearDemo() {
+  demoState.timeouts.forEach(t => clearTimeout(t));
+  demoState.timeouts = [];
+  demoState.playing = false;
+  callScreen.classList.remove('show', 'ringing');
+  missedBanner.classList.remove('show');
+  messagesScreen.classList.remove('show');
+  messagesBody.innerHTML = '';
+  ownerNotif1.classList.remove('show');
+  ownerNotif2.classList.remove('show');
+  ownerPhone.classList.remove('phone--lit');
+  setStep(1);
+}
+
+function schedule(fn, t) {
+  const id = setTimeout(fn, t);
+  demoState.timeouts.push(id);
+}
+
+function addBubble(html, type='in', cls='') {
+  const b = document.createElement('div');
+  b.className = 'bubble bubble--' + type + ' ' + cls;
+  b.innerHTML = html;
+  messagesBody.appendChild(b);
+  // trigger animation
+  requestAnimationFrame(() => b.classList.add('show'));
+  return b;
+}
+
+function addBookingCard() {
+  const card = document.createElement('div');
+  card.className = 'booking-card';
+  card.innerHTML = `
+    <div class="booking-title">Pick a time</div>
+    <div class="slot-row">
+      <div class="slot" id="slot-1"><small>TODAY</small>2:00 PM</div>
+      <div class="slot" id="slot-2"><small>TODAY</small>4:00 PM</div>
+      <div class="slot" id="slot-3"><small>TOMORROW</small>9:00 AM</div>
+    </div>
+  `;
+  messagesBody.appendChild(card);
+  requestAnimationFrame(() => card.classList.add('show'));
+  return card;
+}
+
+function showTyping() {
+  const t = document.createElement('div');
+  t.className = 'typing';
+  t.innerHTML = '<span></span><span></span><span></span>';
+  messagesBody.appendChild(t);
+  requestAnimationFrame(() => t.classList.add('show'));
+  return t;
+}
+
+function playDemo() {
+  if (demoState.playing) return;
+  clearDemo();
+  demoState.playing = true;
+  demoState.hasPlayed = true;
+  const data = INDUSTRIES[currentIndustry];
+
+  // 0.0s — incoming call
+  schedule(() => {
+    callScreen.classList.add('show', 'ringing');
+    setStep(1);
+  }, 0);
+
+  // 1.6s — missed (call screen fades)
+  schedule(() => {
+    callScreen.classList.remove('ringing');
+    callScreen.classList.remove('show');
+  }, 1800);
+
+  // 2.0s — missed banner appears
+  schedule(() => {
+    missedBanner.classList.add('show');
+  }, 2100);
+
+  // 2.4s — owner notification 1
+  schedule(() => {
+    ownerPhone.classList.add('phone--lit');
+    ownerNotif1.classList.add('show');
+  }, 2500);
+
+  // 3.2s — banner fades, messages appear
+  schedule(() => {
+    missedBanner.classList.remove('show');
+  }, 3300);
+
+  schedule(() => {
+    messagesScreen.classList.add('show');
+    setStep(2);
+  }, 3700);
+
+  // 4.4s — auto-text bubble from JTS
+  schedule(() => {
+    const time = document.createElement('div');
+    time.className = 'bubble bubble--time show';
+    time.textContent = 'Auto-reply · ~30s after missed call';
+    messagesBody.appendChild(time);
+    addBubble(`Hi! Sorry we missed you. Reply with:<br><br>1 — Book online<br>2 — Get a callback<br>3 — Ask a question`, 'in');
+  }, 4500);
+
+  // 6.0s — typing indicator (customer)
+  schedule(() => {
+    setStep(3);
+    showTyping();
+  }, 6200);
+
+  // 7.4s — remove typing, customer reply
+  schedule(() => {
+    const typing = messagesBody.querySelector('.typing');
+    if (typing) typing.remove();
+    addBubble(data.custMsg, 'out');
+  }, 7600);
+
+  // 9.0s — booking card appears
+  schedule(() => {
+    addBookingCard();
+  }, 9200);
+
+  // 10.4s — slot highlights & gets selected
+  schedule(() => {
+    const slot = document.getElementById('slot-1');
+    if (slot) slot.classList.add('selected');
+  }, 10600);
+
+  // 11.4s — confirmation bubble
+  schedule(() => {
+    setStep(4);
+    addBubble('Booked for Today, 2:00 PM. We\'ll see you then ✓', 'in');
+  }, 11600);
+
+  // 12.4s — owner notification 2 (booking)
+  schedule(() => {
+    ownerNotif2.classList.add('show');
+  }, 12500);
+
+  // 16s — done
+  schedule(() => {
+    demoState.playing = false;
+  }, 16000);
+}
+
+function restartDemo() {
+  clearDemo();
+  schedule(playDemo, 200);
+}
+
+document.getElementById('demo-replay').addEventListener('click', restartDemo);
+
+/* ============================================================
+   STATS COUNTER (intersection observer)
+   ============================================================ */
+const statNums = document.querySelectorAll('.stat-num[data-target]');
+const statObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const el = e.target;
+      const target = +el.dataset.target;
+      const suffix = el.dataset.suffix || '';
+      animateNumber(0, target, val => el.textContent = Math.round(val) + suffix);
+      statObserver.unobserve(el);
+    }
+  });
+}, { threshold: 0.5 });
+statNums.forEach(el => statObserver.observe(el));
+
+/* ============================================================
+   REVEAL ON SCROLL
+   ============================================================ */
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('in');
+      revealObserver.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+/* ============================================================
+   DEMO AUTO-PLAY ON SCROLL
+   ============================================================ */
+const demoSection = document.getElementById('how');
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const demoObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting && !demoState.hasPlayed && !reduceMotion) {
+      playDemo();
+    }
+  });
+}, { threshold: 0.35 });
+demoObserver.observe(demoSection);
+
+// initialize
+selectIndustry('hvac');
+</script>
+</body>
+</html>
