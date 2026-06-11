@@ -1881,7 +1881,7 @@ footer {
         <div class="calc-multiplier">
           That's a <span class="x" id="out-mult">0×</span> return on JTS.
         </div>
-        <div class="calc-footnote">Math assumes Standard plan ($193/mo) + ~$50/mo tools. Higher volume = better ROI on the High Volume tier.</div>
+        <div class="calc-footnote">Math assumes Standard plan ($197/mo). All tool costs included — no extra fees. Higher volume = better ROI on the High Volume tier.</div>
       </div>
     </div>
   </div>
@@ -2078,45 +2078,54 @@ footer {
     <div class="pricing-grid">
       <div class="price-card">
         <div class="price-name">Starter</div>
-        <div class="price-amount"><sup>$</sup>118<span>/mo</span></div>
-        <div class="price-volume">Under 50 missed calls / month</div>
+        <div class="price-amount"><sup>$</sup>97<span>/mo</span></div>
+        <div class="price-volume">Up to 150 missed calls / month</div>
         <ul class="price-features">
-          <li>Full system setup</li>
-          <li>All 5 option flows</li>
+          <li>Full system setup &amp; configuration</li>
+          <li>Missed call → 30-second auto-text</li>
+          <li>5-option reply menu</li>
+          <li>Calendly booking integration</li>
           <li>Owner text notifications</li>
-          <li>Monthly report</li>
+          <li>Basic monthly report</li>
+          <li>Business hours coverage</li>
         </ul>
-        <a href="#" class="btn btn--ghost price-cta js-booking">Choose Starter</a>
+        <a href="#" class="btn btn--ghost price-cta js-booking">Get Started</a>
       </div>
 
       <div class="price-card featured">
         <div class="price-tag">Most Popular</div>
         <div class="price-name">Standard</div>
-        <div class="price-amount"><sup>$</sup>193<span>/mo</span></div>
-        <div class="price-volume">50–150 missed calls / month</div>
+        <div class="price-amount"><sup>$</sup>197<span>/mo</span></div>
+        <div class="price-volume">Up to 400 missed calls / month</div>
         <ul class="price-features">
           <li>Everything in Starter</li>
-          <li>Zapier Pro upgrade included</li>
-          <li>Priority configuration</li>
-          <li>Monthly check-in call</li>
+          <li>24/7 coverage including weekends</li>
+          <li>AI handles customer questions instantly</li>
+          <li>Estimate pre-qualification via SMS</li>
+          <li>Detailed monthly report</li>
+          <li>Daily owner summary text</li>
+          <li>Priority support</li>
         </ul>
         <a href="#" class="btn btn--primary price-cta js-booking">Choose Standard</a>
       </div>
 
       <div class="price-card">
         <div class="price-name">High Volume</div>
-        <div class="price-amount"><sup>$</sup>343<span>/mo</span></div>
-        <div class="price-volume">150+ missed calls / month</div>
+        <div class="price-amount"><sup>$</sup>297<span>/mo</span></div>
+        <div class="price-volume">Unlimited missed calls</div>
         <ul class="price-features">
           <li>Everything in Standard</li>
-          <li>Calendly custom form setup</li>
-          <li>Custom report format</li>
-          <li>Quarterly system review</li>
+          <li>AI handles questions + after-hours triage</li>
+          <li>Weekly reports</li>
+          <li>Custom SMS copy branded to your business</li>
+          <li>Quarterly optimization call</li>
+          <li>First-priority support</li>
+          <li>Dedicated onboarding call</li>
         </ul>
         <a href="#" class="btn btn--ghost price-cta js-booking">Choose High Volume</a>
       </div>
     </div>
-    <p class="price-footnote">Tool costs (~$40–55/mo) paid directly to providers. We handle setup and management.</p>
+    <p class="price-footnote">All tool costs included. No hidden fees. Month-to-month — cancel anytime.</p>
   </div>
 </section>
 
@@ -2273,8 +2282,8 @@ const outRecover= document.getElementById('out-recover');
 const outNet    = document.getElementById('out-net');
 const outMult   = document.getElementById('out-mult');
 
-const JTS_ANNUAL = 193 * 12;
-const TOOL_ANNUAL = 50 * 12;
+const JTS_ANNUAL = 197 * 12;
+const TOOL_ANNUAL = 0;
 
 function setCalc(calls, job, close) {
   callsRange.value = calls; callsNum.value = calls;
