@@ -110,6 +110,20 @@ main, nav, footer { position: relative; z-index: 1; }
   height: 1px;
   background: var(--blue);
 }
+.eyebrow::after {
+  content: '';
+  width: 28px;
+  height: 1px;
+  background: var(--blue);
+}
+.rot-word {
+  display: inline-block;
+  color: var(--blue-bright);
+  transition: transform .34s cubic-bezier(.2,.8,.2,1), opacity .34s;
+  will-change: transform, opacity;
+}
+.rot-word.rot-out { transform: translateY(-65%); opacity: 0; }
+.rot-word.rot-in  { transform: translateY(65%); opacity: 0; transition: none; }
 
 h1, h2, h3, h4 { font-family: var(--sans); font-weight: 600; letter-spacing: -0.02em; line-height: 1.05; }
 .serif { font-family: var(--serif); font-weight: 400; }
@@ -888,12 +902,15 @@ input[type="range"]:hover::-moz-range-thumb { box-shadow: 0 0 0 6px var(--blue-g
 }
 .messages-body {
   flex: 1;
-  overflow: hidden;
+  overflow-y: auto;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
   padding: 16px 12px 12px;
   display: flex;
   flex-direction: column;
   gap: 6px;
 }
+.messages-body::-webkit-scrollbar { display: none; }
 .bubble {
   padding: 9px 14px;
   border-radius: 18px;
@@ -1014,16 +1031,16 @@ input[type="range"]:hover::-moz-range-thumb { box-shadow: 0 0 0 6px var(--blue-g
 .owner-screen {
   position: absolute; inset: 0;
   background: #0B0E15;
-  padding: 30px 12px;
+  padding: 20px 12px;
   opacity: 1;
 }
 .owner-time {
   text-align: center;
-  font-size: 64px;
+  font-size: 50px;
   font-weight: 200;
   color: white;
   letter-spacing: -0.04em;
-  margin-top: 30px;
+  margin-top: 8px;
   margin-bottom: 4px;
   font-family: var(--sans);
 }
@@ -1031,7 +1048,7 @@ input[type="range"]:hover::-moz-range-thumb { box-shadow: 0 0 0 6px var(--blue-g
   text-align: center;
   font-size: 13px;
   color: rgba(255,255,255,0.6);
-  margin-bottom: 30px;
+  margin-bottom: 18px;
   font-weight: 500;
 }
 .owner-notif {
@@ -1787,22 +1804,11 @@ footer {
 </section>
 
 <!-- ================================================================ INDUSTRY SELECTOR -->
-<section class="industry-section">
-  <div class="container reveal">
-    <div class="eyebrow">Step 1 — Tell us what you do</div>
-    <h2 class="serif italic" style="font-weight:400;">Built for businesses that live and die by the phone.</h2>
-    <p class="lead muted" style="margin-top:18px;">Pick your industry. We'll show you what it costs you, in real numbers.</p>
-    <div class="industry-pills" id="industry-pills">
-      <!-- populated by JS -->
-    </div>
-  </div>
-</section>
-
 <!-- ================================================================ PROBLEM -->
 <section class="section" id="problem">
   <div class="container reveal">
     <div class="eyebrow">The Problem</div>
-    <h2><span id="problem-industry">HVAC contractors</span> bleed revenue every single day.</h2>
+    <h2><span class="rot-word" id="problem-industry">HVAC contractors</span><br>bleed revenue every single day.</h2>
     <div class="stats-grid">
       <div class="stat-card">
         <div class="stat-num" data-target="80" data-suffix="%">0%</div>
@@ -1827,7 +1833,7 @@ footer {
 <!-- ================================================================ ROI CALCULATOR -->
 <section class="section" id="calculator" style="padding-top:60px;">
   <div class="container reveal">
-    <div class="eyebrow">Step 2 — Do the math</div>
+    <div class="eyebrow">Step 1 — Do the math</div>
     <h2>How much money is your phone leaving on the table?</h2>
     <p class="lead muted" style="margin-top:14px;">Move the sliders. The numbers update in real time.</p>
 
@@ -1891,7 +1897,7 @@ footer {
 <!-- ================================================================ HOW IT WORKS / DEMO -->
 <section class="section" id="how" style="padding-top:60px;">
   <div class="container reveal">
-    <div class="eyebrow">Step 3 — See it in action</div>
+    <div class="eyebrow">Step 2 — See it in action</div>
     <h2>From missed call to booked job. <span class="serif italic" style="color:var(--blue-bright);">In under a minute.</span></h2>
 
     <div class="demo-wrap">
@@ -2109,24 +2115,24 @@ footer {
     <h2>From first call to first text back <span class="serif italic" style="color:var(--blue-bright);">in under a week.</span></h2>
     <p class="lead muted" style="margin-top:14px;margin-bottom:48px;">Here's exactly what happens after you book a call with us.</p>
     <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;">
-      <div style="position:absolute;top:28px;left:calc(12.5% + 20px);right:calc(12.5% + 20px);height:1px;background:linear-gradient(90deg,var(--blue),rgba(59,130,246,0.2));z-index:0;"></div>
+      <div style="position:absolute;top:28px;left:calc(12.5% + 20px);right:calc(12.5% + 20px);height:1px;background:rgba(59,130,246,0.4);z-index:0;"></div>
       <div style="text-align:center;padding:0 16px;position:relative;z-index:1;">
         <div style="width:56px;height:56px;border-radius:50%;background:var(--blue);display:grid;place-items:center;margin:0 auto 20px;font-family:var(--mono);font-size:18px;font-weight:600;color:white;box-shadow:0 0 24px var(--blue-glow);">1</div>
         <p style="font-weight:600;color:var(--text-1);font-size:15px;margin-bottom:8px;">15-min call</p>
         <p style="font-size:13.5px;color:var(--text-3);line-height:1.5;">We learn about your business, your volume, and which tier fits.</p>
       </div>
       <div style="text-align:center;padding:0 16px;position:relative;z-index:1;">
-        <div style="width:56px;height:56px;border-radius:50%;background:var(--bg-3);border:1px solid var(--line-2);display:grid;place-items:center;margin:0 auto 20px;font-family:var(--mono);font-size:18px;font-weight:600;color:var(--blue-bright);">2</div>
+        <div style="width:56px;height:56px;border-radius:50%;background:var(--blue);display:grid;place-items:center;margin:0 auto 20px;font-family:var(--mono);font-size:18px;font-weight:600;color:white;box-shadow:0 0 24px var(--blue-glow);">2</div>
         <p style="font-weight:600;color:var(--text-1);font-size:15px;margin-bottom:8px;">We build it</p>
         <p style="font-size:13.5px;color:var(--text-3);line-height:1.5;">Full system configured in 3–5 days. Zero effort from you — we handle everything.</p>
       </div>
       <div style="text-align:center;padding:0 16px;position:relative;z-index:1;">
-        <div style="width:56px;height:56px;border-radius:50%;background:var(--bg-3);border:1px solid var(--line-2);display:grid;place-items:center;margin:0 auto 20px;font-family:var(--mono);font-size:18px;font-weight:600;color:var(--blue-bright);">3</div>
+        <div style="width:56px;height:56px;border-radius:50%;background:var(--blue);display:grid;place-items:center;margin:0 auto 20px;font-family:var(--mono);font-size:18px;font-weight:600;color:white;box-shadow:0 0 24px var(--blue-glow);">3</div>
         <p style="font-weight:600;color:var(--text-1);font-size:15px;margin-bottom:8px;">Live test</p>
         <p style="font-size:13.5px;color:var(--text-3);line-height:1.5;">We walk you through a live test call so you see exactly what your customers experience.</p>
       </div>
       <div style="text-align:center;padding:0 16px;position:relative;z-index:1;">
-        <div style="width:56px;height:56px;border-radius:50%;background:var(--bg-3);border:1px solid var(--line-2);display:grid;place-items:center;margin:0 auto 20px;font-family:var(--mono);font-size:18px;font-weight:600;color:var(--blue-bright);">4</div>
+        <div style="width:56px;height:56px;border-radius:50%;background:var(--blue);display:grid;place-items:center;margin:0 auto 20px;font-family:var(--mono);font-size:18px;font-weight:600;color:white;box-shadow:0 0 24px var(--blue-glow);">4</div>
         <p style="font-weight:600;color:var(--text-1);font-size:15px;margin-bottom:8px;">Go live</p>
         <p style="font-size:13.5px;color:var(--text-3);line-height:1.5;">First missed call gets a text back in under 30 seconds. You start recovering leads immediately.</p>
       </div>
@@ -2269,17 +2275,24 @@ const INDUSTRIES = {
 let currentIndustry = 'hvac';
 
 /* ============================================================
-   INDUSTRY PILLS
+   ROTATING INDUSTRY WORD (problem headline)
    ============================================================ */
-const pillsContainer = document.getElementById('industry-pills');
-Object.entries(INDUSTRIES).forEach(([key, data]) => {
-  const pill = document.createElement('button');
-  pill.className = 'pill' + (key === 'hvac' ? ' active' : '');
-  pill.dataset.industry = key;
-  pill.textContent = data.label;
-  pill.addEventListener('click', () => selectIndustry(key));
-  pillsContainer.appendChild(pill);
-});
+const ROT_WORDS = Object.values(INDUSTRIES).map(d => d.problemLead);
+const rotEl = document.getElementById('problem-industry');
+let rotIdx = 0;
+const rotReduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+function rotateIndustry() {
+  rotIdx = (rotIdx + 1) % ROT_WORDS.length;
+  if (rotReduce) { rotEl.textContent = ROT_WORDS[rotIdx]; return; }
+  rotEl.classList.add('rot-out');
+  setTimeout(() => {
+    rotEl.textContent = ROT_WORDS[rotIdx];
+    rotEl.classList.remove('rot-out');
+    rotEl.classList.add('rot-in');
+    requestAnimationFrame(() => requestAnimationFrame(() => rotEl.classList.remove('rot-in')));
+  }, 340);
+}
+if (!rotReduce) setInterval(rotateIndustry, 2400);
 
 function selectIndustry(key) {
   if (!INDUSTRIES[key]) return;
@@ -2443,8 +2456,8 @@ function addBubble(html, type='in', cls='') {
   b.className = 'bubble bubble--' + type + ' ' + cls;
   b.innerHTML = html;
   messagesBody.appendChild(b);
-  // trigger animation
-  requestAnimationFrame(() => b.classList.add('show'));
+  // trigger animation + keep latest message in view
+  requestAnimationFrame(() => { b.classList.add('show'); messagesBody.scrollTop = messagesBody.scrollHeight; });
   return b;
 }
 
@@ -2460,7 +2473,7 @@ function addBookingCard() {
     </div>
   `;
   messagesBody.appendChild(card);
-  requestAnimationFrame(() => card.classList.add('show'));
+  requestAnimationFrame(() => { card.classList.add('show'); messagesBody.scrollTop = messagesBody.scrollHeight; });
   return card;
 }
 
@@ -2469,7 +2482,7 @@ function showTyping() {
   t.className = 'typing';
   t.innerHTML = '<span></span><span></span><span></span>';
   messagesBody.appendChild(t);
-  requestAnimationFrame(() => t.classList.add('show'));
+  requestAnimationFrame(() => { t.classList.add('show'); messagesBody.scrollTop = messagesBody.scrollHeight; });
   return t;
 }
 
