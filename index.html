@@ -3,8 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="JTS Solutions — AI-powered callback automation that texts your missed callers back in 30 seconds, so small businesses stop losing leads to voicemail. Never miss a lead again.">
-<title>JTS Solutions — Never Miss a Lead Again</title>
+<meta name="description" content="Missed-call text-back, workflow automation, client portals, websites, and CRM for local service businesses in New Jersey, New York City, and Pennsylvania.">
+<title>JTS Solutions | Business Automation in NJ, NYC &amp; PA</title>
+<link rel="canonical" href="https://www.solutionsfromjts.com/">
+<meta name="theme-color" content="#0A0E1A">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="JTS Solutions">
+<meta property="og:title" content="JTS Solutions | Business Automation in NJ, NYC &amp; PA">
+<meta property="og:description" content="Missed-call text-back, workflow automation, client portals, websites, and CRM for local service businesses in New Jersey, New York City, and Pennsylvania.">
+<meta property="og:url" content="https://www.solutionsfromjts.com/">
+<meta property="og:image" content="https://www.solutionsfromjts.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="JTS Solutions. Smart automation for local businesses in NJ, NYC and PA.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="JTS Solutions | Business Automation in NJ, NYC &amp; PA">
+<meta name="twitter:description" content="Missed-call text-back, workflow automation, client portals, websites, and CRM for local service businesses in New Jersey, New York City, and Pennsylvania.">
+<meta name="twitter:image" content="https://www.solutionsfromjts.com/og-image.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebSite", "@id": "https://www.solutionsfromjts.com/#website", "url": "https://www.solutionsfromjts.com/", "name": "JTS Solutions"}, {"@type": "ProfessionalService", "@id": "https://www.solutionsfromjts.com/#business", "name": "JTS Solutions", "url": "https://www.solutionsfromjts.com/", "email": "solutionsfromjts@gmail.com", "image": "https://www.solutionsfromjts.com/og-image.png", "description": "Missed-call text-back, workflow automation, client portals, websites, and CRM for local service businesses in New Jersey, New York City, and Pennsylvania.", "areaServed": [{"@type": "State", "name": "New Jersey"}, {"@type": "City", "name": "New York City"}, {"@type": "State", "name": "Pennsylvania"}], "makesOffer": [{"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Missed Call Automation", "description": "Automatic text-back within 30 seconds of a missed call, with booking, estimate requests, and owner notifications."}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Workflow Automation", "description": "Automation of follow-ups, scheduling, reminders, and data entry."}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Portals, Web Apps & Business Tools", "description": "Client portals, dashboards, and web apps built around a business's workflow."}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Web Development", "description": "Modern, mobile-friendly websites for local businesses."}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "CRM Creation & Maintenance", "description": "CRM setup and ongoing maintenance with automation that saves time and reduces errors and manual labor."}}]}]}</script>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230A0E1A'/%3E%3Cpath d='M9 9h14M9 15l4 4-4 4M19 23h4' stroke='%233B82F6' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1787,6 +1803,83 @@ footer {
 /* utility */
 .center { text-align: center; }
 .max-text { max-width: 60ch; }
+
+/* ============================================================
+   RESTRUCTURE (services site)
+   ============================================================ */
+.hero { padding-bottom: 40px; }
+.hero-visual { max-width: 380px; }
+.hero-text .hero-sub { max-width: 54ch; }
+
+.services-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 32px; }
+.service-feature {
+  grid-column: 1 / -1;
+  display: grid; grid-template-columns: 1.5fr 1fr; gap: 32px; align-items: center;
+  padding: 36px 32px;
+  background: linear-gradient(180deg, rgba(59,130,246,0.07), var(--bg-2));
+  border: 1px solid var(--blue); border-radius: var(--radius-lg);
+  box-shadow: 0 0 40px -14px var(--blue-glow);
+}
+.service-feature h3 { font-family: var(--serif); font-size: 28px; font-weight: 600; color: var(--text-1); margin-bottom: 10px; letter-spacing: -0.01em; }
+.service-feature p { color: var(--text-3); font-size: 15.5px; line-height: 1.55; max-width: 52ch; }
+.service-feature .sf-actions { display: flex; gap: 12px; flex-wrap: wrap; justify-content: flex-end; }
+.service-card { display: flex; flex-direction: column; }
+.service-card p { flex: 1; }
+.service-card .more { margin-top: 18px; font-size: 14px; font-weight: 600; color: var(--blue-bright); text-decoration: none; }
+.service-card .more:hover { color: var(--blue-soft); }
+.service-card .feature-icon { margin-bottom: 18px; }
+@media (max-width: 1000px) { .services-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 720px) { .service-feature { grid-template-columns: 1fr; padding: 28px 22px; } .service-feature .sf-actions { justify-content: flex-start; } }
+@media (max-width: 580px) { .services-grid { grid-template-columns: 1fr; } }
+
+.stats-grid--two { grid-template-columns: repeat(2, 1fr); }
+@media (max-width: 820px) { .stats-grid--two { grid-template-columns: 1fr; } }
+.problem-source { margin: 14px 0 0 auto; text-align: right; max-width: 62ch; font-size: 14px; color: var(--text-3); }
+.problem-source strong { color: var(--text-1); font-weight: 600; }
+.problem-source span { color: var(--text-4); font-family: var(--mono); font-size: 11px; letter-spacing: 0.05em; margin-left: 6px; }
+.demo-note { margin-top: 14px; font-size: 12.5px; color: var(--text-4); }
+
+.includes { list-style: none; padding: 0; margin: 32px 0 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px 40px; }
+.includes li { display: grid; grid-template-columns: 22px 1fr; gap: 12px; color: var(--text-3); font-size: 14.5px; line-height: 1.5; }
+.includes li svg { color: var(--blue-bright); margin-top: 2px; }
+.includes strong { color: var(--text-1); font-weight: 600; }
+@media (max-width: 760px) { .includes { grid-template-columns: 1fr; } }
+
+.price-tabs { display: inline-flex; gap: 6px; padding: 5px; margin-top: 28px; background: var(--bg-2); border: 1px solid var(--line-2); border-radius: 12px; flex-wrap: wrap; }
+.price-tab { font: 600 14px var(--sans); color: var(--text-3); background: none; border: 0; padding: 10px 18px; border-radius: 8px; cursor: pointer; }
+.price-tab:hover { color: var(--text-1); }
+.price-tab[aria-selected="true"] { background: var(--blue); color: #fff; }
+.price-tab:focus-visible { outline: 2px solid var(--blue-bright); outline-offset: 2px; }
+.price-panel[hidden] { display: none !important; }
+.quote-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 32px; }
+.quote-grid .feature { display: flex; flex-direction: column; }
+.quote-grid .feature p { flex: 1; }
+.quote-grid .quote-price { font-family: var(--mono); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--blue-bright); margin: 14px 0 16px; }
+@media (max-width: 920px) { .quote-grid { grid-template-columns: 1fr; max-width: 520px; margin-left: auto; margin-right: auto; } }
+
+.steps { display: grid; grid-template-columns: repeat(4, 1fr); position: relative; margin-top: 8px; }
+.steps::before { content: ''; position: absolute; top: 28px; left: 12.5%; right: 12.5%; height: 1px; background: rgba(59,130,246,0.4); }
+.step { text-align: center; padding: 0 16px; position: relative; z-index: 1; }
+.step-num { width: 56px; height: 56px; border-radius: 50%; background: var(--blue); display: grid; place-items: center; margin: 0 auto 20px; font-family: var(--mono); font-size: 18px; font-weight: 600; color: #fff; box-shadow: 0 0 24px var(--blue-glow); }
+.step-title { font-weight: 600; color: var(--text-1); font-size: 15px; margin-bottom: 8px; }
+.step p { font-size: 13.5px; color: var(--text-3); line-height: 1.5; }
+@media (max-width: 820px) { .steps { grid-template-columns: 1fr 1fr; row-gap: 36px; } .steps::before { display: none; } }
+@media (max-width: 480px) { .steps { grid-template-columns: 1fr; } }
+
+.faq-label { font-family: var(--mono); font-size: 12px; letter-spacing: 0.13em; text-transform: uppercase; color: var(--blue-bright); margin: 40px 0 12px; }
+.faq-label:first-of-type { margin-top: 32px; }
+.faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; }
+.faq-item { padding: 28px 32px; background: var(--bg-2); }
+.faq-item:last-child:nth-child(odd) { grid-column: 1 / -1; }
+.faq-item .q { font-weight: 600; color: var(--text-1); font-size: 15px; margin-bottom: 10px; }
+.faq-item .a { font-size: 14px; color: var(--text-3); line-height: 1.6; }
+@media (max-width: 820px) { .faq-grid { grid-template-columns: 1fr; } .faq-item { padding: 22px 20px; } }
+
+.footer-links { flex-wrap: wrap; }
+.footer-links a { overflow-wrap: anywhere; }
+.cta-grid > *, .cta-perk > div { min-width: 0; }
+.cta-action-sub a, .footer-links a[href^="mailto"] { color: var(--blue-bright); text-decoration: none; }
+.cta-action-sub a:hover, .footer-links a[href^="mailto"]:hover { text-decoration: underline; }
 </style>
 <script>
 (function(){try{if(localStorage.getItem('jts-theme')==='light')document.documentElement.setAttribute('data-theme','light');}catch(e){}
@@ -1803,10 +1896,9 @@ document.addEventListener('DOMContentLoaded',function(){var b=document.getElemen
       <span class="brand-text">JTS Solutions <small>Smart Automation</small></span>
     </a>
     <div class="nav-links">
-      <a href="#problem">Problem</a>
-      <a href="#calculator">Calculator</a>
-      <a href="#how">How It Works</a>
+      <a href="#services">Services</a>
       <a href="#pricing">Pricing</a>
+      <a href="#process">How It Works</a>
       <a href="#faq">FAQ</a>
       <a href="#contact">Contact</a>
     </div>
@@ -1827,16 +1919,12 @@ document.addEventListener('DOMContentLoaded',function(){var b=document.getElemen
   <div class="container">
     <div class="hero-grid">
       <div class="hero-text">
-        <div class="eyebrow">JTS Solutions · Smart Automation for Modern Businesses</div>
-        <h1>Never miss <span class="accent">a lead,</span> again.</h1>
-        <p class="hero-sub">The only missed-call system that <em>actually talks</em> to your customers. AI answers their questions, books appointments, and pre-qualifies estimates — all over SMS, in under 30 seconds. You don't lift a finger.</p>
+        <div class="eyebrow">JTS Solutions · Serving NJ · NYC · PA</div>
+        <h1>Automation that <span class="accent">answers, books,</span> and follows up for you.</h1>
+        <p class="hero-sub">Missed-call text-back, workflow automation, client portals, websites, and CRM. We build it, run it, and keep it working, so you can focus on the job.</p>
         <div class="hero-ctas">
-          <a href="#calculator" class="btn btn--primary">Calculate what you're losing →</a>
+          <a href="#services" class="btn btn--primary">See what we build →</a>
           <a href="#" class="btn btn--ghost js-booking">Book a free consultation call</a>
-        </div>
-        <div class="hero-ticker">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--blue-bright);flex-shrink:0;"><path d="M3 3v18h18"/><path d="M7 14l4-4 4 4 5-7"/></svg>
-          <span><strong style="color:var(--text-1);font-weight:600;">78% of customers</strong> buy from the first business that responds. <span style="color:var(--text-4);font-family:var(--mono);font-size:11px;letter-spacing:0.05em;">— HBR</span></span>
         </div>
       </div>
       <div class="hero-visual">
@@ -1879,18 +1967,58 @@ document.addEventListener('DOMContentLoaded',function(){var b=document.getElemen
   </div>
 </section>
 
-<!-- ================================================================ INDUSTRY SELECTOR -->
+<!-- ================================================================ SERVICES -->
+<section class="section" id="services" style="padding-top:40px;padding-bottom:40px;">
+  <div class="container reveal">
+    <div class="eyebrow">What we do</div>
+    <h2>Everything we build, <span class="serif italic" style="color:var(--blue-bright);">in one place.</span></h2>
+    <p class="lead muted" style="margin-top:14px;max-width:60ch;">Start with one service or combine them. We build everything, run it for you, and keep it working.</p>
+    <div class="services-grid">
+      <div class="service-feature">
+        <div>
+          <div class="price-tag" style="position:static;display:inline-block;margin-bottom:14px;">Our flagship service</div>
+          <h3>Missed Call Automation</h3>
+          <p>Every missed call gets a text back in under 30 seconds. Customers book, ask questions, or request an estimate, and you get the details. Plans from $197/mo.</p>
+        </div>
+        <div class="sf-actions">
+          <a href="#pricing" class="btn btn--primary">See plans →</a>
+          <a href="#how" class="btn btn--ghost">Watch the demo</a>
+        </div>
+      </div>
+      <div class="feature service-card">
+        <div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg></div>
+        <h4>Workflow Automation</h4>
+        <p>Hand off the repetitive work. We automate follow-ups, scheduling, reminders, and data entry so your time goes to the job, not the paperwork.</p>
+        <a href="#pricing" class="more" data-tab-link="1">Get a quote →</a>
+      </div>
+      <div class="feature service-card">
+        <div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+        <h4>Portals, Web Apps &amp; Business Tools</h4>
+        <p>Client portals, dashboards, and web apps built around your workflow, so customers and your team can log in, track work, and get answers without the back-and-forth.</p>
+        <a href="#pricing" class="more" data-tab-link="1">Get a quote →</a>
+      </div>
+      <div class="feature service-card">
+        <div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+        <h4>Web Development</h4>
+        <p>Modern, mobile-friendly websites built to turn visitors into calls and bookings.</p>
+        <a href="#pricing" class="more" data-tab-link="1">Get a quote →</a>
+      </div>
+      <div class="feature service-card">
+        <div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></div>
+        <h4>CRM Creation &amp; Maintenance</h4>
+        <p>We build your CRM and keep it running. Automation handles the busywork, so you save time, avoid messy data and costly errors, and cut manual labor.</p>
+        <a href="#pricing" class="more" data-tab-link="1">Get a quote →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ================================================================ PROBLEM -->
 <section class="section" id="problem">
   <div class="container reveal">
-    <div class="eyebrow">The Problem</div>
+    <div class="eyebrow">Missed Call Automation · The problem</div>
     <h2><span class="rot-word" id="problem-industry">HVAC contractors</span><br>bleed revenue every single day.</h2>
-    <div class="stats-grid">
-      <div class="stat-card">
-        <div class="stat-num" data-target="80" data-suffix="%">0%</div>
-        <div class="stat-desc"><strong style="color:var(--text-1);">of callers skip voicemail.</strong> They hang up and never call back.</div>
-        <div class="stat-source">Hiya, State of the Call</div>
-      </div>
+    <div class="stats-grid stats-grid--two">
       <div class="stat-card">
         <div class="stat-num" data-target="62" data-suffix="%">0%</div>
         <div class="stat-desc"><strong style="color:var(--text-1);">call a competitor</strong> instead — immediately. Google's right there.</div>
@@ -1903,6 +2031,7 @@ document.addEventListener('DOMContentLoaded',function(){var b=document.getElemen
       </div>
     </div>
     <p class="problem-close">None of this is your fault. You can't be on the phone <em>and</em> <span id="problem-ending">on the roof</span> at the same time.</p>
+    <p class="problem-source"><strong>78% of customers</strong> buy from the first business that responds.<span>HBR</span></p>
   </div>
 </section>
 
@@ -1957,14 +2086,14 @@ document.addEventListener('DOMContentLoaded',function(){var b=document.getElemen
           <div class="calc-card-sub">Estimate based on industry SMS response rates (~45%) and missed-call recovery research. Actual results vary.</div>
         </div>
         <div class="calc-card calc-card-net">
-          <div class="calc-card-label">After JTS + tool costs</div>
+          <div class="calc-card-label">After JTS</div>
           <div class="calc-card-num" id="out-net">$0/yr net</div>
           <div class="calc-card-sub">Money in your pocket every year, on top of what you're already making</div>
         </div>
         <div class="calc-multiplier">
           That's a <span class="x" id="out-mult">0×</span> return on JTS.
         </div>
-        <div class="calc-footnote">Math assumes the Growth plan ($397/mo). All tool costs included — no extra fees. Higher volume = better ROI on the Elite tier.</div>
+        <div class="calc-footnote">Math assumes the Growth plan ($397/mo). Higher volume = better ROI on the Elite tier.</div>
       </div>
     </div>
   </div>
@@ -2069,48 +2198,24 @@ document.addEventListener('DOMContentLoaded',function(){var b=document.getElemen
           <div class="demo-step" data-step="4"><span class="num">4</span> Booked</div>
         </div>
         <button class="demo-replay" id="demo-replay">↻ Replay demo</button>
+        <p class="demo-note">Example only. The business name and phone numbers shown are fictional.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ================================================================ FEATURES -->
-<section class="section" style="padding-top:80px;">
+<!-- ================================================================ WHAT'S INCLUDED -->
+<section class="section" style="padding-top:60px;padding-bottom:40px;">
   <div class="container reveal">
-    <div class="eyebrow">The Service</div>
-    <h2>Everything configured and managed for you.</h2>
-    <div class="features-grid">
-      <div class="feature">
-        <div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
-        <h4>30-Second Response</h4>
-        <p>Every missed call gets a text back before the customer can call someone else.</p>
-      </div>
-      <div class="feature">
-        <div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18M9 16l2 2 4-4"/></svg></div>
-        <h4>Automatic Booking</h4>
-        <p>Customers book directly into your calendar. No back-and-forth.</p>
-      </div>
-      <div class="feature">
-        <div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg></div>
-        <h4>Owner Notifications</h4>
-        <p>Every engagement texts you the name, the need, and the contact info.</p>
-      </div>
-      <div class="feature">
-        <div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 9h8M8 13h5"/></svg></div>
-        <h4>AI-Powered Q&amp;A</h4>
-        <p>On Growth and above, AI reads the customer's question and responds intelligently — no owner follow-up needed. They get an answer before they can call anyone else.</p>
-      </div>
-      <div class="feature">
-        <div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l4-4 4 4 5-7"/></svg></div>
-        <h4>Monthly Report</h4>
-        <p>Plain-English summary: calls caught, booked, and gone cold.</p>
-      </div>
-      <div class="feature">
-        <div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div>
-        <h4>Zero Effort From You</h4>
-        <p>We configure and manage everything. You focus on the work.</p>
-      </div>
-    </div>
+    <div class="eyebrow">Missed Call Automation</div>
+    <h2>What every plan includes.</h2>
+    <ul class="includes">
+      <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><div><strong>30-second response.</strong> Every missed call gets a text back before the customer can call someone else.</div></li>
+      <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><div><strong>Automatic booking.</strong> Customers book directly into your calendar. No back-and-forth.</div></li>
+      <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><div><strong>Owner notifications.</strong> Every conversation texts you the name, the need, and the contact info.</div></li>
+      <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><div><strong>AI-powered Q&amp;A.</strong> On Growth and Elite, AI answers customer questions right away, with no owner follow-up needed.</div></li>
+      <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><div><strong>Monthly report.</strong> A plain-English summary of calls caught, booked, and gone cold.</div></li>
+    </ul>
   </div>
 </section>
 
@@ -2119,12 +2224,17 @@ document.addEventListener('DOMContentLoaded',function(){var b=document.getElemen
 <section class="section" id="pricing" style="padding-top:80px;">
   <div class="container reveal">
     <div class="eyebrow">Pricing</div>
-    <h2>Simple, flat monthly fee. <span class="serif italic" style="color:var(--blue-bright);">No surprises.</span></h2>
+    <h2>Simple pricing. <span class="serif italic" style="color:var(--blue-bright);">No surprises.</span></h2>
+    <div class="price-tabs" role="tablist" aria-label="Pricing categories">
+      <button class="price-tab" role="tab" id="pt-0" aria-selected="true" aria-controls="pp-0" type="button">Missed Call Automation</button>
+      <button class="price-tab" role="tab" id="pt-1" aria-selected="false" aria-controls="pp-1" type="button">Websites, CRM &amp; Custom</button>
+    </div>
+    <div class="price-panel" id="pp-0" role="tabpanel" aria-labelledby="pt-0">
     <div class="pricing-grid">
       <div class="price-card">
         <div class="price-name">Starter</div>
         <div class="price-amount"><sup>$</sup>197<span>/mo</span></div>
-        <div class="price-prepay" style="font-size:13px;color:var(--text-3);margin:-4px 0 10px;">or $172/mo (6-mo) &middot; $147/mo (12-mo prepay)</div>
+        <div class="price-prepay" style="font-size:13px;color:var(--text-3);margin:-4px 0 10px;">or $177/mo (6-mo) &middot; $167/mo (12-mo prepay)</div>
         <div class="price-volume">Up to 150 missed calls / month</div>
         <ul class="price-features">
           <li>Full system setup &amp; configuration</li>
@@ -2142,7 +2252,7 @@ document.addEventListener('DOMContentLoaded',function(){var b=document.getElemen
         <div class="price-tag">Most Popular</div>
         <div class="price-name">Growth</div>
         <div class="price-amount"><sup>$</sup>397<span>/mo</span></div>
-        <div class="price-prepay" style="font-size:13px;color:var(--text-3);margin:-4px 0 10px;">or $372/mo (6-mo) &middot; $347/mo (12-mo prepay)</div>
+        <div class="price-prepay" style="font-size:13px;color:var(--text-3);margin:-4px 0 10px;">or $357/mo (6-mo) &middot; $337/mo (12-mo prepay)</div>
         <div class="price-volume">Up to 400 missed calls / month</div>
         <ul class="price-features">
           <li>Everything in Starter</li>
@@ -2159,7 +2269,7 @@ document.addEventListener('DOMContentLoaded',function(){var b=document.getElemen
       <div class="price-card">
         <div class="price-name">Elite</div>
         <div class="price-amount"><sup>$</sup>597<span>/mo</span></div>
-        <div class="price-prepay" style="font-size:13px;color:var(--text-3);margin:-4px 0 10px;">or $547/mo (6-mo) &middot; $522/mo (12-mo prepay)</div>
+        <div class="price-prepay" style="font-size:13px;color:var(--text-3);margin:-4px 0 10px;">or $537/mo (6-mo) &middot; $507/mo (12-mo prepay)</div>
         <div class="price-volume">Unlimited missed calls</div>
         <ul class="price-features">
           <li>Everything in Growth</li>
@@ -2180,38 +2290,49 @@ document.addEventListener('DOMContentLoaded',function(){var b=document.getElemen
         <p style="color:var(--text-3);font-size:14px;line-height:1.6;">Covers full system configuration, end-to-end testing, and a live onboarding call. After that, just your flat monthly rate — no surprises, ever. <span style="color:var(--blue-bright);font-weight:500;">Setup fee waived for the first 10 clients.</span></p>
       </div>
     </div>
-    <p class="price-footnote">All tool costs included. No hidden fees. Month-to-month, or prepay 6 or 12 months to lock in a lower rate and save up to $900 a year.</p>
+    <p class="price-footnote">Month-to-month, or prepay 6 or 12 months to lock in a lower rate and save up to $1,080 a year.</p>
+    </div>
+
+    <div class="price-panel" id="pp-1" role="tabpanel" aria-labelledby="pt-1" hidden>
+      <p class="lead muted" style="margin-top:28px;max-width:60ch;">Every project is different, so we quote after a short call about what you need. No pressure and no obligation.</p>
+      <div class="quote-grid">
+        <div class="feature">
+          <div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+          <h4>Websites</h4>
+          <p>Modern, mobile-friendly websites built to turn visitors into calls and bookings.</p>
+          <div class="quote-price">Custom quote</div>
+          <a href="#" class="btn btn--ghost js-booking">Get a quote</a>
+        </div>
+        <div class="feature">
+          <div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></div>
+          <h4>CRM Creation &amp; Maintenance</h4>
+          <p>We build your CRM and keep it running and clean, with automation that saves time and cuts errors and manual labor.</p>
+          <div class="quote-price">Custom quote</div>
+          <a href="#" class="btn btn--ghost js-booking">Get a quote</a>
+        </div>
+        <div class="feature">
+          <div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg></div>
+          <h4>Portals, Web Apps &amp; Automation</h4>
+          <p>Client portals, web apps, and workflow automation built around how your business runs, scoped to your project.</p>
+          <div class="quote-price">Custom quote</div>
+          <a href="#" class="btn btn--ghost js-booking">Get a quote</a>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- ================================================================ WHAT HAPPENS AFTER BOOKING -->
-<section class="section" style="padding-top:80px;padding-bottom:80px;">
+<section class="section" id="process" style="padding-top:80px;padding-bottom:80px;">
   <div class="container reveal">
-    <div class="eyebrow">What to expect</div>
-    <h2>From first call to first text back <span class="serif italic" style="color:var(--blue-bright);">in under a week.</span></h2>
-    <p class="lead muted" style="margin-top:14px;margin-bottom:32px;">Here's exactly what happens after you book a call with us.</p>
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;">
-      <div style="position:absolute;top:28px;left:calc(12.5% + 20px);right:calc(12.5% + 20px);height:1px;background:rgba(59,130,246,0.4);z-index:0;"></div>
-      <div style="text-align:center;padding:0 16px;position:relative;z-index:1;">
-        <div style="width:56px;height:56px;border-radius:50%;background:var(--blue);display:grid;place-items:center;margin:0 auto 20px;font-family:var(--mono);font-size:18px;font-weight:600;color:white;box-shadow:0 0 24px var(--blue-glow);">1</div>
-        <p style="font-weight:600;color:var(--text-1);font-size:15px;margin-bottom:8px;">15-min call</p>
-        <p style="font-size:13.5px;color:var(--text-3);line-height:1.5;">We learn about your business, your volume, and which tier fits.</p>
-      </div>
-      <div style="text-align:center;padding:0 16px;position:relative;z-index:1;">
-        <div style="width:56px;height:56px;border-radius:50%;background:var(--blue);display:grid;place-items:center;margin:0 auto 20px;font-family:var(--mono);font-size:18px;font-weight:600;color:white;box-shadow:0 0 24px var(--blue-glow);">2</div>
-        <p style="font-weight:600;color:var(--text-1);font-size:15px;margin-bottom:8px;">We build it</p>
-        <p style="font-size:13.5px;color:var(--text-3);line-height:1.5;">Full system configured in 3–5 days. Zero effort from you — we handle everything.</p>
-      </div>
-      <div style="text-align:center;padding:0 16px;position:relative;z-index:1;">
-        <div style="width:56px;height:56px;border-radius:50%;background:var(--blue);display:grid;place-items:center;margin:0 auto 20px;font-family:var(--mono);font-size:18px;font-weight:600;color:white;box-shadow:0 0 24px var(--blue-glow);">3</div>
-        <p style="font-weight:600;color:var(--text-1);font-size:15px;margin-bottom:8px;">Live test</p>
-        <p style="font-size:13.5px;color:var(--text-3);line-height:1.5;">We walk you through a live test call so you see exactly what your customers experience.</p>
-      </div>
-      <div style="text-align:center;padding:0 16px;position:relative;z-index:1;">
-        <div style="width:56px;height:56px;border-radius:50%;background:var(--blue);display:grid;place-items:center;margin:0 auto 20px;font-family:var(--mono);font-size:18px;font-weight:600;color:white;box-shadow:0 0 24px var(--blue-glow);">4</div>
-        <p style="font-weight:600;color:var(--text-1);font-size:15px;margin-bottom:8px;">Go live</p>
-        <p style="font-size:13.5px;color:var(--text-3);line-height:1.5;">First missed call gets a text back in under 30 seconds. You start recovering leads immediately.</p>
-      </div>
+    <div class="eyebrow">How it works</div>
+    <h2>From first call to live, <span class="serif italic" style="color:var(--blue-bright);">in four steps.</span></h2>
+    <p class="lead muted" style="margin-top:14px;margin-bottom:40px;">Here's what happens after you book a call with us.</p>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><p class="step-title">15-minute call</p><p>We learn about your business, what's slowing you down, and what to build first.</p></div>
+      <div class="step"><div class="step-num">2</div><p class="step-title">We build it</p><p>Everything is set up for you. Missed-call systems are ready in 3–5 days.</p></div>
+      <div class="step"><div class="step-num">3</div><p class="step-title">Live test</p><p>We walk you through it so you see exactly how it works before it goes live.</p></div>
+      <div class="step"><div class="step-num">4</div><p class="step-title">Go live</p><p>Your system starts working, and we stay on to keep it running.</p></div>
     </div>
   </div>
 </section>
@@ -2221,38 +2342,28 @@ document.addEventListener('DOMContentLoaded',function(){var b=document.getElemen
   <div class="container reveal">
     <div class="eyebrow">FAQ</div>
     <h2>Questions we get on every call.</h2>
-    <div style="margin-top:32px;display:grid;grid-template-columns:1fr 1fr;gap:2px;border:1px solid var(--line);border-radius:var(--radius-lg);overflow:hidden;">
 
-      <div class="faq-item" style="padding:28px 32px;background:var(--bg-2);border-right:1px solid var(--line);border-bottom:1px solid var(--line);">
-        <p style="font-weight:600;color:var(--text-1);font-size:15px;margin-bottom:10px;">Do I need to be tech-savvy?</p>
-        <p style="font-size:14px;color:var(--text-3);line-height:1.6;">Not at all. We configure everything. You don't touch a single tool or setting. The most technical thing you do is forward your business number — which takes about 60 seconds and we walk you through it.</p>
-      </div>
+    <p class="faq-label">General</p>
+    <div class="faq-grid">
+      <div class="faq-item"><p class="q">Do I need to be tech-savvy?</p><p class="a">Not at all. We configure everything, so you don't touch a single tool or setting. For missed-call automation, the most technical thing you do is forward your business number, which takes about 60 seconds, and we walk you through it.</p></div>
+      <div class="faq-item"><p class="q">What are the most common tools you use?</p><p class="a">We stick with proven, widely used platforms we know well, so your business isn't a testing ground. The ones we use most: <strong>Twilio</strong> for texting and phone numbers, <strong>Zapier</strong> to connect your apps and automate steps, <strong>Calendly</strong> and <strong>Google Calendar</strong> for booking, <strong>Airtable</strong> for records, logs, and CRM data, and <strong>Softr</strong> for client portals and web apps. We pick the right mix for your business after a short call.</p></div>
+      <div class="faq-item"><p class="q">How does pricing work?</p><p class="a">Missed-call automation plans are a flat monthly fee, plus a one-time setup fee that's waived for the first 10 clients. Websites, CRM, portals, and custom work are quoted after a short call, based on what you need.</p></div>
+      <div class="faq-item"><p class="q">What happens if I cancel?</p><p class="a">Missed-call plans are month-to-month, so you can cancel anytime with no penalty. We'll turn off the system and your number goes back to ringing normally. No contracts, no lock-in, no hard feelings.</p></div>
+    </div>
 
-      <div class="faq-item" style="padding:28px 32px;background:var(--bg-2);border-bottom:1px solid var(--line);">
-        <p style="font-weight:600;color:var(--text-1);font-size:15px;margin-bottom:10px;">Can I keep my existing phone number?</p>
-        <p style="font-size:14px;color:var(--text-3);line-height:1.6;">Yes. You keep your number. We set up a separate line that your business number quietly forwards missed calls to. Customers never notice anything changed — they just get a text back instead of silence.</p>
-      </div>
+    <p class="faq-label">Missed Call Automation</p>
+    <div class="faq-grid">
+      <div class="faq-item"><p class="q">Can I keep my existing phone number?</p><p class="a">Yes. You keep your number. We set up a separate line that your business number quietly forwards missed calls to. Customers never notice anything changed. They just get a text back instead of silence.</p></div>
+      <div class="faq-item"><p class="q">What if I already have voicemail?</p><p class="a">Voicemail is passive: customers leave a message and hope you call back. Our system is active. It texts them within 30 seconds and routes them to book, get an estimate, or ask a question. Most people don't leave voicemails anymore. They just hang up and call the next guy.</p></div>
+      <div class="faq-item"><p class="q">Does AI actually talk to my customers?</p><p class="a">On Growth and Elite, yes. When a customer texts back a question, AI reads it and responds in real time, with no wait and no owner follow-up needed. On Starter, questions are forwarded to you directly. Either way, no lead falls through the cracks.</p></div>
+      <div class="faq-item"><p class="q">How long does setup take?</p><p class="a">3–5 business days from your onboarding call to going live. Most clients are live within a week of signing up.</p></div>
+    </div>
 
-      <div class="faq-item" style="padding:28px 32px;background:var(--bg-2);border-right:1px solid var(--line);border-bottom:1px solid var(--line);">
-        <p style="font-weight:600;color:var(--text-1);font-size:15px;margin-bottom:10px;">What if I already have voicemail?</p>
-        <p style="font-size:14px;color:var(--text-3);line-height:1.6;">Voicemail is passive — customers leave a message and hope you call back. Our system is active — it texts them within 30 seconds and routes them to book, get an estimate, or ask a question. Most people don't leave voicemails anymore. They just hang up and call the next guy.</p>
-      </div>
-
-      <div class="faq-item" style="padding:28px 32px;background:var(--bg-2);border-bottom:1px solid var(--line);">
-        <p style="font-weight:600;color:var(--text-1);font-size:15px;margin-bottom:10px;">Does AI actually talk to my customers?</p>
-        <p style="font-size:14px;color:var(--text-3);line-height:1.6;">On Growth and Elite, yes. When a customer texts back a question, AI reads it and responds in real time — no wait, no owner follow-up needed. On Starter, questions are forwarded to you directly. Either way, no lead falls through the cracks.</p>
-      </div>
-
-      <div class="faq-item" style="padding:28px 32px;background:var(--bg-2);border-right:1px solid var(--line);">
-        <p style="font-weight:600;color:var(--text-1);font-size:15px;margin-bottom:10px;">How long does setup take?</p>
-        <p style="font-size:14px;color:var(--text-3);line-height:1.6;">3–5 business days from your onboarding call to going live. We've built this system enough times that it moves fast. Most clients are live within a week of signing up.</p>
-      </div>
-
-      <div class="faq-item" style="padding:28px 32px;background:var(--bg-2);">
-        <p style="font-weight:600;color:var(--text-1);font-size:15px;margin-bottom:10px;">What happens if I cancel?</p>
-        <p style="font-size:14px;color:var(--text-3);line-height:1.6;">Month-to-month means you can cancel anytime with no penalty. We'll turn off the system and your number goes back to ringing normally. No contracts, no lock-in, no hard feelings.</p>
-      </div>
-
+    <p class="faq-label">Websites, CRM, portals &amp; custom work</p>
+    <div class="faq-grid">
+      <div class="faq-item"><p class="q">What does CRM creation and maintenance include?</p><p class="a">We build your CRM around how your business already works, then keep it running. Automations handle follow-ups, reminders, and data entry, so your records stay clean, mistakes drop, and nothing slips through the cracks.</p></div>
+      <div class="faq-item"><p class="q">Can you build a customer portal or web app?</p><p class="a">Yes. We build client portals, dashboards, and web apps around your workflow, so customers and your team can log in, track work, and get answers without the back-and-forth. We build on platforms like <strong>Airtable</strong> and <strong>Softr</strong>. Every project is scoped to your needs, so we quote after a short call.</p></div>
+      <div class="faq-item"><p class="q">How do you price websites, portals, and custom projects?</p><p class="a">Every project is scoped to what you need, so we quote after a short call. There's no pressure and no obligation to move forward.</p></div>
     </div>
   </div>
 </section>
@@ -2261,26 +2372,18 @@ document.addEventListener('DOMContentLoaded',function(){var b=document.getElemen
 <section class="cta-section" id="contact">
   <div class="container reveal">
     <div class="eyebrow">Ready?</div>
-    <h2>Stop losing leads. <span class="serif italic" style="color:var(--blue-bright);">Today.</span></h2>
-    <p class="lead muted" style="margin-top:14px;max-width:54ch;margin-bottom:32px;">Tell us a little about your business. We'll follow up within one business day to set up a quick call — Zoom, Meet, or phone, your call.</p>
+    <h2>Ready to save time? <span class="serif italic" style="color:var(--blue-bright);">Let's talk.</span></h2>
+    <p class="lead muted" style="margin-top:14px;max-width:54ch;margin-bottom:32px;">Book a time that works for you and tell us about your business. Zoom, Meet, or phone, your call.</p>
 
     <div class="cta-grid">
       <div class="cta-perks">
         <div class="cta-perk">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-          <div><strong>Setup in under a week.</strong> We configure the entire system. You do nothing.</div>
+          <div><strong>Month-to-month automation plans.</strong> No contracts. Cancel anytime.</div>
         </div>
         <div class="cta-perk">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-          <div><strong>Month-to-month.</strong> No contracts. Cancel anytime.</div>
-        </div>
-        <div class="cta-perk">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-          <div><strong>One business day response.</strong> Real human, no chatbot maze.</div>
-        </div>
-        <div class="cta-perk">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-          <div><strong>Done for you.</strong> We implement, run, and maintain the entire system, so you never have to touch it.</div>
+          <div><strong>One business day response.</strong> A real person, no chatbot maze.</div>
         </div>
       </div>
 
@@ -2288,7 +2391,7 @@ document.addEventListener('DOMContentLoaded',function(){var b=document.getElemen
         <a href="#" class="btn btn--primary js-booking" style="font-size:17px;padding:18px 28px;width:100%;">
           Book a free consultation call →
         </a>
-        <div class="cta-action-sub">Takes 60 seconds. We'll reach out same day.</div>
+        <div class="cta-action-sub">Takes 60 seconds. Prefer email? <a href="mailto:solutionsfromjts@gmail.com">solutionsfromjts@gmail.com</a></div>
       </div>
     </div>
   </div>
@@ -2307,11 +2410,12 @@ document.addEventListener('DOMContentLoaded',function(){var b=document.getElemen
       </div>
     </div>
     <div class="footer-links">
-      <a href="#">Privacy</a>
-      <a href="#">Terms</a>
+      <a href="#services">Services</a>
+      <a href="#pricing">Pricing</a>
       <a href="#contact">Contact</a>
+      <a href="mailto:solutionsfromjts@gmail.com">solutionsfromjts@gmail.com</a>
     </div>
-    <div class="footer-copy">© 2026 JTS Solutions. All rights reserved.</div>
+    <div class="footer-copy">Serving New Jersey, New York City, and Pennsylvania · © 2026 JTS Solutions. All rights reserved.</div>
   </div>
 </footer>
 
@@ -2727,6 +2831,22 @@ demoObserver.observe(demoSection);
 
 // initialize
 selectIndustry('hvac');
+</script>
+<script>
+(function () {
+  var tabs = document.querySelectorAll('.price-tab');
+  function show(i) {
+    tabs.forEach(function (t, j) {
+      t.setAttribute('aria-selected', i === j ? 'true' : 'false');
+      var p = document.getElementById('pp-' + j);
+      if (p) p.hidden = i !== j;
+    });
+  }
+  tabs.forEach(function (t, i) { t.addEventListener('click', function () { show(i); }); });
+  document.querySelectorAll('[data-tab-link]').forEach(function (a) {
+    a.addEventListener('click', function () { show(parseInt(a.getAttribute('data-tab-link'), 10)); });
+  });
+})();
 </script>
 </body>
 </html>
