@@ -2165,9 +2165,8 @@ nav.top.is-menu-open .menu-btn span:nth-child(3) { transform: translateY(-6px) r
 .marquee-track {
   display: flex;
   width: max-content;
-  animation: marquee 42s linear infinite;
+  animation: marquee 60s linear infinite;
 }
-.marquee:hover .marquee-track { animation-play-state: paused; }
 .marquee-group {
   display: flex;
   flex: none;
