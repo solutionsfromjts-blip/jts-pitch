@@ -25,2310 +25,333 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&family=Hanken+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-/* ============================================================
-   JTS SOLUTIONS — Never Miss a Lead Again
-   ============================================================ */
-
-:root {
-  /* DARK (default) */
-  --bg-0: #07090F;
-  --bg-1: #0A0E1A;
-  --bg-2: #0F1525;
-  --bg-3: #161D33;
-  --bg-elev: #1B2440;
-  --line: rgba(148, 163, 184, 0.08);
-  --line-2: rgba(148, 163, 184, 0.16);
-  --blue: #3B82F6;
-  --blue-bright: #60A5FA;
-  --blue-soft: #93C5FD;
-  --blue-glow: rgba(59, 130, 246, 0.22);
-  --green: #10B981;
-  --green-soft: rgba(16, 185, 129, 0.12);
-  --rose: #F43F5E;
-  --rose-soft: rgba(244, 63, 94, 0.10);
-  --text-1: #F8FAFC;
-  --text-2: #CBD5E1;
-  --text-3: #94A3B8;
-  --text-4: #64748B;
-  --text-5: #475569;
-  --nav-bg: rgba(7,9,15,0.72);
-  --hv-pain-bg: linear-gradient(180deg,#12121a,#0e0e15);
-  --hv-jts-bg: linear-gradient(180deg,#0f1830,#0c1120);
-  --hv-head-pain: #1b2030; --hv-head-pain-stroke: #3a4256;
-  --hv-head-jts: #16233f;
-  --hv-eye-pain: #8493ad; --hv-eye-jts: #bcd2f5; --hv-mouth-pain: #6b7690;
-  --serif: 'Fraunces', ui-serif, Georgia, serif;
-  --sans: 'Hanken Grotesk', system-ui, sans-serif;
-  --mono: 'JetBrains Mono', ui-monospace, monospace;
-  --max: 1240px;
-  --radius-sm: 8px;
-  --radius: 14px;
-  --radius-lg: 22px;
-}
-:root[data-theme="light"] {
-  /* LIGHT — warm off-white */
-  --bg-0: #F9F7F3;
-  --bg-1: #F1EEE8;
-  --bg-2: #FEFCF9;
-  --bg-3: #EEEAE3;
-  --bg-elev: #FEFCF9;
-  --line: rgba(15,23,42,0.09);
-  --line-2: rgba(15,23,42,0.15);
-  --blue: #2563EB;
-  --blue-bright: #3B82F6;
-  --blue-soft: #60A5FA;
-  --blue-glow: rgba(37,99,235,0.15);
-  --green: #059669;
-  --green-soft: rgba(5,150,105,0.12);
-  --rose: #E11D48;
-  --rose-soft: rgba(225,29,72,0.10);
-  --text-1: #0F172A;
-  --text-2: #334155;
-  --text-3: #5B6472;
-  --text-4: #8A94A6;
-  --text-5: #9AA6B6;
-  --nav-bg: rgba(250,248,243,0.82);
-  --hv-pain-bg: linear-gradient(180deg,#F2EFEA,#EAE6DF);
-  --hv-jts-bg: linear-gradient(180deg,#EEF4FF,#E4EDFC);
-  --hv-head-pain: #E3E7EF; --hv-head-pain-stroke: #C0C8D6;
-  --hv-head-jts: #DBEAFF;
-  --hv-eye-pain: #7C8699; --hv-eye-jts: #2563EB; --hv-mouth-pain: #7C8699;
-}
-
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body {
-  background: var(--bg-0);
-  color: var(--text-1);
-  font-family: var(--sans);
-  font-size: 16px;
-  line-height: 1.55;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
-  font-feature-settings: 'ss01', 'cv11';
-}
-img, svg { display: block; max-width: 100%; }
-button { font: inherit; color: inherit; cursor: pointer; border: none; background: none; }
-input, textarea, select { font: inherit; color: inherit; outline: none; }
-a { color: inherit; text-decoration: none; }
-::selection { background: var(--blue); color: var(--bg-0); }
-
-/* atmosphere */
-body::before {
-  content: '';
-  position: fixed; inset: 0;
-  pointer-events: none;
-  background:
-    radial-gradient(ellipse 900px 700px at 85% -5%, rgba(59,130,246,0.10), transparent 60%),
-    radial-gradient(ellipse 700px 600px at -10% 35%, rgba(59,130,246,0.06), transparent 60%);
-  z-index: 0;
-}
-body::after {
-  content: '';
-  position: fixed; inset: 0;
-  pointer-events: none;
-  background-image:
-    linear-gradient(rgba(148,163,184,0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(148,163,184,0.025) 1px, transparent 1px);
-  background-size: 56px 56px;
-  -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
-          mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
-  z-index: 0;
-}
-main, nav, footer { position: relative; z-index: 1; }
-
-/* layout primitives */
-.container { max-width: var(--max); margin: 0 auto; padding: 0 28px; }
-.section { padding: 120px 0; position: relative; }
-.section--tight { padding: 80px 0; }
-
-.eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  font-family: var(--mono);
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.13em;
-  text-transform: uppercase;
-  color: var(--blue-bright);
-  margin-bottom: 32px;
-}
-.eyebrow::before {
-  content: '';
-  width: 28px;
-  height: 1px;
-  background: var(--blue);
-}
-.eyebrow::after {
-  content: '';
-  width: 28px;
-  height: 1px;
-  background: var(--blue);
-}
-.rot-word {
-  display: inline-block;
-  color: var(--blue-bright);
-  transition: transform .34s cubic-bezier(.2,.8,.2,1), opacity .34s;
-  will-change: transform, opacity;
-}
-.rot-word.rot-out { transform: translateY(-65%); opacity: 0; }
-.rot-word.rot-in  { transform: translateY(65%); opacity: 0; transition: none; }
-
-h1, h2, h3, h4 { font-family: var(--sans); font-weight: 600; letter-spacing: -0.02em; line-height: 1.05; }
-.serif { font-family: var(--serif); font-weight: 400; }
-.italic { font-style: italic; }
-
-h1 { font-size: clamp(44px, 7.6vw, 88px); letter-spacing: -0.035em; line-height: 0.98; }
-h2 { font-size: clamp(34px, 5vw, 56px); letter-spacing: -0.03em; }
-h3 { font-size: clamp(22px, 2.4vw, 28px); }
-
-p.lead { font-size: 19px; color: var(--text-2); line-height: 1.55; max-width: 56ch; }
-p { color: var(--text-2); }
-.muted { color: var(--text-3); }
-.dim { color: var(--text-4); }
-
-/* buttons */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  padding: 14px 22px;
-  border-radius: 10px;
-  font-weight: 600;
-  font-size: 15px;
-  letter-spacing: -0.005em;
-  transition: all 180ms ease;
-  white-space: nowrap;
-  cursor: pointer;
-  border: 1px solid transparent;
-}
-.btn--primary {
-  background: var(--blue);
-  color: white;
-  box-shadow: 0 0 0 0 var(--blue-glow), 0 1px 0 0 rgba(255,255,255,0.12) inset;
-}
-.btn--primary:hover {
-  background: var(--blue-bright);
-  box-shadow: 0 0 28px 4px var(--blue-glow), 0 1px 0 0 rgba(255,255,255,0.12) inset;
-  transform: translateY(-1px);
-}
-.btn--ghost {
-  background: transparent;
-  color: var(--text-1);
-  border-color: var(--line-2);
-}
-.btn--ghost:hover {
-  border-color: var(--blue);
-  color: white;
-  background: rgba(59,130,246,0.06);
-}
-.btn--sm { padding: 10px 16px; font-size: 14px; }
-
-/* ============================================================
-   NAV
-   ============================================================ */
-nav.top {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  backdrop-filter: blur(18px) saturate(140%);
-  -webkit-backdrop-filter: blur(18px) saturate(140%);
-  background: var(--nav-bg);
-  border-bottom: 1px solid var(--line);
-}
-.nav-inner {
-  max-width: var(--max);
-  margin: 0 auto;
-  padding: 14px 28px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-}
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-weight: 700;
-  font-size: 17px;
-  letter-spacing: -0.015em;
-}
-.brand-mark {
-  width: 30px; height: 30px;
-  background: var(--blue);
-  border-radius: 7px;
-  display: grid;
-  place-items: center;
-  color: var(--bg-0);
-  font-weight: 800;
-  font-size: 12px;
-  letter-spacing: -0.02em;
-  box-shadow: 0 0 18px var(--blue-glow);
-}
-.brand-text { color: var(--text-1); }
-.brand-text small {
-  display: block;
-  font-family: var(--mono);
-  font-size: 9px;
-  font-weight: 400;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--text-4);
-  margin-top: -2px;
-}
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 30px;
-}
-.nav-links a {
-  font-size: 14px;
-  color: var(--text-3);
-  transition: color 150ms;
-}
-.nav-links a:hover { color: var(--text-1); }
-.nav-right { display:flex; align-items:center; gap:12px; }
-.theme-toggle { display:inline-flex; align-items:center; justify-content:center; width:38px; height:38px; border-radius:10px; border:1px solid var(--line-2); background:var(--bg-2); color:var(--text-2); transition:color .15s,border-color .15s,background .15s; }
-.theme-toggle:hover { color:var(--text-1); border-color:var(--blue); }
-.theme-toggle .ic-moon { display:none; }
-.theme-toggle .ic-sun { display:block; }
-:root[data-theme="light"] .theme-toggle .ic-moon { display:block; }
-:root[data-theme="light"] .theme-toggle .ic-sun { display:none; }
-
-@media (max-width: 880px) {
-  .nav-links { display: none; }
-}
-
-/* ============================================================
-   HERO
-   ============================================================ */
-.hero {
-  padding: 90px 0 80px;
-  position: relative;
-  overflow: hidden;
-}
-.hero-grid {
-  display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  gap: 60px;
-  align-items: center;
-}
-@media (max-width: 920px) {
-  .hero-grid { grid-template-columns: 1fr; gap: 40px; }
-}
-.hero-text > * { opacity: 0; transform: translateY(14px); animation: rise 800ms cubic-bezier(0.2, 0.8, 0.2, 1) forwards; }
-.hero-text > *:nth-child(1) { animation-delay: 80ms; }
-.hero-text > *:nth-child(2) { animation-delay: 200ms; }
-.hero-text > *:nth-child(3) { animation-delay: 360ms; }
-.hero-text > *:nth-child(4) { animation-delay: 520ms; }
-.hero-text > *:nth-child(5) { animation-delay: 680ms; }
-@keyframes rise { to { opacity: 1; transform: translateY(0); } }
-
-.hero h1 {
-  margin-bottom: 22px;
-}
-.hero h1 .accent {
-  font-family: var(--serif);
-  font-style: italic;
-  font-weight: 400;
-  color: var(--blue-bright);
-  letter-spacing: -0.025em;
-}
-.hero-sub {
-  font-size: 19px;
-  color: var(--text-2);
-  max-width: 52ch;
-  margin-bottom: 36px;
-  line-height: 1.55;
-}
-.hero-ctas {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  margin-bottom: 36px;
-}
-.hero-ticker {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  padding: 10px 16px;
-  border: 1px solid var(--line-2);
-  border-radius: 999px;
-  background: rgba(59,130,246,0.04);
-  font-size: 13px;
-  color: var(--text-3);
-}
-.hero-ticker .dot {
-  width: 7px; height: 7px;
-  background: var(--green);
-  border-radius: 50%;
-  box-shadow: 0 0 0 0 rgba(16,185,129,0.5);
-  animation: pulse-dot 2.4s ease-in-out infinite;
-}
-@keyframes pulse-dot {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(16,185,129,0.5); }
-  50% { box-shadow: 0 0 0 8px rgba(16,185,129,0); }
-}
-.hero-ticker strong {
-  font-family: var(--mono);
-  color: var(--text-1);
-  font-weight: 500;
-  font-variant-numeric: tabular-nums;
-}
-
-/* hero graphic */
-.hero-graphic {
-  opacity: 0;
-  animation: rise 1000ms cubic-bezier(0.2,0.8,0.2,1) 600ms forwards;
-  position: relative;
-  aspect-ratio: 1 / 1;
-  max-width: 520px;
-  margin: 0 auto;
-}
-.hero-graphic svg { width: 100%; height: 100%; }
-.hero-visual { opacity:0; animation: rise 1000ms cubic-bezier(0.2,0.8,0.2,1) 600ms forwards; display:grid; grid-template-columns:1fr 1fr; gap:14px; max-width:520px; width:100%; margin:0 auto; }
-.hv-scene { border-radius: var(--radius-lg); border:1px solid var(--line-2); padding:20px 16px 22px; display:flex; flex-direction:column; align-items:center; text-align:center; }
-.hv-pain { background: var(--hv-pain-bg); }
-.hv-jts { background: var(--hv-jts-bg); border-color: rgba(59,130,246,0.30); }
-.hv-lab { font-family:var(--mono); font-size:10px; letter-spacing:.14em; text-transform:uppercase; font-weight:600; margin-bottom:16px; }
-.hv-pain .hv-lab { color: var(--text-4); }
-.hv-jts .hv-lab { color: var(--blue-bright); }
-.hv-strip { width:100%; min-height:74px; display:flex; flex-direction:column; gap:6px; justify-content:flex-end; margin-bottom:18px; }
-.hv-msg { font-size:11px; line-height:1.4; padding:8px 11px; border-radius:11px; opacity:0; transform:translateY(6px); transition:opacity .4s, transform .4s; }
-.hv-msg.hv-show { opacity:1; transform:none; }
-.hv-ring { background:var(--bg-3); color:var(--text-3); align-self:center; border-radius:20px; font-family:var(--mono); font-size:9.5px; letter-spacing:.08em; }
-.hv-vm { background:var(--rose-soft); color:var(--rose); border:1px solid rgba(244,63,94,0.22); align-self:center; }
-.hv-txt { background:var(--blue); color:#fff; align-self:flex-start; border-radius:12px 12px 12px 3px; text-align:left; }
-.hv-dot { display:inline-block; width:6px; height:6px; border-radius:50%; background:var(--text-3); margin-right:5px; animation:hv-blink 1s infinite; }
-@keyframes hv-blink { 0%,100%{opacity:.3} 50%{opacity:1} }
-.hv-face { width:76px; height:76px; margin-bottom:14px; }
-.hv-head { transition:fill .5s, stroke .5s; }
-.hv-pain .hv-head { fill:var(--hv-head-pain); stroke:var(--hv-head-pain-stroke); stroke-width:2; }
-.hv-jts .hv-head { fill:var(--hv-head-jts); stroke:var(--blue); stroke-width:2; }
-.hv-eye { transition:fill .5s; }
-.hv-pain .hv-eye { fill:var(--hv-eye-pain); }
-.hv-jts .hv-eye { fill:var(--hv-eye-jts); }
-.hv-mouth { fill:none; stroke-width:3; stroke-linecap:round; opacity:0; transition:opacity .45s; }
-.hv-pain .hv-mouth { stroke:var(--hv-mouth-pain); }
-.hv-jts .hv-mouth { stroke:var(--blue-bright); }
-.hv-m-neutral { opacity:1; }
-.hv-scene.hv-reacted .hv-m-neutral { opacity:0; }
-.hv-pain.hv-reacted .hv-m-sad { opacity:1; }
-.hv-jts.hv-reacted .hv-m-happy { opacity:1; }
-.hv-brow { stroke:var(--blue-bright); stroke-width:2.4; stroke-linecap:round; fill:none; opacity:0; transition:opacity .45s; }
-.hv-jts.hv-reacted .hv-brow { opacity:.9; }
-.hv-cap { font-size:12.5px; color:var(--text-2); line-height:1.45; min-height:36px; font-style:italic; opacity:0; transform:translateY(6px); transition:opacity .5s, transform .5s; }
-.hv-scene.hv-reacted .hv-cap { opacity:1; transform:none; }
-.hv-outcome { margin-top:14px; font-size:11px; font-weight:700; letter-spacing:.03em; padding:6px 12px; border-radius:20px; opacity:0; transform:scale(.9); transition:opacity .4s, transform .4s; }
-.hv-scene.hv-reacted .hv-outcome { opacity:1; transform:none; }
-.hv-pain .hv-outcome { background:var(--rose-soft); color:var(--rose); }
-.hv-jts .hv-outcome { background:var(--green-soft); color:var(--green); }
-@media (max-width:460px){ .hv-face{width:64px;height:64px} .hv-msg{font-size:10.5px} }
-.network-node { fill: var(--blue); }
-.network-node-pulse { fill: var(--blue-bright); }
-.network-line { stroke: rgba(59,130,246,0.25); stroke-width: 1; fill: none; }
-.network-line-bright { stroke: var(--blue); stroke-width: 1.4; fill: none; }
-@keyframes node-pulse {
-  0%, 100% { opacity: 0.4; transform-box: fill-box; transform-origin: center; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.6); }
-}
-.network-pulse-1 { animation: node-pulse 3s ease-in-out infinite; }
-.network-pulse-2 { animation: node-pulse 3s ease-in-out 0.6s infinite; }
-.network-pulse-3 { animation: node-pulse 3s ease-in-out 1.2s infinite; }
-.network-pulse-4 { animation: node-pulse 3s ease-in-out 1.8s infinite; }
-.network-pulse-5 { animation: node-pulse 3s ease-in-out 2.4s infinite; }
-
-@keyframes flow {
-  from { stroke-dashoffset: 100; }
-  to { stroke-dashoffset: 0; }
-}
-.network-flow {
-  stroke: var(--blue-bright);
-  stroke-width: 1.5;
-  fill: none;
-  stroke-dasharray: 4 8;
-  animation: flow 4s linear infinite;
-}
-
-/* ============================================================
-   INDUSTRY SELECTOR
-   ============================================================ */
-.industry-section {
-  padding: 60px 0 40px;
-  border-top: 1px solid var(--line);
-}
-.industry-pills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 28px;
-}
-.pill {
-  padding: 9px 16px;
-  background: var(--bg-2);
-  border: 1px solid var(--line-2);
-  border-radius: 999px;
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--text-2);
-  transition: all 160ms ease;
-  cursor: pointer;
-}
-.pill:hover {
-  border-color: var(--blue);
-  color: var(--text-1);
-}
-.pill.active {
-  background: var(--blue);
-  border-color: var(--blue);
-  color: white;
-  box-shadow: 0 0 18px var(--blue-glow);
-}
-
-/* ============================================================
-   PROBLEM
-   ============================================================ */
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
-  margin-top: 32px;
-}
-@media (max-width: 820px) {
-  .stats-grid { grid-template-columns: 1fr; }
-}
-.stat-card {
-  padding: 36px 32px;
-  background: linear-gradient(180deg, var(--bg-2), var(--bg-1));
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  border-left: 2px solid var(--blue);
-  transition: border-color 200ms;
-}
-.stat-card:hover { border-left-color: var(--blue-bright); }
-.stat-num {
-  font-family: var(--mono);
-  font-size: clamp(44px, 5vw, 64px);
-  font-weight: 500;
-  color: var(--blue-bright);
-  letter-spacing: -0.04em;
-  font-variant-numeric: tabular-nums;
-  line-height: 1;
-  margin-bottom: 18px;
-}
-.stat-desc {
-  color: var(--text-2);
-  font-size: 16px;
-  line-height: 1.5;
-}
-.problem-close {
-  margin-top: 26px;
-  font-size: 18px;
-  color: var(--text-2);
-  max-width: 62ch;
-  margin-left: auto;
-  text-align: right;
-}
-#problem { padding-bottom: 48px; }
-.stat-source {
-  margin-top: 18px;
-  font-family: var(--mono);
-  font-size: 10.5px;
-  color: var(--text-4);
-  letter-spacing: 0.04em;
-  padding-top: 14px;
-  border-top: 1px solid var(--line);
-}
-.stat-source::before {
-  content: '— ';
-  opacity: 0.6;
-}
-
-/* ============================================================
-   ROI CALCULATOR
-   ============================================================ */
-.calc-wrap {
-  display: grid;
-  grid-template-columns: 1fr 1.1fr;
-  gap: 48px;
-  margin-top: 32px;
-  align-items: start;
-}
-@media (max-width: 920px) { .calc-wrap { grid-template-columns: 1fr; gap: 32px; } }
-
-.calc-inputs {
-  background: linear-gradient(180deg, var(--bg-2), var(--bg-1));
-  border: 1px solid var(--line);
-  border-radius: var(--radius-lg);
-  padding: 32px;
-}
-.calc-input {
-  margin-bottom: 28px;
-}
-.calc-input:last-child { margin-bottom: 0; }
-.calc-label {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 14px;
-}
-.calc-label-text {
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--text-2);
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-}
-.calc-help {
-  width: 16px; height: 16px;
-  border-radius: 50%;
-  border: 1px solid var(--text-4);
-  color: var(--text-4);
-  font-size: 10px;
-  font-weight: 700;
-  display: inline-grid;
-  place-items: center;
-  cursor: help;
-  position: relative;
-}
-.calc-help:hover::after {
-  content: attr(data-tip);
-  position: absolute;
-  left: 24px; top: 50%;
-  transform: translateY(-50%);
-  background: var(--bg-3);
-  border: 1px solid var(--line-2);
-  padding: 8px 12px;
-  border-radius: 8px;
-  font-size: 12px;
-  color: var(--text-2);
-  white-space: nowrap;
-  z-index: 10;
-  font-weight: 400;
-  text-transform: none;
-  letter-spacing: 0;
-}
-.calc-value {
-  font-family: var(--mono);
-  font-size: 18px;
-  font-weight: 500;
-  color: var(--text-1);
-  background: var(--bg-3);
-  border: 1px solid var(--line-2);
-  border-radius: 8px;
-  padding: 4px 10px;
-  width: 90px;
-  text-align: right;
-  font-variant-numeric: tabular-nums;
-}
-.calc-value:focus { border-color: var(--blue); }
-
-input[type="range"] {
-  width: 100%;
-  -webkit-appearance: none; appearance: none;
-  background: transparent;
-  height: 24px;
-  cursor: pointer;
-}
-input[type="range"]::-webkit-slider-runnable-track {
-  height: 4px;
-  background: var(--bg-3);
-  border-radius: 999px;
-}
-input[type="range"]::-moz-range-track {
-  height: 4px;
-  background: var(--bg-3);
-  border-radius: 999px;
-}
-input[type="range"]::-webkit-slider-thumb {
-  -webkit-appearance: none; appearance: none;
-  width: 18px; height: 18px;
-  background: var(--blue);
-  border: 3px solid white;
-  border-radius: 50%;
-  margin-top: -7px;
-  box-shadow: 0 0 0 0 var(--blue-glow);
-  transition: box-shadow 150ms;
-}
-input[type="range"]:hover::-webkit-slider-thumb { box-shadow: 0 0 0 6px var(--blue-glow); }
-input[type="range"]::-moz-range-thumb {
-  width: 18px; height: 18px;
-  background: var(--blue);
-  border: 3px solid white;
-  border-radius: 50%;
-  box-shadow: 0 0 0 0 var(--blue-glow);
-  transition: box-shadow 150ms;
-}
-input[type="range"]:hover::-moz-range-thumb { box-shadow: 0 0 0 6px var(--blue-glow); }
-
-.calc-reset {
-  margin-top: 20px;
-  font-family: var(--mono);
-  font-size: 11px;
-  color: var(--text-4);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: color 150ms;
-}
-.calc-reset:hover { color: var(--blue-bright); }
-
-.calc-output {
-  display: grid;
-  gap: 14px;
-}
-.calc-card {
-  padding: 24px 28px;
-  border-radius: var(--radius);
-  border: 1px solid var(--line);
-  position: relative;
-  overflow: hidden;
-}
-.calc-card-loss { background: linear-gradient(135deg, rgba(244,63,94,0.06), rgba(244,63,94,0.02)); border-color: rgba(244,63,94,0.18); }
-.calc-card-recover { background: linear-gradient(135deg, rgba(16,185,129,0.06), rgba(16,185,129,0.02)); border-color: rgba(16,185,129,0.18); }
-.calc-card-net { background: linear-gradient(135deg, rgba(59,130,246,0.10), rgba(59,130,246,0.02)); border-color: rgba(59,130,246,0.28); }
-
-.calc-card-label {
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  margin-bottom: 8px;
-}
-.calc-card-loss .calc-card-label { color: var(--rose); }
-.calc-card-recover .calc-card-label { color: var(--green); }
-.calc-card-net .calc-card-label { color: var(--blue-bright); }
-.calc-card-num {
-  font-family: var(--mono);
-  font-size: clamp(32px, 4vw, 44px);
-  font-weight: 500;
-  letter-spacing: -0.025em;
-  font-variant-numeric: tabular-nums;
-  line-height: 1.1;
-}
-.calc-card-loss .calc-card-num { color: #FCA5A5; }
-.calc-card-recover .calc-card-num { color: #6EE7B7; }
-.calc-card-net .calc-card-num { color: white; font-size: clamp(40px, 5vw, 56px); }
-.calc-card-sub { font-size: 13px; color: var(--text-3); margin-top: 4px; }
-
-.calc-multiplier {
-  margin-top: 20px;
-  padding: 18px 24px;
-  text-align: center;
-  font-size: 18px;
-  color: var(--text-2);
-}
-.calc-multiplier .x {
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: 32px;
-  font-weight: 600;
-  color: var(--blue-bright);
-  letter-spacing: -0.02em;
-}
-.calc-footnote {
-  margin-top: 18px;
-  font-size: 12px;
-  color: var(--text-4);
-  text-align: center;
-}
-
-/* ============================================================
-   PHONE DEMO
-   ============================================================ */
-.demo-wrap {
-  margin-top: 32px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
-  align-items: center;
-  padding: 56px 40px;
-  background: linear-gradient(180deg, var(--bg-2), var(--bg-1));
-  border: 1px solid var(--line);
-  border-radius: var(--radius-lg);
-}
-@media (max-width: 820px) {
-  .demo-wrap { grid-template-columns: 1fr; gap: 28px; padding: 32px 20px; }
-}
-
-.phones {
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  gap: 24px;
-  perspective: 1200px;
-}
-@media (max-width: 820px) {
-  .phones { gap: 14px; }
-}
-
-.phone {
-  width: 270px;
-  background: #000;
-  border-radius: 36px;
-  padding: 8px;
-  box-shadow:
-    0 0 0 1.5px #2A3142,
-    0 30px 60px -20px rgba(0,0,0,0.6),
-    0 0 60px -10px var(--blue-glow);
-  position: relative;
-  flex-shrink: 0;
-}
-.phone--owner {
-  width: 220px;
-  transform: translateY(20px);
-  opacity: 0.7;
-  transition: opacity 400ms;
-}
-.phone--owner.phone--lit { opacity: 1; }
-@media (max-width: 820px) {
-  .phone { width: 240px; }
-  .phone--owner { width: 200px; transform: translateY(0); }
-}
-@media (max-width: 480px) {
-  .phone { width: 100%; max-width: 280px; }
-  .phone--owner { width: 100%; max-width: 240px; }
-  .phones { flex-direction: column; align-items: center; }
-}
-
-.phone-screen {
-  background: #0B0E15;
-  border-radius: 30px;
-  height: 540px;
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-}
-.phone--owner .phone-screen { height: 440px; }
-.phone-notch {
-  position: absolute;
-  top: 8px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 90px;
-  height: 22px;
-  background: #000;
-  border-radius: 999px;
-  z-index: 5;
-}
-.phone-status {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px 24px 8px;
-  font-family: var(--mono);
-  font-size: 11px;
-  font-weight: 600;
-  color: white;
-  position: relative;
-  z-index: 4;
-}
-.phone-status .icons {
-  display: inline-flex;
-  gap: 4px;
-  align-items: center;
-}
-.phone-status .icons span {
-  display: inline-block;
-  width: 12px; height: 8px;
-  background: white;
-  border-radius: 1px;
-}
-.phone-status .icons span.bat {
-  width: 22px; height: 10px;
-  border: 1px solid white;
-  background: transparent;
-  border-radius: 2px;
-  position: relative;
-  padding: 1px;
-}
-.phone-status .icons span.bat::after {
-  content: ''; display: block;
-  width: 80%; height: 100%;
-  background: white; border-radius: 1px;
-}
-
-.phone-content {
-  flex: 1;
-  position: relative;
-  overflow: hidden;
-  padding: 30px 14px 16px;
-}
-
-/* Incoming call screen */
-.call-screen {
-  position: absolute; inset: 0;
-  background: linear-gradient(180deg, #1a1d28 0%, #0B0E15 100%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 40px 20px;
-  opacity: 0;
-  transition: opacity 300ms;
-}
-.call-screen.show { opacity: 1; }
-.call-label {
-  font-size: 12px;
-  color: rgba(255,255,255,0.6);
-  margin-bottom: 12px;
-  letter-spacing: 0.05em;
-}
-.call-name {
-  font-size: 28px;
-  color: white;
-  font-weight: 500;
-  margin-bottom: 8px;
-  letter-spacing: -0.02em;
-}
-.call-num {
-  font-family: var(--mono);
-  font-size: 13px;
-  color: rgba(255,255,255,0.6);
-  margin-bottom: 60px;
-}
-.call-avatar {
-  width: 90px; height: 90px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #475569, #1e293b);
-  margin-bottom: 28px;
-  display: grid;
-  place-items: center;
-  font-size: 36px;
-  color: rgba(255,255,255,0.7);
-  font-family: var(--serif);
-  animation: ring-shake 0.6s ease-in-out infinite;
-}
-.call-screen:not(.ringing) .call-avatar { animation: none; }
-@keyframes ring-shake {
-  0%, 100% { transform: translateX(0); }
-  20% { transform: translateX(-3px) rotate(-2deg); }
-  40% { transform: translateX(3px) rotate(2deg); }
-  60% { transform: translateX(-2px) rotate(-1deg); }
-  80% { transform: translateX(2px) rotate(1deg); }
-}
-.call-buttons {
-  display: flex;
-  gap: 32px;
-  margin-top: 30px;
-}
-.call-btn {
-  width: 56px; height: 56px;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  color: white;
-  font-size: 22px;
-}
-.call-btn.decline { background: #EF4444; }
-.call-btn.accept { background: #22C55E; }
-
-/* Missed call banner */
-.missed-banner {
-  position: absolute;
-  top: 60px;
-  left: 14px; right: 14px;
-  padding: 14px 18px;
-  background: rgba(40,44,55,0.95);
-  backdrop-filter: blur(20px);
-  border-radius: 14px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  opacity: 0;
-  transform: translateY(-20px);
-  transition: opacity 300ms, transform 300ms;
-}
-.missed-banner.show { opacity: 1; transform: translateY(0); }
-.missed-icon {
-  width: 32px; height: 32px;
-  border-radius: 8px;
-  background: var(--rose);
-  display: grid;
-  place-items: center;
-  color: white;
-  font-size: 14px;
-  flex-shrink: 0;
-}
-.missed-text {
-  flex: 1;
-  font-size: 13px;
-  color: white;
-  font-weight: 500;
-}
-.missed-text small {
-  display: block;
-  font-size: 11px;
-  font-weight: 400;
-  color: rgba(255,255,255,0.6);
-  margin-top: 2px;
-}
-
-/* Messages */
-.messages-screen {
-  position: absolute; inset: 0;
-  background: #0B0E15;
-  display: flex;
-  flex-direction: column;
-  opacity: 0;
-  transition: opacity 350ms;
-}
-.messages-screen.show { opacity: 1; }
-.messages-header {
-  padding: 40px 16px 12px;
-  border-bottom: 0.5px solid rgba(255,255,255,0.08);
-  text-align: center;
-}
-.messages-header .biz-name {
-  font-size: 14px;
-  font-weight: 600;
-  color: white;
-  letter-spacing: -0.01em;
-}
-.messages-header .biz-sub {
-  font-size: 10px;
-  color: rgba(255,255,255,0.5);
-  margin-top: 2px;
-  font-family: var(--mono);
-}
-.messages-body {
-  flex: 1;
-  overflow-y: auto;
-  scrollbar-width: none;
-  scroll-behavior: smooth;
-  padding: 16px 12px 12px;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-.messages-body::-webkit-scrollbar { display: none; }
-.bubble {
-  padding: 9px 14px;
-  border-radius: 18px;
-  font-size: 13.5px;
-  line-height: 1.4;
-  max-width: 78%;
-  word-wrap: break-word;
-  opacity: 0;
-  transform: translateY(8px);
-  animation-fill-mode: forwards;
-}
-.bubble.show {
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity 300ms ease, transform 300ms ease;
-}
-.bubble--in {
-  background: #1E2330;
-  color: white;
-  align-self: flex-start;
-  border-bottom-left-radius: 5px;
-}
-.bubble--out {
-  background: var(--blue);
-  color: white;
-  align-self: flex-end;
-  border-bottom-right-radius: 5px;
-}
-.bubble--time {
-  font-family: var(--mono);
-  font-size: 10px;
-  color: rgba(255,255,255,0.4);
-  align-self: center;
-  padding: 4px 0 2px;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-}
-
-.typing {
-  display: flex;
-  gap: 3px;
-  padding: 12px 14px;
-  background: #1E2330;
-  border-radius: 18px;
-  border-bottom-left-radius: 5px;
-  align-self: flex-start;
-  opacity: 0;
-  transition: opacity 200ms;
-}
-.typing.show { opacity: 1; }
-.typing span {
-  width: 6px; height: 6px;
-  background: rgba(255,255,255,0.5);
-  border-radius: 50%;
-  animation: typing 1.2s ease-in-out infinite;
-}
-.typing span:nth-child(2) { animation-delay: 0.15s; }
-.typing span:nth-child(3) { animation-delay: 0.3s; }
-@keyframes typing {
-  0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
-  30% { transform: translateY(-3px); opacity: 1; }
-}
-
-/* Booking widget inside messages */
-.booking-card {
-  background: #1E2330;
-  border-radius: 14px;
-  padding: 14px;
-  align-self: stretch;
-  margin: 4px 0;
-  opacity: 0;
-  transform: translateY(8px);
-  transition: opacity 300ms, transform 300ms;
-}
-.booking-card.show { opacity: 1; transform: translateY(0); }
-.booking-title {
-  font-size: 11px;
-  font-family: var(--mono);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.5);
-  margin-bottom: 10px;
-}
-.slot-row {
-  display: flex;
-  gap: 6px;
-  flex-wrap: wrap;
-}
-.slot {
-  flex: 1;
-  min-width: 0;
-  padding: 8px 6px;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 8px;
-  font-size: 11px;
-  color: white;
-  text-align: center;
-  transition: all 200ms;
-}
-.slot.selected {
-  background: var(--blue);
-  border-color: var(--blue);
-  transform: scale(1.05);
-  box-shadow: 0 0 18px var(--blue-glow);
-}
-.slot small {
-  display: block;
-  font-size: 9px;
-  color: rgba(255,255,255,0.5);
-  margin-bottom: 2px;
-  font-family: var(--mono);
-  letter-spacing: 0.05em;
-}
-.slot.selected small { color: rgba(255,255,255,0.8); }
-
-/* Owner notification */
-.owner-screen {
-  position: absolute; inset: 0;
-  background: #0B0E15;
-  padding: 20px 12px;
-  opacity: 1;
-}
-.owner-time {
-  text-align: center;
-  font-size: 50px;
-  font-weight: 200;
-  color: white;
-  letter-spacing: -0.04em;
-  margin-top: 8px;
-  margin-bottom: 4px;
-  font-family: var(--sans);
-}
-.owner-date {
-  text-align: center;
-  font-size: 13px;
-  color: rgba(255,255,255,0.6);
-  margin-bottom: 18px;
-  font-weight: 500;
-}
-.owner-notif {
-  background: rgba(40,44,55,0.95);
-  backdrop-filter: blur(20px);
-  padding: 12px 14px;
-  border-radius: 14px;
-  margin-bottom: 8px;
-  opacity: 0;
-  transform: translateY(-12px) scale(0.96);
-  transition: opacity 350ms, transform 350ms;
-}
-.owner-notif.show { opacity: 1; transform: translateY(0) scale(1); }
-.notif-header {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 4px;
-}
-.notif-app-icon {
-  width: 18px; height: 18px;
-  background: var(--blue);
-  border-radius: 4px;
-  display: grid;
-  place-items: center;
-  font-size: 10px;
-  font-weight: 700;
-  color: white;
-}
-.notif-app-name {
-  font-size: 11px;
-  font-weight: 600;
-  color: rgba(255,255,255,0.9);
-  letter-spacing: 0.02em;
-}
-.notif-time {
-  margin-left: auto;
-  font-size: 10px;
-  color: rgba(255,255,255,0.5);
-  font-family: var(--mono);
-}
-.notif-title {
-  font-size: 13px;
-  font-weight: 600;
-  color: white;
-  line-height: 1.3;
-  margin-bottom: 2px;
-}
-.notif-body {
-  font-size: 12px;
-  color: rgba(255,255,255,0.7);
-  line-height: 1.4;
-}
-
-/* Demo controls / steps */
-.demo-info { padding: 4px 0; }
-.demo-info h3 { margin-bottom: 14px; }
-.demo-info p { color: var(--text-3); margin-bottom: 28px; max-width: 38ch; }
-
-.demo-steps {
-  display: flex;
-  align-items: center;
-  gap: 0;
-  margin-bottom: 24px;
-  flex-wrap: wrap;
-}
-.demo-step {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 14px;
-  border-radius: 999px;
-  background: var(--bg-2);
-  border: 1px solid var(--line);
-  font-size: 12px;
-  color: var(--text-3);
-  transition: all 250ms ease;
-}
-.demo-step.active {
-  background: var(--blue);
-  border-color: var(--blue);
-  color: white;
-  box-shadow: 0 0 18px var(--blue-glow);
-}
-.demo-step .num {
-  display: inline-grid;
-  place-items: center;
-  width: 18px; height: 18px;
-  background: rgba(255,255,255,0.08);
-  border-radius: 50%;
-  font-family: var(--mono);
-  font-size: 10px;
-  font-weight: 600;
-}
-.demo-step.active .num { background: rgba(255,255,255,0.2); }
-.demo-arrow {
-  color: var(--text-5);
-  margin: 0 4px;
-  font-size: 11px;
-}
-.demo-replay {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 9px 16px;
-  background: var(--bg-2);
-  border: 1px solid var(--line-2);
-  border-radius: 8px;
-  color: var(--text-2);
-  font-size: 13px;
-  font-weight: 500;
-  transition: all 150ms;
-}
-.demo-replay:hover {
-  border-color: var(--blue);
-  color: white;
-  background: rgba(59,130,246,0.06);
-}
-
-/* ============================================================
-   FEATURES GRID
-   ============================================================ */
-.features-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-  margin-top: 32px;
-}
-@media (max-width: 920px) { .features-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 580px) { .features-grid { grid-template-columns: 1fr; } }
-.feature {
-  padding: 32px 28px;
-  background: var(--bg-2);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  transition: all 200ms ease;
-}
-.feature:hover {
-  border-color: var(--line-2);
-  transform: translateY(-2px);
-  background: var(--bg-3);
-}
-.feature-icon {
-  width: 44px; height: 44px;
-  border-radius: 11px;
-  background: rgba(59,130,246,0.10);
-  border: 1px solid rgba(59,130,246,0.22);
-  display: grid;
-  place-items: center;
-  margin-bottom: 22px;
-  color: var(--blue-bright);
-}
-.feature h4 {
-  font-size: 17px;
-  font-weight: 600;
-  margin-bottom: 8px;
-  color: var(--text-1);
-}
-.feature p {
-  font-size: 14.5px;
-  color: var(--text-3);
-  line-height: 1.5;
-}
-
-/* ============================================================
-   TECH STACK
-   ============================================================ */
-.stack-list {
-  margin-top: 48px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-  background: var(--bg-1);
-}
-.stack-row {
-  display: grid;
-  grid-template-columns: 180px 1fr 100px;
-  align-items: center;
-  padding: 22px 28px;
-  border-bottom: 1px solid var(--line);
-  gap: 20px;
-  transition: background 150ms;
-}
-.stack-row:hover { background: var(--bg-2); }
-.stack-row:last-child { border-bottom: none; }
-@media (max-width: 720px) {
-  .stack-row { grid-template-columns: 1fr; gap: 4px; padding: 18px 20px; }
-}
-.stack-name {
-  font-weight: 600;
-  font-size: 16px;
-  color: var(--text-1);
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.stack-mark {
-  width: 24px; height: 24px;
-  border-radius: 5px;
-  background: var(--bg-3);
-  border: 1px solid var(--line-2);
-  display: grid;
-  place-items: center;
-  font-size: 11px;
-  font-weight: 700;
-  color: var(--blue-bright);
-  font-family: var(--mono);
-}
-.stack-desc {
-  font-size: 14px;
-  color: var(--text-3);
-  line-height: 1.4;
-}
-.stack-cost {
-  font-family: var(--mono);
-  font-size: 13px;
-  color: var(--text-3);
-  text-align: right;
-}
-@media (max-width: 720px) { .stack-cost { text-align: left; } }
-
-.stack-callout {
-  margin-top: 22px;
-  padding: 16px 20px;
-  background: linear-gradient(90deg, rgba(59,130,246,0.10), rgba(59,130,246,0.02));
-  border: 1px solid rgba(59,130,246,0.20);
-  border-radius: var(--radius);
-  font-size: 14.5px;
-  color: var(--text-2);
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-.stack-callout svg { flex-shrink: 0; color: var(--blue-bright); }
-
-/* ============================================================
-   PRICING
-   ============================================================ */
-.pricing-grid {
-  margin-top: 32px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-  align-items: stretch;
-}
-@media (max-width: 920px) { .pricing-grid { grid-template-columns: 1fr; max-width: 460px; margin-left: auto; margin-right: auto; } }
-.price-card {
-  position: relative;
-  padding: 36px 30px;
-  background: var(--bg-2);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-lg);
-  display: flex;
-  flex-direction: column;
-}
-.price-card.featured {
-  border-color: var(--blue);
-  background: linear-gradient(180deg, rgba(59,130,246,0.06), var(--bg-2));
-  transform: translateY(-8px);
-  box-shadow: 0 24px 60px -20px rgba(0,0,0,0.5), 0 0 40px -10px var(--blue-glow);
-}
-@media (max-width: 920px) { .price-card.featured { transform: none; } }
-.price-tag {
-  position: absolute;
-  top: -12px;
-  left: 30px;
-  background: var(--blue);
-  color: white;
-  padding: 5px 12px;
-  border-radius: 999px;
-  font-family: var(--mono);
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-}
-.price-name {
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--blue-bright);
-  letter-spacing: -0.01em;
-  margin-bottom: 14px;
-}
-.price-amount {
-  font-family: var(--sans);
-  font-size: 56px;
-  font-weight: 600;
-  letter-spacing: -0.04em;
-  line-height: 1;
-  color: var(--text-1);
-  margin-bottom: 4px;
-}
-.price-amount sup {
-  font-size: 22px;
-  font-weight: 500;
-  color: var(--text-3);
-  vertical-align: super;
-  margin-right: 2px;
-}
-.price-amount span {
-  font-size: 15px;
-  font-weight: 400;
-  color: var(--text-3);
-  margin-left: 2px;
-}
-.price-volume {
-  font-size: 13px;
-  color: var(--text-3);
-  margin-bottom: 24px;
-  padding-bottom: 24px;
-  border-bottom: 1px solid var(--line);
-}
-.price-features {
-  list-style: none;
-  margin-bottom: 28px;
-  flex: 1;
-}
-.price-features li {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  font-size: 14.5px;
-  color: var(--text-2);
-  padding: 6px 0;
-  line-height: 1.45;
-}
-.price-features li::before {
-  content: '';
-  width: 16px; height: 16px;
-  flex-shrink: 0;
-  margin-top: 4px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M3 8.5l3 3 7-7' stroke='%2360A5FA' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-}
-.price-cta {
-  width: 100%;
-}
-.price-footnote {
-  margin-top: 28px;
-  text-align: center;
-  font-size: 13px;
-  color: var(--text-4);
-}
-
-/* ============================================================
-   FINAL CTA
-   ============================================================ */
-.cta-section {
-  padding: 100px 0 120px;
-  border-top: 1px solid var(--line);
-  background: linear-gradient(180deg, transparent, rgba(59,130,246,0.04));
-}
-
-.cta-grid {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 56px;
-  align-items: center;
-  margin-top: 12px;
-}
-@media (max-width: 820px) {
-  .cta-grid { grid-template-columns: 1fr; gap: 36px; }
-}
-
-.cta-perks {
-  display: grid;
-  gap: 20px;
-}
-.cta-perk {
-  display: flex;
-  align-items: flex-start;
-  gap: 14px;
-  font-size: 15.5px;
-  color: var(--text-2);
-  line-height: 1.5;
-}
-.cta-perk svg {
-  color: var(--blue-bright);
-  flex-shrink: 0;
-  margin-top: 2px;
-}
-.cta-perk strong {
-  color: var(--text-1);
-  font-weight: 600;
-}
-
-.cta-action {
-  background: linear-gradient(180deg, var(--bg-2), var(--bg-1));
-  border: 1px solid var(--line-2);
-  border-radius: var(--radius-lg);
-  padding: 36px 32px;
-  box-shadow: 0 24px 60px -20px rgba(0,0,0,0.5);
-}
-.cta-action-sub {
-  margin-top: 14px;
-  text-align: center;
-  font-size: 13px;
-  color: var(--text-4);
-  font-family: var(--mono);
-  letter-spacing: 0.04em;
-}
-.cta-tabs {
-  display: inline-flex;
-  background: var(--bg-2);
-  border: 1px solid var(--line-2);
-  border-radius: 12px;
-  padding: 4px;
-  margin: 36px 0 32px;
-  gap: 4px;
-}
-.cta-tab {
-  padding: 10px 20px;
-  border-radius: 8px;
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--text-3);
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  transition: all 180ms;
-  cursor: pointer;
-}
-.cta-tab.active {
-  background: var(--blue);
-  color: white;
-}
-.cta-tab:not(.active):hover { color: var(--text-1); }
-
-.cta-panel { display: none; }
-.cta-panel.active { display: block; }
-
-.cta-form, .cta-booking {
-  background: var(--bg-2);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-lg);
-  padding: 36px 32px;
-  max-width: 640px;
-}
-
-/* booking */
-.booking-days {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 8px;
-  margin-bottom: 22px;
-}
-@media (max-width: 580px) { .booking-days { grid-template-columns: repeat(3, 1fr); } }
-.booking-day {
-  padding: 12px 8px;
-  background: var(--bg-3);
-  border: 1px solid var(--line-2);
-  border-radius: 10px;
-  text-align: center;
-  cursor: pointer;
-  transition: all 150ms;
-}
-.booking-day:hover { border-color: var(--blue); }
-.booking-day.selected {
-  background: var(--blue);
-  border-color: var(--blue);
-  color: white;
-}
-.booking-day .day-name {
-  font-size: 11px;
-  font-family: var(--mono);
-  color: var(--text-4);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  margin-bottom: 4px;
-}
-.booking-day.selected .day-name { color: rgba(255,255,255,0.8); }
-.booking-day .day-num {
-  font-size: 22px;
-  font-weight: 600;
-  color: var(--text-1);
-  letter-spacing: -0.02em;
-}
-.booking-day.selected .day-num { color: white; }
-
-.booking-times {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 8px;
-  margin-bottom: 24px;
-}
-@media (max-width: 580px) { .booking-times { grid-template-columns: repeat(2, 1fr); } }
-.booking-time {
-  padding: 11px 8px;
-  background: var(--bg-3);
-  border: 1px solid var(--line-2);
-  border-radius: 10px;
-  text-align: center;
-  cursor: pointer;
-  font-size: 13px;
-  font-weight: 500;
-  font-family: var(--mono);
-  transition: all 150ms;
-}
-.booking-time:hover { border-color: var(--blue); }
-.booking-time.selected {
-  background: var(--blue);
-  border-color: var(--blue);
-  color: white;
-}
-
-.form-row {
-  display: grid;
-  gap: 14px;
-  margin-bottom: 14px;
-}
-.form-row-2 { grid-template-columns: 1fr 1fr; }
-@media (max-width: 580px) { .form-row-2 { grid-template-columns: 1fr; } }
-.field label {
-  display: block;
-  font-size: 12px;
-  font-family: var(--mono);
-  color: var(--text-4);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  margin-bottom: 6px;
-  font-weight: 500;
-}
-.field input, .field select, .field textarea {
-  width: 100%;
-  padding: 12px 14px;
-  background: var(--bg-3);
-  border: 1px solid var(--line-2);
-  border-radius: 10px;
-  color: var(--text-1);
-  font-size: 14.5px;
-  transition: border-color 150ms, box-shadow 150ms;
-}
-.field input:focus, .field select:focus, .field textarea:focus {
-  border-color: var(--blue);
-  box-shadow: 0 0 0 3px rgba(59,130,246,0.15);
-}
-.field textarea { min-height: 100px; resize: vertical; font-family: var(--sans); }
-.field-error {
-  border-color: var(--rose) !important;
-}
-.field-error-msg {
-  font-size: 12px;
-  color: var(--rose);
-  margin-top: 4px;
-  display: none;
-}
-.field-error + .field-error-msg { display: block; }
-
-.cta-success {
-  text-align: center;
-  padding: 28px 0 8px;
-  display: none;
-}
-.cta-success.show { display: block; }
-.cta-success svg {
-  margin: 0 auto 18px;
-  color: var(--green);
-}
-.cta-success h3 {
-  font-size: 24px;
-  margin-bottom: 8px;
-  color: var(--text-1);
-}
-.cta-success p { color: var(--text-3); }
-
-.booking-summary {
-  margin: 18px 0;
-  padding: 16px;
-  background: var(--bg-3);
-  border-radius: 10px;
-  font-size: 14px;
-  color: var(--text-2);
-  display: none;
-  align-items: center;
-  gap: 10px;
-}
-.booking-summary.show { display: flex; }
-.booking-summary strong {
-  color: var(--blue-bright);
-  font-family: var(--mono);
-  font-weight: 500;
-}
-
-/* ============================================================
-   FOOTER
-   ============================================================ */
-footer {
-  border-top: 1px solid var(--line);
-  padding: 40px 0;
-}
-.footer-inner {
-  max-width: var(--max);
-  margin: 0 auto;
-  padding: 0 28px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-  flex-wrap: wrap;
-}
-.footer-brand {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-.footer-tag {
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--text-4);
-}
-.footer-links {
-  display: flex;
-  gap: 24px;
-  font-size: 13px;
-  color: var(--text-3);
-}
-.footer-links a:hover { color: var(--text-1); }
-.footer-copy {
-  width: 100%;
-  text-align: center;
-  margin-top: 24px;
-  padding-top: 24px;
-  border-top: 1px solid var(--line);
-  font-size: 12px;
-  color: var(--text-5);
-}
-
-/* ============================================================
-   SCROLL REVEAL
-   ============================================================ */
-.reveal {
-  opacity: 0;
-  transform: translateY(14px);
-  transition: opacity 600ms cubic-bezier(0.2,0.8,0.2,1), transform 600ms cubic-bezier(0.2,0.8,0.2,1);
-}
-.reveal.in {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-  .reveal { opacity: 1; transform: none; }
-}
-
-/* utility */
-.center { text-align: center; }
-.max-text { max-width: 60ch; }
-
-/* ============================================================
-   RESTRUCTURE (services site)
-   ============================================================ */
-.hero { padding-bottom: 40px; }
-.hero-visual { max-width: 380px; }
-.hero-text .hero-sub { max-width: 54ch; }
-
-.services-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 32px; }
-.service-feature {
-  grid-column: 1 / -1;
-  display: grid; grid-template-columns: 1.5fr 1fr; gap: 32px; align-items: center;
-  padding: 36px 32px;
-  background: linear-gradient(180deg, rgba(59,130,246,0.07), var(--bg-2));
-  border: 1px solid var(--blue); border-radius: var(--radius-lg);
-  box-shadow: 0 0 40px -14px var(--blue-glow);
-}
-.service-feature h3 { font-family: var(--serif); font-size: 28px; font-weight: 600; color: var(--text-1); margin-bottom: 10px; letter-spacing: -0.01em; }
-.service-feature p { color: var(--text-3); font-size: 15.5px; line-height: 1.55; max-width: 52ch; }
-.service-feature .sf-actions { display: flex; gap: 12px; flex-wrap: wrap; justify-content: flex-end; }
-.service-card { display: flex; flex-direction: column; }
-.service-card p { flex: 1; }
-.service-card .more { margin-top: 18px; font-size: 14px; font-weight: 600; color: var(--blue-bright); text-decoration: none; }
-.service-card .more:hover { color: var(--blue-soft); }
-.service-card .feature-icon { margin-bottom: 18px; }
-@media (max-width: 1000px) { .services-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 720px) { .service-feature { grid-template-columns: 1fr; padding: 28px 22px; } .service-feature .sf-actions { justify-content: flex-start; } }
-@media (max-width: 580px) { .services-grid { grid-template-columns: 1fr; } }
-
-.stats-grid--two { grid-template-columns: repeat(2, 1fr); }
-@media (max-width: 820px) { .stats-grid--two { grid-template-columns: 1fr; } }
-.problem-source { margin: 14px 0 0 auto; text-align: right; max-width: 62ch; font-size: 14px; color: var(--text-3); }
-.problem-source strong { color: var(--text-1); font-weight: 600; }
-.problem-source span { color: var(--text-4); font-family: var(--mono); font-size: 11px; letter-spacing: 0.05em; margin-left: 6px; }
-.demo-note { margin-top: 14px; font-size: 12.5px; color: var(--text-4); }
-
-.includes { list-style: none; padding: 0; margin: 32px 0 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px 40px; }
-.includes li { display: grid; grid-template-columns: 22px 1fr; gap: 12px; color: var(--text-3); font-size: 14.5px; line-height: 1.5; }
-.includes li svg { color: var(--blue-bright); margin-top: 2px; }
-.includes strong { color: var(--text-1); font-weight: 600; }
-@media (max-width: 760px) { .includes { grid-template-columns: 1fr; } }
-
-.price-tabs { display: inline-flex; gap: 6px; padding: 5px; margin-top: 28px; background: var(--bg-2); border: 1px solid var(--line-2); border-radius: 12px; flex-wrap: wrap; }
-.price-tab { font: 600 14px var(--sans); color: var(--text-3); background: none; border: 0; padding: 10px 18px; border-radius: 8px; cursor: pointer; }
-.price-tab:hover { color: var(--text-1); }
-.price-tab[aria-selected="true"] { background: var(--blue); color: #fff; }
-.price-tab:focus-visible { outline: 2px solid var(--blue-bright); outline-offset: 2px; }
-.price-panel[hidden] { display: none !important; }
-.quote-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 32px; }
-.quote-grid .feature { display: flex; flex-direction: column; }
-.quote-grid .feature p { flex: 1; }
-.quote-grid .quote-price { font-family: var(--mono); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--blue-bright); margin: 14px 0 16px; }
-@media (max-width: 920px) { .quote-grid { grid-template-columns: 1fr; max-width: 520px; margin-left: auto; margin-right: auto; } }
-
-.steps { display: grid; grid-template-columns: repeat(4, 1fr); position: relative; margin-top: 8px; }
-.steps::before { content: ''; position: absolute; top: 28px; left: 12.5%; right: 12.5%; height: 1px; background: rgba(59,130,246,0.4); }
-.step { text-align: center; padding: 0 16px; position: relative; z-index: 1; }
-.step-num { width: 56px; height: 56px; border-radius: 50%; background: var(--blue); display: grid; place-items: center; margin: 0 auto 20px; font-family: var(--mono); font-size: 18px; font-weight: 600; color: #fff; box-shadow: 0 0 24px var(--blue-glow); }
-.step-title { font-weight: 600; color: var(--text-1); font-size: 15px; margin-bottom: 8px; }
-.step p { font-size: 13.5px; color: var(--text-3); line-height: 1.5; }
-@media (max-width: 820px) { .steps { grid-template-columns: 1fr 1fr; row-gap: 36px; } .steps::before { display: none; } }
-@media (max-width: 480px) { .steps { grid-template-columns: 1fr; } }
-
-.faq-label { font-family: var(--mono); font-size: 12px; letter-spacing: 0.13em; text-transform: uppercase; color: var(--blue-bright); margin: 40px 0 12px; }
-.faq-label:first-of-type { margin-top: 32px; }
-.faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; }
-.faq-item { padding: 28px 32px; background: var(--bg-2); }
-.faq-item:last-child:nth-child(odd) { grid-column: 1 / -1; }
-.faq-item .q { font-weight: 600; color: var(--text-1); font-size: 15px; margin-bottom: 10px; }
-.faq-item .a { font-size: 14px; color: var(--text-3); line-height: 1.6; }
-@media (max-width: 820px) { .faq-grid { grid-template-columns: 1fr; } .faq-item { padding: 22px 20px; } }
-
-.footer-links { flex-wrap: wrap; }
-.footer-links a { overflow-wrap: anywhere; }
-.cta-grid > *, .cta-perk > div { min-width: 0; }
-.cta-action-sub a, .footer-links a[href^="mailto"] { color: var(--blue-bright); text-decoration: none; }
-.cta-action-sub a:hover, .footer-links a[href^="mailto"]:hover { text-decoration: underline; }
-</style>
-<script>
-(function(){try{if(localStorage.getItem('jts-theme')==='light')document.documentElement.setAttribute('data-theme','light');}catch(e){}
-document.addEventListener('DOMContentLoaded',function(){var b=document.getElementById('theme-toggle');if(!b)return;b.addEventListener('click',function(){var r=document.documentElement;if(r.getAttribute('data-theme')==='light'){r.removeAttribute('data-theme');try{localStorage.setItem('jts-theme','dark');}catch(e){}}else{r.setAttribute('data-theme','light');try{localStorage.setItem('jts-theme','light');}catch(e){}}});});})();
-</script>
+<script>(function(){try{if(localStorage.getItem('jts-theme')==='light')document.documentElement.setAttribute('data-theme','light');}catch(e){}})();</script>
+<link rel="stylesheet" href="/assets/site.css">
+<script src="/assets/site.js" defer></script>
 </head>
 <body data-industry="hvac">
+<div class="progress" aria-hidden="true"><span></span></div>
+<a class="skip-link" href="#main">Skip to content</a>
 
 <!-- ================================================================ NAV -->
-<nav class="top">
+<nav class="top" aria-label="Main">
   <div class="nav-inner">
-    <a href="#" class="brand">
-      <span class="brand-mark">JTS</span>
+    <a href="/" class="brand" aria-label="JTS Solutions home">
+      <span class="brand-mark" aria-hidden="true">JTS</span>
       <span class="brand-text">JTS Solutions <small>Smart Automation</small></span>
     </a>
-    <div class="nav-links">
-      <a href="#services">Services</a>
-      <a href="#pricing">Pricing</a>
-      <a href="#process">How It Works</a>
-      <a href="#faq">FAQ</a>
+    <div class="nav-links" id="nav-links">
+      <div class="nav-dd">
+        <button class="nav-dd-btn" type="button" aria-expanded="false" aria-controls="nav-services">Services
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="nav-dd-menu" id="nav-services">
+          <a href="/missed-call-automation/">Missed Call Automation<small>Text back in 30 seconds</small></a>
+          <a href="/custom-builds/#workflow">Workflow Automation</a>
+          <a href="/custom-builds/#portals">Portals, Web Apps &amp; Business Tools</a>
+          <a href="/custom-builds/#websites">Web Development</a>
+          <a href="/custom-builds/#crm">CRM Creation &amp; Maintenance</a>
+        </div>
+      </div>
+      <a href="/calculator/">Calculator</a>
+      <a href="/missed-call-automation/#pricing">Pricing</a>
       <a href="#contact">Contact</a>
     </div>
     <div class="nav-right">
       <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle light or dark mode" title="Switch light / dark">
-        <svg class="ic-moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
-        <svg class="ic-sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <svg class="ic-moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        <svg class="ic-sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
       </button>
-      <a href="#" class="btn btn--primary btn--sm js-booking">Book a Call</a>
+      <a href="https://calendly.com/solutionsfromjts/jts-solutions-consultation-call" class="btn btn--primary btn--sm js-booking">Book a Call</a>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </div>
 </nav>
 
-<main>
+<main id="main">
 
 <!-- ================================================================ HERO -->
-<section class="hero">
+<section class="hero" aria-labelledby="hero-title">
+  <div class="aurora" aria-hidden="true">
+    <div class="aurora-blob aurora-blob--a"></div>
+    <div class="aurora-blob aurora-blob--b"></div>
+    <div class="aurora-blob aurora-blob--c"></div>
+  </div>
+  <div class="hero-grid-bg" aria-hidden="true"></div>
+  <div class="hero-grid-spot" aria-hidden="true"></div>
+  <div class="hero-spot-glow" aria-hidden="true"></div>
   <div class="container">
     <div class="hero-grid">
       <div class="hero-text">
-        <div class="eyebrow">JTS Solutions · Serving NJ · NYC · PA</div>
-        <h1>Automation that <span class="accent">answers, books,</span> and follows up for you.</h1>
+        <div class="hero-ticker"><span class="dot" aria-hidden="true"></span>Serving NJ · NYC · PA</div>
+        <h1 id="hero-title" data-split>Automation that <span class="accent">answers, books,</span> and follows up for you.</h1>
         <p class="hero-sub">Missed-call text-back, workflow automation, client portals, websites, and CRM. We build it, run it, and keep it working, so you can focus on the job.</p>
         <div class="hero-ctas">
           <a href="#services" class="btn btn--primary">See what we build →</a>
-          <a href="#" class="btn btn--ghost js-booking">Book a free consultation call</a>
+          <a href="https://calendly.com/solutionsfromjts/jts-solutions-consultation-call" class="btn btn--ghost js-booking">Book a free consultation call</a>
         </div>
       </div>
-      <div class="hero-visual">
-        <div class="hv-scene hv-pain" id="hv-pain">
-          <div class="hv-lab">Without JTS</div>
-          <div class="hv-strip">
-            <div class="hv-msg hv-ring" id="hv-p-ring"><span class="hv-dot"></span>Incoming call</div>
-            <div class="hv-msg hv-vm" id="hv-p-vm">No answer &middot; voicemail</div>
+      <div class="hero-visual-wrap" data-tilt="4">
+        <div class="hero-visual">
+          <div class="hv-scene hv-pain" id="hv-pain">
+            <div class="hv-lab">Without JTS</div>
+            <div class="hv-strip">
+              <div class="hv-msg hv-ring" id="hv-p-ring"><span class="hv-dot"></span>Incoming call</div>
+              <div class="hv-msg hv-vm" id="hv-p-vm">No answer &middot; voicemail</div>
+            </div>
+            <svg class="hv-face" viewBox="0 0 100 100" aria-hidden="true">
+              <circle class="hv-head" cx="50" cy="50" r="34"/>
+              <circle class="hv-eye" cx="39" cy="45" r="3.4"/>
+              <circle class="hv-eye" cx="61" cy="45" r="3.4"/>
+              <path class="hv-mouth hv-m-neutral" d="M40 64 H60"/>
+              <path class="hv-mouth hv-m-sad" d="M40 66 Q50 57 60 66"/>
+            </svg>
+            <div class="hv-cap">"Guess I'll call the next guy."</div>
+            <div class="hv-outcome">Lead lost</div>
           </div>
-          <svg class="hv-face" viewBox="0 0 100 100" aria-hidden="true">
-            <circle class="hv-head" cx="50" cy="50" r="34"/>
-            <circle class="hv-eye" cx="39" cy="45" r="3.4"/>
-            <circle class="hv-eye" cx="61" cy="45" r="3.4"/>
-            <path class="hv-mouth hv-m-neutral" d="M40 64 H60"/>
-            <path class="hv-mouth hv-m-sad" d="M40 66 Q50 57 60 66"/>
-          </svg>
-          <div class="hv-cap">"Guess I'll call the next guy."</div>
-          <div class="hv-outcome">Lead lost</div>
-        </div>
-        <div class="hv-scene hv-jts" id="hv-jts">
-          <div class="hv-lab">With JTS</div>
-          <div class="hv-strip">
-            <div class="hv-msg hv-ring" id="hv-j-ring"><span class="hv-dot"></span>Incoming call</div>
-            <div class="hv-msg hv-txt" id="hv-j-txt">Hey! Sorry we missed you &mdash; reply 1 to book you in.</div>
+          <div class="hv-scene hv-jts" id="hv-jts">
+            <div class="hv-lab">With JTS</div>
+            <div class="hv-strip">
+              <div class="hv-msg hv-ring" id="hv-j-ring"><span class="hv-dot"></span>Incoming call</div>
+              <div class="hv-msg hv-txt" id="hv-j-txt">Hey! Sorry we missed you &mdash; reply 1 to book you in.</div>
+            </div>
+            <svg class="hv-face" viewBox="0 0 100 100" aria-hidden="true">
+              <path class="hv-brow" d="M34 40 Q39 37 44 40"/>
+              <path class="hv-brow" d="M56 40 Q61 37 66 40"/>
+              <circle class="hv-head" cx="50" cy="50" r="34"/>
+              <circle class="hv-eye" cx="39" cy="45" r="3.4"/>
+              <circle class="hv-eye" cx="61" cy="45" r="3.4"/>
+              <path class="hv-mouth hv-m-neutral" d="M40 62 H60"/>
+              <path class="hv-mouth hv-m-happy" d="M40 60 Q50 73 60 60"/>
+            </svg>
+            <div class="hv-cap">"Oh nice &mdash; they texted right back!"</div>
+            <div class="hv-outcome">Booked &middot; Today 2PM</div>
           </div>
-          <svg class="hv-face" viewBox="0 0 100 100" aria-hidden="true">
-            <path class="hv-brow" d="M34 40 Q39 37 44 40"/>
-            <path class="hv-brow" d="M56 40 Q61 37 66 40"/>
-            <circle class="hv-head" cx="50" cy="50" r="34"/>
-            <circle class="hv-eye" cx="39" cy="45" r="3.4"/>
-            <circle class="hv-eye" cx="61" cy="45" r="3.4"/>
-            <path class="hv-mouth hv-m-neutral" d="M40 62 H60"/>
-            <path class="hv-mouth hv-m-happy" d="M40 60 Q50 73 60 60"/>
-          </svg>
-          <div class="hv-cap">"Oh nice &mdash; they texted right back!"</div>
-          <div class="hv-outcome">Booked &middot; Today 2PM</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- ================================================================ TOOL MARQUEE -->
+<section class="marquee" aria-label="Platforms we build on">
+  <p class="marquee-label">Built on proven platforms</p>
+  <div class="marquee-track">
+    <ul class="marquee-group">
+      <li class="marquee-pill">Twilio</li>
+      <li class="marquee-pill">Zapier</li>
+      <li class="marquee-pill">Calendly</li>
+      <li class="marquee-pill">Google Calendar</li>
+      <li class="marquee-pill">Airtable</li>
+      <li class="marquee-pill">Softr</li>
+    </ul>
+    <ul class="marquee-group" aria-hidden="true">
+      <li class="marquee-pill">Twilio</li>
+      <li class="marquee-pill">Zapier</li>
+      <li class="marquee-pill">Calendly</li>
+      <li class="marquee-pill">Google Calendar</li>
+      <li class="marquee-pill">Airtable</li>
+      <li class="marquee-pill">Softr</li>
+    </ul>
+  </div>
+</section>
+
 <!-- ================================================================ SERVICES -->
-<section class="section" id="services" style="padding-top:40px;padding-bottom:40px;">
-  <div class="container reveal">
-    <div class="eyebrow">What we do</div>
-    <h2>Everything we build, <span class="serif italic" style="color:var(--blue-bright);">in one place.</span></h2>
-    <p class="lead muted" style="margin-top:14px;max-width:60ch;">Start with one service or combine them. We build everything, run it for you, and keep it working.</p>
-    <div class="services-grid">
-      <div class="service-feature">
+<section class="section section--tight" id="services" aria-labelledby="services-title">
+  <div class="container">
+    <div class="reveal">
+      <div class="eyebrow">What we do</div>
+      <h2 id="services-title">Everything we build, <span class="serif italic" style="color:var(--blue-bright);">in one place.</span></h2>
+      <p class="lead muted" style="margin-top:14px;max-width:60ch;">Start with one service or combine them. We build everything, run it for you, and keep it working.</p>
+    </div>
+    <div class="services-grid stagger">
+      <a class="feature service-feature" href="/missed-call-automation/">
         <div>
           <div class="price-tag" style="position:static;display:inline-block;margin-bottom:14px;">Our flagship service</div>
           <h3>Missed Call Automation</h3>
           <p>Every missed call gets a text back in under 30 seconds. Customers book, ask questions, or request an estimate, and you get the details. Plans from $197/mo.</p>
         </div>
         <div class="sf-actions">
-          <a href="#pricing" class="btn btn--primary">See plans →</a>
-          <a href="#how" class="btn btn--ghost">Watch the demo</a>
+          <span class="btn btn--primary">See the service →</span>
         </div>
-      </div>
-      <div class="feature service-card">
-        <div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg></div>
+      </a>
+      <a class="feature service-card" href="/custom-builds/#workflow" data-tilt="7">
+        <div class="feature-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg></div>
         <h4>Workflow Automation</h4>
         <p>Hand off the repetitive work. We automate follow-ups, scheduling, reminders, and data entry so your time goes to the job, not the paperwork.</p>
-        <a href="#pricing" class="more" data-tab-link="1">Get a quote →</a>
-      </div>
-      <div class="feature service-card">
-        <div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+        <span class="more">Get a quote <span class="arr" aria-hidden="true">→</span></span>
+      </a>
+      <a class="feature service-card" href="/custom-builds/#portals" data-tilt="7">
+        <div class="feature-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
         <h4>Portals, Web Apps &amp; Business Tools</h4>
         <p>Client portals, dashboards, and web apps built around your workflow, so customers and your team can log in, track work, and get answers without the back-and-forth.</p>
-        <a href="#pricing" class="more" data-tab-link="1">Get a quote →</a>
-      </div>
-      <div class="feature service-card">
-        <div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+        <span class="more">Get a quote <span class="arr" aria-hidden="true">→</span></span>
+      </a>
+      <a class="feature service-card" href="/custom-builds/#websites" data-tilt="7">
+        <div class="feature-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
         <h4>Web Development</h4>
         <p>Modern, mobile-friendly websites built to turn visitors into calls and bookings.</p>
-        <a href="#pricing" class="more" data-tab-link="1">Get a quote →</a>
-      </div>
-      <div class="feature service-card">
-        <div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></div>
+        <span class="more">Get a quote <span class="arr" aria-hidden="true">→</span></span>
+      </a>
+      <a class="feature service-card" href="/custom-builds/#crm" data-tilt="7">
+        <div class="feature-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></div>
         <h4>CRM Creation &amp; Maintenance</h4>
         <p>We build your CRM and keep it running. Automation handles the busywork, so you save time, avoid messy data and costly errors, and cut manual labor.</p>
-        <a href="#pricing" class="more" data-tab-link="1">Get a quote →</a>
+        <span class="more">Get a quote <span class="arr" aria-hidden="true">→</span></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================ SCROLL STORY -->
+<section class="story" id="story" aria-labelledby="story-title">
+  <div class="container story-sticky">
+    <div class="reveal">
+      <div class="eyebrow">How a missed call gets rescued</div>
+      <h2 id="story-title">One missed call, <span class="serif italic" style="color:var(--blue-bright);">start to finish.</span></h2>
+      <p class="lead muted" style="margin-top:14px;max-width:58ch;">Scroll to follow a single missed call through the system. This is an example, not a real customer.</p>
+    </div>
+    <div class="story-layout">
+      <ol class="story-steps">
+        <li class="story-step" data-n="1"><span class="st-n" aria-hidden="true">1</span><strong>The call rings and goes unanswered</strong><p>You're on a job and can't pick up. The customer is still calling.</p></li>
+        <li class="story-step" data-n="2"><span class="st-n" aria-hidden="true">2</span><strong>An auto-text goes out in 30 seconds</strong><p>Before the customer calls someone else, they get a text back with three options.</p></li>
+        <li class="story-step" data-n="3"><span class="st-n" aria-hidden="true">3</span><strong>The customer replies</strong><p>They pick an option or ask a question, and the conversation keeps going.</p></li>
+        <li class="story-step" data-n="4"><span class="st-n" aria-hidden="true">4</span><strong>The job gets booked</strong><p>The time they choose lands on your calendar with no back-and-forth.</p></li>
+        <li class="story-step" data-n="5"><span class="st-n" aria-hidden="true">5</span><strong>You get the details</strong><p>Name, need, and time arrive on your phone, so you know what's booked.</p></li>
+      </ol>
+      <div>
+        <div class="story-phone">
+          <div class="sp-top">Example phone screen</div>
+          <div class="sp-call is-ringing" data-from="1">
+            <div class="sp-avatar" aria-hidden="true">E</div>
+            <div class="sp-who">Incoming call</div>
+            <div class="sp-sub">Example caller, you can't pick up</div>
+          </div>
+          <div class="sp-time" data-from="2">Auto-text sent 30 seconds after the missed call</div>
+          <div class="sp-bubble sp-bubble--in" data-from="2">Hi! Sorry we missed you. Reply 1 to book, 2 for a callback, or 3 to ask a question.</div>
+          <div class="sp-bubble sp-bubble--out" data-from="3">Hey, my AC died. Can someone come out today?</div>
+          <div class="sp-booked" data-from="4">&check; Booked: Today, 2:00 PM</div>
+          <div class="sp-notif" data-from="5"><strong>Owner alert</strong><span>New lead booked. AC repair, today at 2 PM.</span></div>
+        </div>
+        <p class="story-example-note">Example only. Names, times, and messages are made up.</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ================================================================ PROBLEM -->
-<section class="section" id="problem">
+<section class="section" id="problem" aria-labelledby="problem-title">
   <div class="container reveal">
     <div class="eyebrow">Missed Call Automation · The problem</div>
-    <h2><span class="rot-word" id="problem-industry">HVAC contractors</span><br>bleed revenue every single day.</h2>
+    <h2 id="problem-title"><span class="rot-word" id="problem-industry">HVAC contractors</span><br>bleed revenue every single day.</h2>
     <div class="stats-grid stats-grid--two">
       <div class="stat-card">
-        <div class="stat-num" data-target="62" data-suffix="%">0%</div>
+        <div class="stat-num" data-target="62" data-suffix="%">62%</div>
         <div class="stat-desc"><strong style="color:var(--text-1);">call a competitor</strong> instead — immediately. Google's right there.</div>
         <div class="stat-source">Dialzara / Aira research</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num" data-target="40" data-suffix="%">0%</div>
+        <div class="stat-num" data-target="40" data-suffix="%">40%</div>
         <div class="stat-desc"><strong style="color:var(--text-1);">of inbound calls</strong> go unanswered at small businesses. Revenue walking past you every day.</div>
         <div class="stat-source">411 Locals 2024 study, 58 industries</div>
       </div>
+    </div>
+    <div class="center-cta" style="justify-content:flex-start;">
+      <a class="stat-more" href="/calculator/">See what your missed calls cost <span aria-hidden="true">→</span></a>
     </div>
     <p class="problem-close">None of this is your fault. You can't be on the phone <em>and</em> <span id="problem-ending">on the roof</span> at the same time.</p>
     <p class="problem-source"><strong>78% of customers</strong> buy from the first business that responds.<span>HBR</span></p>
   </div>
 </section>
 
-<!-- ================================================================ ROI CALCULATOR -->
-<section class="section" id="calculator" style="padding-top:60px;">
-  <div class="container reveal">
-    <div class="eyebrow">Step 1 — Do the math</div>
-    <h2>How much money is your phone leaving on the table?</h2>
-    <p class="lead muted" style="margin-top:14px;">Move the sliders. The numbers update in real time.</p>
-
-    <div class="calc-wrap">
-      <div class="calc-inputs">
-        <div class="calc-input">
-          <div class="calc-label">
-            <span class="calc-label-text">Missed calls per month</span>
-            <input type="number" id="calc-calls-num" class="calc-value" value="60" min="5" max="300" step="5">
-          </div>
-          <input type="range" id="calc-calls" min="5" max="300" value="60" step="5">
-        </div>
-
-        <div class="calc-input">
-          <div class="calc-label">
-            <span class="calc-label-text">Average job value</span>
-            <input type="number" id="calc-job-num" class="calc-value" value="425" min="50" max="2000" step="25">
-          </div>
-          <input type="range" id="calc-job" min="50" max="2000" value="425" step="25">
-        </div>
-
-        <div class="calc-input">
-          <div class="calc-label">
-            <span class="calc-label-text">
-              Estimated close rate
-              <span class="calc-help" data-tip="Of callers we re-engage, what % become paying jobs? Industry avg ~30%.">?</span>
-            </span>
-            <input type="number" id="calc-close-num" class="calc-value" value="30" min="10" max="60" step="5">
-          </div>
-          <input type="range" id="calc-close" min="10" max="60" value="30" step="5">
-        </div>
-
-        <button class="calc-reset" id="calc-reset">↺ Reset to industry average</button>
-      </div>
-
-      <div class="calc-output">
-        <div class="calc-card calc-card-loss">
-          <div class="calc-card-label">Walking out the door</div>
-          <div class="calc-card-num" id="out-loss">$0/yr</div>
-          <div class="calc-card-sub">Revenue you're losing to missed calls right now</div>
-        </div>
-        <div class="calc-card calc-card-recover">
-          <div class="calc-card-label">We recover (~35%)</div>
-          <div class="calc-card-num" id="out-recover">+$0/yr</div>
-          <div class="calc-card-sub">Estimate based on industry SMS response rates (~45%) and missed-call recovery research. Actual results vary.</div>
-        </div>
-        <div class="calc-card calc-card-net">
-          <div class="calc-card-label">After JTS</div>
-          <div class="calc-card-num" id="out-net">$0/yr net</div>
-          <div class="calc-card-sub">Money in your pocket every year, on top of what you're already making</div>
-        </div>
-        <div class="calc-multiplier">
-          That's a <span class="x" id="out-mult">0×</span> return on JTS.
-        </div>
-        <div class="calc-footnote">Math assumes the Growth plan ($397/mo). Higher volume = better ROI on the Elite tier.</div>
-      </div>
+<!-- ================================================================ CUSTOM BUILDS TEASER -->
+<section class="section" id="builds" aria-labelledby="builds-title">
+  <div class="container teaser-grid">
+    <div class="reveal">
+      <div class="eyebrow">Custom builds</div>
+      <h2 id="builds-title">Need more than texts? <span class="serif italic" style="color:var(--blue-bright);">We build that too.</span></h2>
+      <p class="lead muted" style="margin-top:14px;max-width:50ch;">Websites, CRM, client portals, and workflow automation, scoped to how your business runs. Every custom project is quoted after a short call.</p>
+      <ul class="chip-list">
+        <li><a href="/custom-builds/#websites"><strong>Websites</strong><small>Mobile-friendly sites built to turn visitors into calls and bookings.</small><span class="chip-arr" aria-hidden="true">→</span></a></li>
+        <li><a href="/custom-builds/#crm"><strong>CRM Creation &amp; Maintenance</strong><small>Set up, kept running, and kept clean.</small><span class="chip-arr" aria-hidden="true">→</span></a></li>
+        <li><a href="/custom-builds/#portals"><strong>Portals, Web Apps &amp; Business Tools</strong><small>Logins, dashboards, and request tools for your customers and team.</small><span class="chip-arr" aria-hidden="true">→</span></a></li>
+        <li><a href="/custom-builds/#workflow"><strong>Workflow Automation</strong><small>Follow-ups, scheduling, reminders, and data entry, handled for you.</small><span class="chip-arr" aria-hidden="true">→</span></a></li>
+      </ul>
+    </div>
+    <div class="net-card reveal">
+      <svg class="net" viewBox="0 0 420 340" aria-hidden="true" focusable="false">
+        <path class="net-link" d="M210 170 L70 70"/>
+        <path class="net-link" d="M210 170 L350 70"/>
+        <path class="net-link" d="M210 170 L70 270"/>
+        <path class="net-link" d="M210 170 L350 270"/>
+        <circle class="net-hub-ring" cx="210" cy="170" r="30"/>
+        <circle class="net-hub-ring net-hub-ring--2" cx="210" cy="170" r="30"/>
+        <circle class="net-hub" cx="210" cy="170" r="30"/>
+        <text class="net-label net-label--hub" x="210" y="175" text-anchor="middle">JTS</text>
+        <circle class="net-node" cx="70" cy="70" r="26"/>
+        <circle class="net-node-dot" cx="70" cy="70" r="6"/>
+        <circle class="net-node" cx="350" cy="70" r="26"/>
+        <circle class="net-node-dot net-node-dot--2" cx="350" cy="70" r="6"/>
+        <circle class="net-node" cx="70" cy="270" r="26"/>
+        <circle class="net-node-dot net-node-dot--3" cx="70" cy="270" r="6"/>
+        <circle class="net-node" cx="350" cy="270" r="26"/>
+        <circle class="net-node-dot net-node-dot--4" cx="350" cy="270" r="6"/>
+        <text class="net-label" x="70" y="20" text-anchor="middle">Websites</text>
+        <text class="net-label" x="350" y="20" text-anchor="middle">CRM</text>
+        <text class="net-label" x="70" y="332" text-anchor="middle">Portals</text>
+        <text class="net-label" x="350" y="332" text-anchor="middle">Workflow</text>
+      </svg>
     </div>
   </div>
 </section>
 
-<!-- ================================================================ HOW IT WORKS / DEMO -->
-<section class="section" id="how" style="padding-top:60px;">
-  <div class="container reveal">
-    <div class="eyebrow">Step 2 — See it in action</div>
-    <h2>From missed call to booked job. <span class="serif italic" style="color:var(--blue-bright);">In under a minute.</span></h2>
-
-    <div class="demo-wrap">
-      <div class="phones">
-        <!-- Customer phone -->
-        <div class="phone phone--customer">
-          <div class="phone-screen">
-            <div class="phone-notch"></div>
-            <div class="phone-status">
-              <span>9:41</span>
-              <span class="icons"><span></span><span></span><span class="bat"></span></span>
-            </div>
-            <div class="phone-content">
-              <!-- Call screen -->
-              <div class="call-screen ringing" id="call-screen">
-                <div class="call-label">incoming call</div>
-                <div class="call-avatar serif italic">A</div>
-                <div class="call-name" id="biz-name-call">Apex HVAC</div>
-                <div class="call-num">(555) 247-0142</div>
-                <div class="call-buttons">
-                  <div class="call-btn decline">✕</div>
-                  <div class="call-btn accept">✓</div>
-                </div>
-              </div>
-              <!-- Missed banner -->
-              <div class="missed-banner" id="missed-banner">
-                <div class="missed-icon">↙</div>
-                <div class="missed-text">
-                  Missed call
-                  <small id="biz-name-missed">Apex HVAC · just now</small>
-                </div>
-              </div>
-              <!-- Messages -->
-              <div class="messages-screen" id="messages-screen">
-                <div class="messages-header">
-                  <div class="biz-name" id="biz-name-msgs">Apex HVAC</div>
-                  <div class="biz-sub">(555) 247-0142</div>
-                </div>
-                <div class="messages-body" id="messages-body">
-                  <!-- Bubbles inserted by JS -->
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Owner phone -->
-        <div class="phone phone--owner" id="owner-phone">
-          <div class="phone-screen">
-            <div class="phone-notch"></div>
-            <div class="phone-status">
-              <span>9:41</span>
-              <span class="icons"><span></span><span></span><span class="bat"></span></span>
-            </div>
-            <div class="phone-content">
-              <div class="owner-screen">
-                <div class="owner-time">9:41</div>
-                <div class="owner-date">Tuesday, June 18</div>
-                <div class="owner-notif" id="owner-notif-1">
-                  <div class="notif-header">
-                    <div class="notif-app-icon">J</div>
-                    <div class="notif-app-name">JTS Solutions</div>
-                    <div class="notif-time">now</div>
-                  </div>
-                  <div class="notif-title">Missed call — auto-reply sent</div>
-                  <div class="notif-body" id="notif-body-1">Customer engaged. Standby for booking…</div>
-                </div>
-                <div class="owner-notif" id="owner-notif-2">
-                  <div class="notif-header">
-                    <div class="notif-app-icon">J</div>
-                    <div class="notif-app-name">JTS Solutions</div>
-                    <div class="notif-time">just now</div>
-                  </div>
-                  <div class="notif-title" id="notif-title-2">New lead — booked!</div>
-                  <div class="notif-body" id="notif-body-2">🔥 AC repair, urgent. Sarah M. (555) 0142 — Today 2pm</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="demo-info">
-        <h3>Watch a real missed call get rescued.</h3>
-        <p>This is what your customers experience when JTS is on the case. They never feel ignored. You never have to lift a finger.</p>
-        <div class="demo-steps" id="demo-steps">
-          <div class="demo-step active" data-step="1"><span class="num">1</span> Missed</div>
-          <span class="demo-arrow">→</span>
-          <div class="demo-step" data-step="2"><span class="num">2</span> Auto-text</div>
-          <span class="demo-arrow">→</span>
-          <div class="demo-step" data-step="3"><span class="num">3</span> Reply</div>
-          <span class="demo-arrow">→</span>
-          <div class="demo-step" data-step="4"><span class="num">4</span> Booked</div>
-        </div>
-        <button class="demo-replay" id="demo-replay">↻ Replay demo</button>
-        <p class="demo-note">Example only. The business name and phone numbers shown are fictional.</p>
-      </div>
+<!-- ================================================================ PRICING SUMMARY -->
+<section class="section" id="pricing" aria-labelledby="pricing-title">
+  <div class="container">
+    <div class="reveal">
+      <div class="eyebrow">Pricing</div>
+      <h2 id="pricing-title">Simple pricing. <span class="serif italic" style="color:var(--blue-bright);">No surprises.</span></h2>
+      <p class="lead muted" style="margin-top:14px;max-width:58ch;">Missed-call plans are a flat monthly fee. Websites, CRM, portals, and workflow automation are quoted after a short call.</p>
+    </div>
+    <div class="plans-mini stagger">
+      <article class="plan-mini">
+        <div class="pm-name">Starter</div>
+        <div class="pm-price"><sup>$</sup>197<small>/mo</small></div>
+        <small style="font-size:13px;color:var(--text-4);margin-top:6px;">or $177/mo (6-mo) &middot; $167/mo (12-mo)</small>
+        <p>Up to 150 missed calls a month. Automatic text-back, booking, and owner alerts.</p>
+      </article>
+      <article class="plan-mini is-featured">
+        <span class="pm-tag">Most Popular</span>
+        <div class="pm-name">Growth</div>
+        <div class="pm-price"><sup>$</sup>397<small>/mo</small></div>
+        <small style="font-size:13px;color:var(--text-4);margin-top:6px;">or $357/mo (6-mo) &middot; $337/mo (12-mo)</small>
+        <p>Up to 400 missed calls a month, with 24/7 coverage and AI answers to customer questions.</p>
+      </article>
+      <article class="plan-mini">
+        <div class="pm-name">Elite</div>
+        <div class="pm-price"><sup>$</sup>597<small>/mo</small></div>
+        <small style="font-size:13px;color:var(--text-4);margin-top:6px;">or $537/mo (6-mo) &middot; $507/mo (12-mo)</small>
+        <p>Unlimited missed calls, plus after-hours triage and a dedicated onboarding call.</p>
+      </article>
+    </div>
+    <div class="plans-foot">
+      <p><strong>One-time setup fee: $500</strong>, waived for the first 10 clients. Month-to-month, cancel anytime. Prepay 6 or 12 months to save up to $1,080 a year. Websites, CRM, portals, and workflow automation: <strong>Custom quote</strong> after a short call.</p>
+      <a class="plans-link" href="/missed-call-automation/#pricing">See full plans →</a>
     </div>
   </div>
 </section>
 
-<!-- ================================================================ WHAT'S INCLUDED -->
-<section class="section" style="padding-top:60px;padding-bottom:40px;">
-  <div class="container reveal">
-    <div class="eyebrow">Missed Call Automation</div>
-    <h2>What every plan includes.</h2>
-    <ul class="includes">
-      <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><div><strong>30-second response.</strong> Every missed call gets a text back before the customer can call someone else.</div></li>
-      <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><div><strong>Automatic booking.</strong> Customers book directly into your calendar. No back-and-forth.</div></li>
-      <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><div><strong>Owner notifications.</strong> Every conversation texts you the name, the need, and the contact info.</div></li>
-      <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><div><strong>AI-powered Q&amp;A.</strong> On Growth and Elite, AI answers customer questions right away, with no owner follow-up needed.</div></li>
-      <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><div><strong>Monthly report.</strong> A plain-English summary of calls caught, booked, and gone cold.</div></li>
-    </ul>
-  </div>
-</section>
-
-
-<!-- ================================================================ PRICING -->
-<section class="section" id="pricing" style="padding-top:80px;">
-  <div class="container reveal">
-    <div class="eyebrow">Pricing</div>
-    <h2>Simple pricing. <span class="serif italic" style="color:var(--blue-bright);">No surprises.</span></h2>
-    <div class="price-tabs" role="tablist" aria-label="Pricing categories">
-      <button class="price-tab" role="tab" id="pt-0" aria-selected="true" aria-controls="pp-0" type="button">Missed Call Automation</button>
-      <button class="price-tab" role="tab" id="pt-1" aria-selected="false" aria-controls="pp-1" type="button">Websites, CRM &amp; Custom</button>
+<!-- ================================================================ HOW IT WORKS -->
+<section class="section" id="process" aria-labelledby="process-title">
+  <div class="container">
+    <div class="reveal">
+      <div class="eyebrow">How it works</div>
+      <h2 id="process-title">From first call to live, <span class="serif italic" style="color:var(--blue-bright);">in four steps.</span></h2>
+      <p class="lead muted" style="margin-top:14px;margin-bottom:40px;">Here's what happens after you book a call with us.</p>
     </div>
-    <div class="price-panel" id="pp-0" role="tabpanel" aria-labelledby="pt-0">
-    <div class="pricing-grid">
-      <div class="price-card">
-        <div class="price-name">Starter</div>
-        <div class="price-amount"><sup>$</sup>197<span>/mo</span></div>
-        <div class="price-prepay" style="font-size:13px;color:var(--text-3);margin:-4px 0 10px;">or $177/mo (6-mo) &middot; $167/mo (12-mo prepay)</div>
-        <div class="price-volume">Up to 150 missed calls / month</div>
-        <ul class="price-features">
-          <li>Full system setup &amp; configuration</li>
-          <li>Missed call → 30-second auto-text</li>
-          <li>5-option reply menu</li>
-          <li>Calendly booking integration</li>
-          <li>Owner text notifications</li>
-          <li>Basic monthly report</li>
-          <li>Business hours coverage</li>
-        </ul>
-        <a href="#" class="btn btn--ghost price-cta js-booking">Get Started</a>
-      </div>
-
-      <div class="price-card featured">
-        <div class="price-tag">Most Popular</div>
-        <div class="price-name">Growth</div>
-        <div class="price-amount"><sup>$</sup>397<span>/mo</span></div>
-        <div class="price-prepay" style="font-size:13px;color:var(--text-3);margin:-4px 0 10px;">or $357/mo (6-mo) &middot; $337/mo (12-mo prepay)</div>
-        <div class="price-volume">Up to 400 missed calls / month</div>
-        <ul class="price-features">
-          <li>Everything in Starter</li>
-          <li>24/7 coverage including weekends</li>
-          <li>AI handles customer questions instantly</li>
-          <li>Estimate pre-qualification via SMS</li>
-          <li>Detailed monthly report</li>
-          <li>Daily owner summary text</li>
-          <li>Priority support</li>
-        </ul>
-        <a href="#" class="btn btn--primary price-cta js-booking">Choose Growth</a>
-      </div>
-
-      <div class="price-card">
-        <div class="price-name">Elite</div>
-        <div class="price-amount"><sup>$</sup>597<span>/mo</span></div>
-        <div class="price-prepay" style="font-size:13px;color:var(--text-3);margin:-4px 0 10px;">or $537/mo (6-mo) &middot; $507/mo (12-mo prepay)</div>
-        <div class="price-volume">Unlimited missed calls</div>
-        <ul class="price-features">
-          <li>Everything in Growth</li>
-          <li>AI handles questions + after-hours triage</li>
-          <li>Weekly reports</li>
-          <li>Custom SMS copy branded to your business</li>
-          <li>Quarterly optimization call</li>
-          <li>First-priority support</li>
-          <li>Dedicated onboarding call</li>
-        </ul>
-        <a href="#" class="btn btn--ghost price-cta js-booking">Choose Elite</a>
-      </div>
-    </div>
-    <div style="margin-top:32px;padding:24px 28px;background:linear-gradient(90deg,rgba(59,130,246,0.08),rgba(59,130,246,0.02));border:1px solid rgba(59,130,246,0.20);border-radius:var(--radius);display:flex;align-items:flex-start;gap:16px;">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--blue-bright);flex-shrink:0;margin-top:2px;"><circle cx="12" cy="12" r="10"/><path d="M12 8v4m0 4h.01"/></svg>
-      <div>
-        <p style="color:var(--text-1);font-weight:600;font-size:15px;margin-bottom:4px;">One-time setup fee: $500</p>
-        <p style="color:var(--text-3);font-size:14px;line-height:1.6;">Covers full system configuration, end-to-end testing, and a live onboarding call. After that, just your flat monthly rate — no surprises, ever. <span style="color:var(--blue-bright);font-weight:500;">Setup fee waived for the first 10 clients.</span></p>
-      </div>
-    </div>
-    <p class="price-footnote">Month-to-month, or prepay 6 or 12 months to lock in a lower rate and save up to $1,080 a year.</p>
-    </div>
-
-    <div class="price-panel" id="pp-1" role="tabpanel" aria-labelledby="pt-1" hidden>
-      <p class="lead muted" style="margin-top:28px;max-width:60ch;">Every project is different, so we quote after a short call about what you need. No pressure and no obligation.</p>
-      <div class="quote-grid">
-        <div class="feature">
-          <div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
-          <h4>Websites</h4>
-          <p>Modern, mobile-friendly websites built to turn visitors into calls and bookings.</p>
-          <div class="quote-price">Custom quote</div>
-          <a href="#" class="btn btn--ghost js-booking">Get a quote</a>
-        </div>
-        <div class="feature">
-          <div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></div>
-          <h4>CRM Creation &amp; Maintenance</h4>
-          <p>We build your CRM and keep it running and clean, with automation that saves time and cuts errors and manual labor.</p>
-          <div class="quote-price">Custom quote</div>
-          <a href="#" class="btn btn--ghost js-booking">Get a quote</a>
-        </div>
-        <div class="feature">
-          <div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg></div>
-          <h4>Portals, Web Apps &amp; Automation</h4>
-          <p>Client portals, web apps, and workflow automation built around how your business runs, scoped to your project.</p>
-          <div class="quote-price">Custom quote</div>
-          <a href="#" class="btn btn--ghost js-booking">Get a quote</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================================================================ WHAT HAPPENS AFTER BOOKING -->
-<section class="section" id="process" style="padding-top:80px;padding-bottom:80px;">
-  <div class="container reveal">
-    <div class="eyebrow">How it works</div>
-    <h2>From first call to live, <span class="serif italic" style="color:var(--blue-bright);">in four steps.</span></h2>
-    <p class="lead muted" style="margin-top:14px;margin-bottom:40px;">Here's what happens after you book a call with us.</p>
-    <div class="steps">
+    <div class="steps stagger">
       <div class="step"><div class="step-num">1</div><p class="step-title">15-minute call</p><p>We learn about your business, what's slowing you down, and what to build first.</p></div>
       <div class="step"><div class="step-num">2</div><p class="step-title">We build it</p><p>Everything is set up for you. Missed-call systems are ready in 3–5 days.</p></div>
       <div class="step"><div class="step-num">3</div><p class="step-title">Live test</p><p>We walk you through it so you see exactly how it works before it goes live.</p></div>
@@ -2338,57 +361,43 @@ document.addEventListener('DOMContentLoaded',function(){var b=document.getElemen
 </section>
 
 <!-- ================================================================ FAQ -->
-<section class="section" id="faq" style="padding-top:80px;padding-bottom:80px;border-top:1px solid var(--line);">
-  <div class="container reveal">
-    <div class="eyebrow">FAQ</div>
-    <h2>Questions we get on every call.</h2>
-
-    <p class="faq-label">General</p>
-    <div class="faq-grid">
+<section class="section" id="faq" aria-labelledby="faq-title" style="padding-top:80px;padding-bottom:80px;border-top:1px solid var(--line);">
+  <div class="container">
+    <div class="reveal">
+      <div class="eyebrow">FAQ</div>
+      <h2 id="faq-title">Questions we get on every call.</h2>
+    </div>
+    <div class="faq-grid" style="margin-top:36px;">
       <div class="faq-item"><p class="q">Do I need to be tech-savvy?</p><p class="a">Not at all. We configure everything, so you don't touch a single tool or setting. For missed-call automation, the most technical thing you do is forward your business number, which takes about 60 seconds, and we walk you through it.</p></div>
       <div class="faq-item"><p class="q">What are the most common tools you use?</p><p class="a">We stick with proven, widely used platforms we know well, so your business isn't a testing ground. The ones we use most: <strong>Twilio</strong> for texting and phone numbers, <strong>Zapier</strong> to connect your apps and automate steps, <strong>Calendly</strong> and <strong>Google Calendar</strong> for booking, <strong>Airtable</strong> for records, logs, and CRM data, and <strong>Softr</strong> for client portals and web apps. We pick the right mix for your business after a short call.</p></div>
       <div class="faq-item"><p class="q">How does pricing work?</p><p class="a">Missed-call automation plans are a flat monthly fee, plus a one-time setup fee that's waived for the first 10 clients. Websites, CRM, portals, and custom work are quoted after a short call, based on what you need.</p></div>
       <div class="faq-item"><p class="q">What happens if I cancel?</p><p class="a">Missed-call plans are month-to-month, so you can cancel anytime with no penalty. We'll turn off the system and your number goes back to ringing normally. No contracts, no lock-in, no hard feelings.</p></div>
-    </div>
-
-    <p class="faq-label">Missed Call Automation</p>
-    <div class="faq-grid">
-      <div class="faq-item"><p class="q">Can I keep my existing phone number?</p><p class="a">Yes. You keep your number. We set up a separate line that your business number quietly forwards missed calls to. Customers never notice anything changed. They just get a text back instead of silence.</p></div>
-      <div class="faq-item"><p class="q">What if I already have voicemail?</p><p class="a">Voicemail is passive: customers leave a message and hope you call back. Our system is active. It texts them within 30 seconds and routes them to book, get an estimate, or ask a question. Most people don't leave voicemails anymore. They just hang up and call the next guy.</p></div>
-      <div class="faq-item"><p class="q">Does AI actually talk to my customers?</p><p class="a">On Growth and Elite, yes. When a customer texts back a question, AI reads it and responds in real time, with no wait and no owner follow-up needed. On Starter, questions are forwarded to you directly. Either way, no lead falls through the cracks.</p></div>
-      <div class="faq-item"><p class="q">How long does setup take?</p><p class="a">3–5 business days from your onboarding call to going live. Most clients are live within a week of signing up.</p></div>
-    </div>
-
-    <p class="faq-label">Websites, CRM, portals &amp; custom work</p>
-    <div class="faq-grid">
-      <div class="faq-item"><p class="q">What does CRM creation and maintenance include?</p><p class="a">We build your CRM around how your business already works, then keep it running. Automations handle follow-ups, reminders, and data entry, so your records stay clean, mistakes drop, and nothing slips through the cracks.</p></div>
       <div class="faq-item"><p class="q">Can you build a customer portal or web app?</p><p class="a">Yes. We build client portals, dashboards, and web apps around your workflow, so customers and your team can log in, track work, and get answers without the back-and-forth. We build on platforms like <strong>Airtable</strong> and <strong>Softr</strong>. Every project is scoped to your needs, so we quote after a short call.</p></div>
-      <div class="faq-item"><p class="q">How do you price websites, portals, and custom projects?</p><p class="a">Every project is scoped to what you need, so we quote after a short call. There's no pressure and no obligation to move forward.</p></div>
     </div>
   </div>
 </section>
 
 <!-- ================================================================ FINAL CTA -->
-<section class="cta-section" id="contact">
+<section class="cta-section" id="contact" aria-labelledby="contact-title">
   <div class="container reveal">
     <div class="eyebrow">Ready?</div>
-    <h2>Ready to save time? <span class="serif italic" style="color:var(--blue-bright);">Let's talk.</span></h2>
+    <h2 id="contact-title">Ready to save time? <span class="serif italic" style="color:var(--blue-bright);">Let's talk.</span></h2>
     <p class="lead muted" style="margin-top:14px;max-width:54ch;margin-bottom:32px;">Book a time that works for you and tell us about your business. Zoom, Meet, or phone, your call.</p>
 
     <div class="cta-grid">
       <div class="cta-perks">
         <div class="cta-perk">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
           <div><strong>Month-to-month automation plans.</strong> No contracts. Cancel anytime.</div>
         </div>
         <div class="cta-perk">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
           <div><strong>One business day response.</strong> A real person, no chatbot maze.</div>
         </div>
       </div>
 
       <div class="cta-action">
-        <a href="#" class="btn btn--primary js-booking" style="font-size:17px;padding:18px 28px;width:100%;">
+        <a href="https://calendly.com/solutionsfromjts/jts-solutions-consultation-call" class="btn btn--primary js-booking" style="font-size:17px;padding:18px 28px;width:100%;">
           Book a free consultation call →
         </a>
         <div class="cta-action-sub">Takes 60 seconds. Prefer email? <a href="mailto:solutionsfromjts@gmail.com">solutionsfromjts@gmail.com</a></div>
@@ -2403,450 +412,21 @@ document.addEventListener('DOMContentLoaded',function(){var b=document.getElemen
 <footer>
   <div class="footer-inner">
     <div class="footer-brand">
-      <span class="brand-mark">JTS</span>
+      <span class="brand-mark" aria-hidden="true">JTS</span>
       <div>
         <div style="font-weight:700;">JTS Solutions</div>
         <div class="footer-tag">Smart Automation for Modern Businesses</div>
       </div>
     </div>
-    <div class="footer-links">
-      <a href="#services">Services</a>
-      <a href="#pricing">Pricing</a>
-      <a href="#contact">Contact</a>
+    <nav class="footer-links" aria-label="Footer">
+      <a href="/">Home</a>
+      <a href="/missed-call-automation/">Missed-Call Automation</a>
+      <a href="/custom-builds/">Custom Builds</a>
+      <a href="/calculator/">Revenue Calculator</a>
       <a href="mailto:solutionsfromjts@gmail.com">solutionsfromjts@gmail.com</a>
-    </div>
+    </nav>
     <div class="footer-copy">Serving New Jersey, New York City, and Pennsylvania · © 2026 JTS Solutions. All rights reserved.</div>
   </div>
 </footer>
-
-<script>
-/* ============================================================
-   ⚙️  CONFIG — EDIT THIS
-   ============================================================
-   Where should every "Book a Call" / "Choose [tier]" button go?
-   Paste your Google Form / Calendly / Cal.com / Tally URL below.
-
-   Then re-deploy. Every booking button on the page updates
-   automatically.
-   ============================================================ */
-const BOOKING_URL = 'https://calendly.com/solutionsfromjts/jts-solutions-consultation-call';
-
-// Wire up every .js-booking element to the URL above
-document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('.js-booking').forEach(el => {
-    el.setAttribute('href', BOOKING_URL);
-    el.setAttribute('target', '_blank');
-    el.setAttribute('rel', 'noopener noreferrer');
-  });
-});
-
-/* ============================================================
-   INDUSTRY DATA
-   ============================================================ */
-const INDUSTRIES = {
-  hvac:        { label: 'HVAC',          avgJob: 425, missed: 60, biz: 'Apex HVAC',           phone: '(555) 247-0142', avatar: 'A', custMsg: "Hey, my AC just died and it's 95° in here. Can someone come today?", ownerAlert: '🔥 AC repair, urgent. Sarah M. (555) 0142',      ownerTitle: 'New lead — booked!', problemLead: 'HVAC contractors', ending: 'on the roof' },
-  plumbing:    { label: 'Plumbing',      avgJob: 385, missed: 75, biz: 'Quick Pipe Plumbing', phone: '(555) 318-0188', avatar: 'Q', custMsg: 'Pipe burst in basement — water everywhere. Help??',                          ownerAlert: '🚨 Burst pipe — emergency. Mike R. (555) 0188', ownerTitle: 'New lead — booked!', problemLead: 'Plumbers',         ending: 'under a sink' },
-  electrical:  { label: 'Electrical',    avgJob: 350, missed: 45, biz: 'Voltway Electric',    phone: '(555) 422-0211', avatar: 'V', custMsg: 'Breaker keeps tripping every time I run the dryer.',                           ownerAlert: '⚡ Panel issue. Dana K. (555) 0211',             ownerTitle: 'New lead — booked!', problemLead: 'Electricians',     ending: 'in a crawl space' },
-  roofing:     { label: 'Roofing',       avgJob: 800, missed: 35, biz: 'Summit Roofing',      phone: '(555) 510-0307', avatar: 'S', custMsg: 'Big storm last night. Need someone to look at my roof.',                      ownerAlert: '🏠 Storm damage inspection. Tom L. (555) 0307',  ownerTitle: 'New lead — booked!', problemLead: 'Roofers',          ending: 'on a job site' },
-  landscaping: { label: 'Landscaping',   avgJob: 275, missed: 50, biz: 'GreenScape',          phone: '(555) 661-0419', avatar: 'G', custMsg: 'Looking for a quote — full yard cleanup and mulch.',                           ownerAlert: '🌿 Yard cleanup quote. Priya S. (555) 0419',     ownerTitle: 'New lead — booked!', problemLead: 'Landscapers',      ending: 'mowing a lawn' },
-  contractors: { label: 'Contractors',   avgJob: 600, missed: 40, biz: 'Peak Contracting',    phone: '(555) 774-0631', avatar: 'P', custMsg: 'Looking to get a quote on a bathroom remodel.',                                ownerAlert: '🔨 Remodel quote. James D. (555) 0631',          ownerTitle: 'New lead — booked!', problemLead: 'Contractors',      ending: 'on a job site' }
-};
-
-let currentIndustry = 'hvac';
-
-/* ============================================================
-   ROTATING INDUSTRY WORD (problem headline)
-   ============================================================ */
-const ROT_WORDS = Object.values(INDUSTRIES).map(d => d.problemLead);
-const rotEl = document.getElementById('problem-industry');
-let rotIdx = 0;
-const rotReduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-function rotateIndustry() {
-  rotIdx = (rotIdx + 1) % ROT_WORDS.length;
-  if (rotReduce) { rotEl.textContent = ROT_WORDS[rotIdx]; return; }
-  rotEl.classList.add('rot-out');
-  setTimeout(() => {
-    rotEl.textContent = ROT_WORDS[rotIdx];
-    rotEl.classList.remove('rot-out');
-    rotEl.classList.add('rot-in');
-    requestAnimationFrame(() => requestAnimationFrame(() => rotEl.classList.remove('rot-in')));
-  }, 340);
-}
-if (!rotReduce) setInterval(rotateIndustry, 2400);
-
-function selectIndustry(key) {
-  if (!INDUSTRIES[key]) return;
-  currentIndustry = key;
-  document.body.dataset.industry = key;
-  document.querySelectorAll('.pill').forEach(p => {
-    p.classList.toggle('active', p.dataset.industry === key);
-  });
-  const data = INDUSTRIES[key];
-
-  // problem section
-  document.getElementById('problem-industry').textContent = data.problemLead;
-  document.getElementById('problem-ending').textContent = data.ending;
-
-  // calculator defaults
-  setCalc(data.missed, data.avgJob, 30);
-
-  // demo
-  document.getElementById('biz-name-call').textContent = data.biz;
-  document.getElementById('biz-name-missed').textContent = data.biz + ' · just now';
-  document.getElementById('biz-name-msgs').textContent = data.biz;
-  document.querySelector('.call-avatar').textContent = data.avatar;
-  document.getElementById('notif-body-2').textContent = data.ownerAlert + ' — Today 2pm';
-  document.getElementById('notif-title-2').textContent = data.ownerTitle;
-
-  // restart demo
-  if (demoState.hasPlayed) restartDemo();
-}
-
-/* ============================================================
-   ROI CALCULATOR
-   ============================================================ */
-const callsRange = document.getElementById('calc-calls');
-const jobRange   = document.getElementById('calc-job');
-const closeRange = document.getElementById('calc-close');
-const callsNum   = document.getElementById('calc-calls-num');
-const jobNum     = document.getElementById('calc-job-num');
-const closeNum   = document.getElementById('calc-close-num');
-
-const outLoss   = document.getElementById('out-loss');
-const outRecover= document.getElementById('out-recover');
-const outNet    = document.getElementById('out-net');
-const outMult   = document.getElementById('out-mult');
-
-const JTS_ANNUAL = 397 * 12;
-const TOOL_ANNUAL = 0;
-
-function setCalc(calls, job, close) {
-  callsRange.value = calls; callsNum.value = calls;
-  jobRange.value = job;     jobNum.value = job;
-  closeRange.value = close; closeNum.value = close;
-  recalc(true);
-}
-
-function calcValues() {
-  const calls = +callsRange.value;
-  const job   = +jobRange.value;
-  const close = +closeRange.value / 100;
-  const lossYr = calls * 12 * close * job;
-  const recYr = lossYr * 0.35;
-  const netYr = recYr - JTS_ANNUAL - TOOL_ANNUAL;
-  const mult = recYr > 0 ? recYr / (JTS_ANNUAL + TOOL_ANNUAL) : 0;
-  return { lossYr, recYr, netYr, mult };
-}
-
-let lastValues = { lossYr: 0, recYr: 0, netYr: 0, mult: 0 };
-function recalc(skipAnimate=false) {
-  const v = calcValues();
-  if (skipAnimate) {
-    outLoss.textContent     = '-$' + fmt(v.lossYr) + '/yr';
-    outRecover.textContent  = '+$' + fmt(v.recYr) + '/yr';
-    outNet.textContent      = '$' + fmt(Math.max(0, v.netYr)) + '/yr net';
-    outMult.textContent     = v.mult.toFixed(1) + '×';
-  } else {
-    animateNumber(lastValues.lossYr, v.lossYr, val => outLoss.textContent = '-$' + fmt(val) + '/yr');
-    animateNumber(lastValues.recYr, v.recYr,   val => outRecover.textContent = '+$' + fmt(val) + '/yr');
-    animateNumber(lastValues.netYr, Math.max(0, v.netYr), val => outNet.textContent = '$' + fmt(val) + '/yr net');
-    animateNumber(lastValues.mult, v.mult, val => outMult.textContent = val.toFixed(1) + '×', 2);
-  }
-  lastValues = v;
-}
-
-function fmt(n) {
-  return Math.round(n).toLocaleString('en-US');
-}
-
-function animateNumber(from, to, setter, decimals=0) {
-  const duration = 600;
-  const start = performance.now();
-  function tick(now) {
-    const t = Math.min(1, (now - start) / duration);
-    const eased = 1 - Math.pow(1 - t, 3);
-    const val = from + (to - from) * eased;
-    setter(decimals === 0 ? val : +val.toFixed(decimals));
-    if (t < 1) requestAnimationFrame(tick);
-    else setter(decimals === 0 ? to : +to.toFixed(decimals));
-  }
-  requestAnimationFrame(tick);
-}
-
-// link sliders ↔ number inputs
-function syncRange(range, num) {
-  range.addEventListener('input', () => { num.value = range.value; recalc(); });
-  num.addEventListener('input', () => {
-    let v = +num.value || 0;
-    v = Math.max(+num.min, Math.min(+num.max, v));
-    range.value = v;
-    recalc();
-  });
-}
-syncRange(callsRange, callsNum);
-syncRange(jobRange, jobNum);
-syncRange(closeRange, closeNum);
-
-document.getElementById('calc-reset').addEventListener('click', () => {
-  const d = INDUSTRIES[currentIndustry];
-  setCalc(d.missed, d.avgJob, 30);
-});
-
-recalc(true);
-
-/* ============================================================
-   PHONE DEMO
-   ============================================================ */
-const demoState = { hasPlayed: false, playing: false, timeouts: [] };
-
-const callScreen      = document.getElementById('call-screen');
-const missedBanner    = document.getElementById('missed-banner');
-const messagesScreen  = document.getElementById('messages-screen');
-const messagesBody    = document.getElementById('messages-body');
-const ownerNotif1     = document.getElementById('owner-notif-1');
-const ownerNotif2     = document.getElementById('owner-notif-2');
-const ownerPhone      = document.getElementById('owner-phone');
-const stepsEls        = document.querySelectorAll('.demo-step');
-
-function setStep(n) {
-  stepsEls.forEach(s => s.classList.toggle('active', +s.dataset.step === n));
-}
-
-function clearDemo() {
-  demoState.timeouts.forEach(t => clearTimeout(t));
-  demoState.timeouts = [];
-  demoState.playing = false;
-  callScreen.classList.remove('show', 'ringing');
-  missedBanner.classList.remove('show');
-  messagesScreen.classList.remove('show');
-  messagesBody.innerHTML = '';
-  ownerNotif1.classList.remove('show');
-  ownerNotif2.classList.remove('show');
-  ownerPhone.classList.remove('phone--lit');
-  setStep(1);
-}
-
-function schedule(fn, t) {
-  const id = setTimeout(fn, t);
-  demoState.timeouts.push(id);
-}
-
-function addBubble(html, type='in', cls='') {
-  const b = document.createElement('div');
-  b.className = 'bubble bubble--' + type + ' ' + cls;
-  b.innerHTML = html;
-  messagesBody.appendChild(b);
-  // trigger animation + keep latest message in view
-  requestAnimationFrame(() => { b.classList.add('show'); messagesBody.scrollTop = messagesBody.scrollHeight; });
-  return b;
-}
-
-function addBookingCard() {
-  const card = document.createElement('div');
-  card.className = 'booking-card';
-  card.innerHTML = `
-    <div class="booking-title">Pick a time</div>
-    <div class="slot-row">
-      <div class="slot" id="slot-1"><small>TODAY</small>2:00 PM</div>
-      <div class="slot" id="slot-2"><small>TODAY</small>4:00 PM</div>
-      <div class="slot" id="slot-3"><small>TOMORROW</small>9:00 AM</div>
-    </div>
-  `;
-  messagesBody.appendChild(card);
-  requestAnimationFrame(() => { card.classList.add('show'); messagesBody.scrollTop = messagesBody.scrollHeight; });
-  return card;
-}
-
-function showTyping() {
-  const t = document.createElement('div');
-  t.className = 'typing';
-  t.innerHTML = '<span></span><span></span><span></span>';
-  messagesBody.appendChild(t);
-  requestAnimationFrame(() => { t.classList.add('show'); messagesBody.scrollTop = messagesBody.scrollHeight; });
-  return t;
-}
-
-function playDemo() {
-  if (demoState.playing) return;
-  clearDemo();
-  demoState.playing = true;
-  demoState.hasPlayed = true;
-  const data = INDUSTRIES[currentIndustry];
-
-  // 0.0s — incoming call
-  schedule(() => {
-    callScreen.classList.add('show', 'ringing');
-    setStep(1);
-  }, 0);
-
-  // 1.6s — missed (call screen fades)
-  schedule(() => {
-    callScreen.classList.remove('ringing');
-    callScreen.classList.remove('show');
-  }, 1800);
-
-  // 2.0s — missed banner appears
-  schedule(() => {
-    missedBanner.classList.add('show');
-  }, 2100);
-
-  // 2.4s — owner notification 1
-  schedule(() => {
-    ownerPhone.classList.add('phone--lit');
-    ownerNotif1.classList.add('show');
-  }, 2500);
-
-  // 3.2s — banner fades, messages appear
-  schedule(() => {
-    missedBanner.classList.remove('show');
-  }, 3300);
-
-  schedule(() => {
-    messagesScreen.classList.add('show');
-    setStep(2);
-  }, 3700);
-
-  // 4.4s — auto-text bubble from JTS
-  schedule(() => {
-    const time = document.createElement('div');
-    time.className = 'bubble bubble--time show';
-    time.textContent = 'Auto-reply · ~30s after missed call';
-    messagesBody.appendChild(time);
-    addBubble(`Hi! Sorry we missed you. Reply with:<br><br>1 — Book online<br>2 — Get a callback<br>3 — Ask a question`, 'in');
-  }, 4500);
-
-  // 6.0s — typing indicator (customer)
-  schedule(() => {
-    setStep(3);
-    showTyping();
-  }, 6200);
-
-  // 7.4s — remove typing, customer reply
-  schedule(() => {
-    const typing = messagesBody.querySelector('.typing');
-    if (typing) typing.remove();
-    addBubble(data.custMsg, 'out');
-  }, 7600);
-
-  // 9.0s — booking card appears
-  schedule(() => {
-    addBookingCard();
-  }, 9200);
-
-  // 10.4s — slot highlights & gets selected
-  schedule(() => {
-    const slot = document.getElementById('slot-1');
-    if (slot) slot.classList.add('selected');
-  }, 10600);
-
-  // 11.4s — confirmation bubble
-  schedule(() => {
-    setStep(4);
-    addBubble('Booked for Today, 2:00 PM. We\'ll see you then ✓', 'in');
-  }, 11600);
-
-  // 12.4s — owner notification 2 (booking)
-  schedule(() => {
-    ownerNotif2.classList.add('show');
-  }, 12500);
-
-  // 16s — done
-  schedule(() => {
-    demoState.playing = false;
-  }, 16000);
-}
-
-function restartDemo() {
-  clearDemo();
-  schedule(playDemo, 200);
-}
-
-document.getElementById('demo-replay').addEventListener('click', restartDemo);
-
-/* ============================================================
-   STATS COUNTER (intersection observer)
-   ============================================================ */
-const statNums = document.querySelectorAll('.stat-num[data-target]');
-const statObserver = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      const el = e.target;
-      const target = +el.dataset.target;
-      const suffix = el.dataset.suffix || '';
-      animateNumber(0, target, val => el.textContent = Math.round(val) + suffix);
-      statObserver.unobserve(el);
-    }
-  });
-}, { threshold: 0.5 });
-statNums.forEach(el => statObserver.observe(el));
-
-/* ============================================================
-   REVEAL ON SCROLL
-   ============================================================ */
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.classList.add('in');
-      revealObserver.unobserve(e.target);
-    }
-  });
-}, { threshold: 0.12 });
-document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
-
-/* ============================================================
-   DEMO AUTO-PLAY ON SCROLL
-   ============================================================ */
-const demoSection = document.getElementById('how');
-const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-const demoObserver = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting && !demoState.hasPlayed && !reduceMotion) {
-      playDemo();
-    }
-  });
-}, { threshold: 0.35 });
-demoObserver.observe(demoSection);
-
-/* hero visual: voicemail vs JTS */
-(function(){
-  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var pain=document.getElementById('hv-pain'), jts=document.getElementById('hv-jts');
-  if(!pain||!jts) return;
-  var pRing=document.getElementById('hv-p-ring'), pVm=document.getElementById('hv-p-vm');
-  var jRing=document.getElementById('hv-j-ring'), jTxt=document.getElementById('hv-j-txt');
-  function show(el){el.classList.add('hv-show');}
-  function hide(el){el.classList.remove('hv-show');}
-  function reset(){[pRing,pVm,jRing,jTxt].forEach(hide);pain.classList.remove('hv-reacted');jts.classList.remove('hv-reacted');}
-  var seq=[
-    [0,function(){reset();show(pRing);show(jRing);}],
-    [1500,function(){hide(pRing);hide(jRing);}],
-    [2100,function(){show(pVm);pain.classList.add('hv-reacted');}],
-    [2400,function(){show(jTxt);}],
-    [3200,function(){jts.classList.add('hv-reacted');}]
-  ];
-  function run(){seq.forEach(function(s){setTimeout(s[1],s[0]);});setTimeout(run,5600);}
-  if(reduce){show(pVm);show(jTxt);pain.classList.add('hv-reacted');jts.classList.add('hv-reacted');}
-  else{run();}
-})();
-
-// initialize
-selectIndustry('hvac');
-</script>
-<script>
-(function () {
-  var tabs = document.querySelectorAll('.price-tab');
-  function show(i) {
-    tabs.forEach(function (t, j) {
-      t.setAttribute('aria-selected', i === j ? 'true' : 'false');
-      var p = document.getElementById('pp-' + j);
-      if (p) p.hidden = i !== j;
-    });
-  }
-  tabs.forEach(function (t, i) { t.addEventListener('click', function () { show(i); }); });
-  document.querySelectorAll('[data-tab-link]').forEach(function (a) {
-    a.addEventListener('click', function () { show(parseInt(a.getAttribute('data-tab-link'), 10)); });
-  });
-})();
-</script>
 </body>
 </html>
