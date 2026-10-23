@@ -3018,3 +3018,14 @@ section[id] { scroll-margin-top: calc(var(--nav-h, 72px) + 24px); }
 }
 
 :root[data-theme="light"] .sp-booked { color: #047857; }
+
+/* ---------- legal pages ---------- */
+.legal { padding: 140px 0 80px; }
+.legal-inner { max-width: 760px; }
+.legal h1 { font-family: var(--serif); font-size: clamp(2rem, 5vw, 3rem); line-height: 1.1; margin: 8px 0 8px; }
+.legal-date { color: var(--text-4); font-size: 14px; margin-bottom: 32px; }
+.legal h2 { font-size: 1.15rem; margin: 32px 0 8px; }
+.legal p, .legal li { color: var(--text-2); line-height: 1.7; }
+.legal ul { padding-left: 20px; margin: 8px 0; }
+.legal li { margin: 6px 0; }
+.legal a { color: var(--blue-bright); text-decoration: underline; }
