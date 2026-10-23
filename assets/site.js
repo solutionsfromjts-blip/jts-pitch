@@ -23,6 +23,15 @@
   var reduceMotion = mq('(prefers-reduced-motion: reduce)');
   var finePointer = mq('(hover: hover) and (pointer: fine)');
 
+  /* Run start() while the tab is visible and stop() while it is hidden, so looping
+     animations do not keep running in background tabs. */
+  function whileVisible(start, stop) {
+    if (!doc.hidden) start();
+    doc.addEventListener('visibilitychange', function () {
+      if (doc.hidden) stop(); else start();
+    });
+  }
+
   /* Coalesce pointer work into one update per animation frame, per element. */
   function onFrame(el, key, fn) {
     el.__jtsQ = el.__jtsQ || {};
@@ -70,6 +79,13 @@
     var links = $('.nav-links', nav);
     var dd = $('.nav-dd', nav);
     var ddBtn = dd ? $('.nav-dd-btn', dd) : null;
+    // Services dropdown state. With JS, this script is the only thing that opens
+    // the menu (CSS hover/focus-within is switched off via .has-js), so the visible
+    // state and aria-expanded cannot disagree. `dismissed` stops a pointer that is
+    // still over the menu, or a focus that is still inside it, from reopening it
+    // after Escape or a toggle-close.
+    var dismissed = false;
+    if (dd) dd.classList.add('has-js');
 
     function setMenu(open) {
       nav.classList.toggle('is-menu-open', open);
@@ -92,20 +108,38 @@
         if (a) setMenu(false);
       });
     }
-    if (ddBtn) {
+    if (dd && ddBtn) {
       ddBtn.addEventListener('click', function (e) {
         e.stopPropagation();
-        setDropdown(!dd.classList.contains('is-open'));
+        var open = !dd.classList.contains('is-open');
+        dismissed = !open;
+        setDropdown(open);
+      });
+      // Mouse only: touch and pen use the click toggle, so a tap never opens and closes in one go.
+      dd.addEventListener('pointerenter', function (e) {
+        if (e.pointerType === 'mouse' && !dismissed && window.matchMedia('(min-width:881px)').matches) setDropdown(true);
+      });
+      dd.addEventListener('pointerleave', function (e) {
+        if (e.pointerType === 'mouse') { dismissed = false; setDropdown(false); }
+      });
+      // Focus leaving the whole dropdown (Tab out, Shift+Tab out, window blur) closes it.
+      dd.addEventListener('focusout', function (e) {
+        var next = e.relatedTarget;
+        if (next && dd.contains(next)) return;
+        if (!next && dd.matches(':hover')) return; // focus dropped on empty menu space while the pointer is still over it: keep open
+        dismissed = false;
+        setDropdown(false);
       });
     }
     doc.addEventListener('click', function (e) {
-      if (dd && !dd.contains(e.target)) setDropdown(false);
+      if (dd && !dd.contains(e.target)) { dismissed = false; setDropdown(false); }
     });
     doc.addEventListener('keydown', function (e) {
       if (e.key !== 'Escape') return;
       if (dd && dd.classList.contains('is-open')) {
+        dismissed = true;
         setDropdown(false);
-        if (ddBtn && dd.contains(doc.activeElement)) ddBtn.blur();
+        if (ddBtn && dd.contains(doc.activeElement)) ddBtn.focus();
       }
       if (nav.classList.contains('is-menu-open')) {
         setMenu(false);
@@ -288,11 +322,17 @@
       [2400, function () { show(jTxt); }],
       [3200, function () { jts.classList.add('hv-reacted'); }]
     ];
-    function run() {
-      seq.forEach(function (s) { win.setTimeout(s[1], s[0]); });
-      win.setTimeout(run, 5600);
+    var timers = [];
+    function stopScene() {
+      timers.forEach(function (t) { win.clearTimeout(t); });
+      timers = [];
     }
-    run();
+    function run() {
+      stopScene();
+      seq.forEach(function (s) { timers.push(win.setTimeout(s[1], s[0])); });
+      timers.push(win.setTimeout(run, 5600));
+    }
+    whileVisible(function () { reset(); run(); }, stopScene);
   }
 
   /* ---------- 6. reveal on scroll + stagger ---------- */
@@ -359,7 +399,8 @@
     if (!el || reduceMotion) return;
     var words = ['HVAC contractors', 'Plumbers', 'Electricians', 'Roofers', 'Landscapers', 'Contractors'];
     var idx = 0;
-    win.setInterval(function () {
+    var timer = null;
+    function tick() {
       idx = (idx + 1) % words.length;
       el.classList.add('rot-out');
       win.setTimeout(function () {
@@ -370,7 +411,14 @@
           win.requestAnimationFrame(function () { el.classList.remove('rot-in'); });
         });
       }, 340);
-    }, 2400);
+    }
+    function start() {
+      if (!timer) timer = win.setInterval(tick, 2400);
+    }
+    function stop() {
+      if (timer) { win.clearInterval(timer); timer = null; }
+    }
+    whileVisible(start, stop);
   }
 
   /* ---------- 9. ROI calculator (missed-call revenue) ---------- */
@@ -588,7 +636,7 @@
     var steps = $$('[data-n]', story);
     var total = steps.length || 5;
     var mqPin = null;
-    try { mqPin = win.matchMedia('(min-width: 881px) and (prefers-reduced-motion: no-preference)'); } catch (e) { mqPin = null; }
+    try { mqPin = win.matchMedia('(min-width: 881px) and (min-height: 680px) and (prefers-reduced-motion: no-preference)'); } catch (e) { mqPin = null; }
     var current = -1;
     var pinned = false;
 
@@ -676,21 +724,34 @@
     var links = $$('a[data-spy]');
     if (!links.length || !('IntersectionObserver' in win)) return;
     var byId = {};
+    var order = [];
     links.forEach(function (a) {
       var id = (a.getAttribute('href') || '').split('#')[1];
-      if (id) { (byId[id] = byId[id] || []).push(a); }
+      if (!id) return;
+      if (!byId[id]) { byId[id] = []; order.push(id); }
+      byId[id].push(a);
     });
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (!e.isIntersecting) return;
-        links.forEach(function (a) { a.classList.remove('is-active'); });
-        (byId[e.target.id] || []).forEach(function (a) { a.classList.add('is-active'); });
+    var inView = {};
+    // Highlight the last tracked section (in page order) that is inside the reading band.
+    // When no tracked section is in the band (e.g. FAQ, CTA, footer), nothing stays highlighted.
+    function sync() {
+      var current = null;
+      order.forEach(function (id) { if (inView[id]) current = id; });
+      links.forEach(function (a) {
+        var id = (a.getAttribute('href') || '').split('#')[1];
+        a.classList.toggle('is-active', current !== null && id === current);
       });
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { inView[e.target.id] = e.isIntersecting; });
+      sync();
     }, { rootMargin: '-40% 0px -55% 0px' });
-    Object.keys(byId).forEach(function (id) {
+    order.forEach(function (id) {
       var sec = doc.getElementById(id);
       if (sec) io.observe(sec);
+      else inView[id] = false;
     });
+    sync();
   }
 
   /* ---------- boot ---------- */
