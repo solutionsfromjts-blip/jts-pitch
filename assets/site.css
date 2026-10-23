@@ -3029,3 +3029,13 @@ section[id] { scroll-margin-top: calc(var(--nav-h, 72px) + 24px); }
 .legal ul { padding-left: 20px; margin: 8px 0; }
 .legal li { margin: 6px 0; }
 .legal a { color: var(--blue-bright); text-decoration: underline; }
+
+/* ---------- story: autoplay loop (replaces scroll-pinning) ---------- */
+.story--auto .story-phone [data-from]:not(.is-on) { opacity: 0; translate: 0 10px; }
+.story--auto .story-step { opacity: 0.72; cursor: pointer; transition: opacity 300ms ease, border-color 300ms ease, background 300ms ease; }
+.story--auto .story-step.is-active {
+  opacity: 1;
+  border-color: rgba(59,130,246,0.45);
+  background: linear-gradient(90deg, rgba(59,130,246,0.10), var(--bg-2) 70%);
+}
+.story--auto .story-step.is-active .st-n { background: var(--blue-fill); color: #fff; border-color: var(--blue); }
