@@ -680,11 +680,44 @@
       update(Math.min(total, Math.floor(p * total) + 1));
     }
 
-    setPinned(!!(mqPin && mqPin.matches));
-    if (mqPin && mqPin.addEventListener) {
-      mqPin.addEventListener('change', function (m) { setPinned(m.matches); });
+    // Autoplay loop: the story replays whenever it is on screen, so it can never get stuck
+    // on one step because someone scrolled past it quickly. Clicking a step jumps to it.
+    var mqMotion = null;
+    try { mqMotion = win.matchMedia('(prefers-reduced-motion: no-preference)'); } catch (e) { mqMotion = null; }
+    var holds = [0, 2400, 3000, 2800, 2800, 4200];
+    var timer = null, inView = false, auto = false;
+    function stop() { if (timer) { win.clearTimeout(timer); timer = null; } }
+    function show(n) {
+      stop();
+      update(n);
+      if (!auto || !inView || doc.hidden) return;
+      timer = win.setTimeout(function () { show(n >= total ? 1 : n + 1); }, holds[n] || 2800);
     }
-    addScrollTask(storyFrame);
+    function sync() {
+      if (auto && inView && !doc.hidden) { if (!timer) show(1); } else { stop(); }
+    }
+    function setAuto(on) {
+      auto = on;
+      story.classList.toggle('story--auto', on);
+      stop();
+      current = -1;
+      if (on) { update(1); sync(); } else { update(total); }
+    }
+    if (mqMotion && 'IntersectionObserver' in win) {
+      new win.IntersectionObserver(function (entries) {
+        var was = inView;
+        inView = entries[entries.length - 1].isIntersecting;
+        if (inView && !was) { stop(); if (auto) show(1); } else { sync(); }
+      }, { threshold: 0.3 }).observe(story);
+      doc.addEventListener('visibilitychange', sync);
+      steps.forEach(function (el) {
+        el.addEventListener('click', function () { if (auto) show(+el.getAttribute('data-n')); });
+      });
+      setAuto(mqMotion.matches);
+      if (mqMotion.addEventListener) mqMotion.addEventListener('change', function (m) { setAuto(m.matches); });
+    } else {
+      setPinned(false);
+    }
   }
 
   /* ---------- 12. billing toggle (missed-call plans) ---------- */
